@@ -1,15 +1,24 @@
-# [Onderwerp]
-[Geef een korte beschrijving van het onderwerp]
+# [Setting up]
+
+[Contact maken met linux VM via SSH]
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+
+SSH: SSH of Secure Shell is een netwerkcommunicatieprotocol waarmee twee computers kunnen communiceren en gegevens te delen.
 
 ## Opdracht
+
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+
+[https://stackoverflow.com/questions/48888365/openssh-using-private-key-on-windows-unprotected-private-key-file-error
+https://www.clickittech.com/aws/connect-ec2-instance-using-ssh/
+]
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+
+[Het was voor mij een uitdaging om de key permission aan te passen. Dit moest omdat windows vond dat het key bestand te onbeschermd was. Na een kort onderzoek heb ik hier de juiste commands voor gevonden en ben ik in de VM.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
+[Ik ben in de VM en krijg mijn gebruikersnaam te zien als ik whoami intyp ]
+![schermafbeelding](Schermafbeelding%202023-04-03%20162553.png)
