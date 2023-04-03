@@ -26,7 +26,7 @@ Een fork is een nieuwe repository die code en zichtbaarheidsinstellingen deelt m
 
 [https://docs.github.com/en]
 
-### Ervaren problemen
+### Ervaren problemen.
 
 [Geen problemen gehad. Ik heb gelukkig eerder een beetje gewerkt met Github]
 
