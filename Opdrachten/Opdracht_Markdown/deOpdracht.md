@@ -2,9 +2,7 @@
 
 ## Heading level 2
 
-    html
-
-<h1>CodeBlock</h1>
+    <h1>html</h1>
 
 **bold tekst**
 
