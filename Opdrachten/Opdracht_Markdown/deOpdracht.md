@@ -6,4 +6,4 @@
 
 **bold tekst**
 
-My favourite searchengine is [Google](https://www.google.com/).
+My favourite search engine is [Google](https://www.google.com/).
