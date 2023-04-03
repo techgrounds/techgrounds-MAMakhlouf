@@ -4,9 +4,9 @@
 
 ## Key-terms
 
-○ Repository
-Opslagplaats in Github
-○ Main / Master  
+○ Repository  
+Opslagplaats in Github   
+○ Main / Master   
 -Elke repository kan een of meer branches hebben. De "hoofdtak", waar alle wijzigingen uiteindelijk weer in worden samengevoegd, wordt master genoemd.  
 ○ Branch  
 -Een ingesloten gebied van de repository. Je maakt altijd een branch van een bestaande branch.  
