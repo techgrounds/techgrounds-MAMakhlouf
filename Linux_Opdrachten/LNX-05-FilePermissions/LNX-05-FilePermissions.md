@@ -1,15 +1,34 @@
 # [File permissions]
-[Geef een korte beschrijving van het onderwerp]
+
+[Het wijzigen en inzien van permissies]
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+
+[-Permission Indicators:  
+De permissies zijn onderverdeeld in groepen van drie, en elke positie in de groep geeft een specifieke machtiging aan, in deze volgorde: lezen (r), schrijven (w), uitvoeren (x) −
+
+De eerste drie tekens (2-4) vertegenwoordigen de machtigingen voor de eigenaar van het bestand. Bijvoorbeeld, -rwxr-xr-- geeft aan dat de eigenaar toestemming heeft voor lezen (r), schrijven (w) en uitvoeren (x).
+
+De tweede groep van drie karakters (5-7) bestaat uit de permissies voor de groep waartoe het bestand behoort. Bijvoorbeeld, -rwxr-xr-- geeft aan dat de groep lees- (r) en uitvoerrechten (x) heeft, maar geen schrijfrechten.
+
+De laatste groep van drie tekens (8-10) vertegenwoordigt de machtigingen voor alle anderen. Bijvoorbeeld, -rwxr-xr-- geeft aan dat er alleen-lezen (r) toestemming is.]
 
 ## Opdracht
-### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Gebruikte bronnen
+
+[https://www.omnicalculator.com/other/chmod
+https://www.tutorialspoint.com/unix/unix-file-permission.htm#:~:text=The%20Permission%20Indicators&text=The%20first%20three%20characters%20(2,to%20which%20the%20file%20belongs.]
+
+### Ervaren uitdagingen
+
+[Het was een uitdaging om met de command chmod te werken aangezien deze veel toepassingen kent. Hier heb ik een calculator voor gebruikt(zie bron).
+Verder was het uitlezen van de permissies ook iets wat ik even moest opzoeken en heb daar een goede uitleg voor gevonden. ]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
+[Alle vereiste zijn voldaan. ls -l gebruikt voor de long listing. Permissies ingezien. Bestand omgezet naar executable. Rechten verwijderd. Eigenaar omgezet. Group ownership omgezet]
+![afbeelding1](/00_includes/FilePerm1.png)
+![afbeelding2](/00_includes/FilePerm2.png)
+![afbeelding3](/00_includes/FilePerm3.png)
+![afbeelding4](/00_includes/FilePerm4.png)
