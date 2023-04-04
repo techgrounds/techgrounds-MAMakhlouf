@@ -15,7 +15,7 @@ Het sudo-commando is een programma voor op UNIX gebaseerde besturingssystemen da
 
 ### Ervaren problemen
 
-[Niet echt een probleem gehad bij deze opdrach. De juiste commands erbij zoeken en ik was zo klaar.]
+[Niet echt een probleem gehad bij deze opdracht. De juiste commands erbij zoeken en ik was zo klaar.]
 
 ### Resultaat
 
