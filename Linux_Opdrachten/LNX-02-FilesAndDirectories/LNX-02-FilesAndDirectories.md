@@ -1,4 +1,4 @@
-[Files and Directories]
+[Files and Directories]  
 [Introductie met directory usage in de linux cli]
 
 Key-terms  
