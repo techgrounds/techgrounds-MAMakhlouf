@@ -11,7 +11,7 @@ De uitvoer van een opdracht die normaal gesproken bedoeld is voor standaarduitvo
 
 ### Gebruikte bronnen
 
-[https://cheatography.com/davechild/cheat-sheets/linux-command-line/]
+[[Linux cmd cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/)]
 
 ### Ervaren problemen
 

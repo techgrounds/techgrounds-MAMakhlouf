@@ -6,7 +6,7 @@ Key-terms
 
 Opdracht
 Gebruikte bronnen  
-[https://cheatography.com/davechild/cheat-sheets/linux-command-line/]
+[[Linux cmd cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/)]
 
 Ervaren problemen  
 [Het was even zoeken naar de juiste command om een tekst bestand aan te passen via de CLI. Gelukkig heb ik dit snel kunnen oplossen]

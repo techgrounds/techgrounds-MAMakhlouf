@@ -11,7 +11,7 @@ Het sudo-commando is een programma voor op UNIX gebaseerde besturingssystemen da
 
 ### Gebruikte bronnen
 
-[https://www.tecmint.com/essential-linux-commands/]
+[[Linux commands](https://www.tecmint.com/essential-linux-commands/)]
 
 ### Ervaren problemen
 

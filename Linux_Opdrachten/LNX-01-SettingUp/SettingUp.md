@@ -10,8 +10,8 @@ SSH: SSH of Secure Shell is een netwerkcommunicatieprotocol waarmee twee compute
 
 ### Gebruikte bronnen
 
-[https://stackoverflow.com/questions/48888365/openssh-using-private-key-on-windows-unprotected-private-key-file-error
-https://www.clickittech.com/aws/connect-ec2-instance-using-ssh/
+[[stackoverflow key permission aanpassen](https://stackoverflow.com/questions/48888365/openssh-using-private-key-on-windows-unprotected-private-key-file-error)  
+[Connecten met key](https://www.clickittech.com/aws/connect-ec2-instance-using-ssh/)
 ]
 
 ### Ervaren problemen

@@ -17,8 +17,8 @@ De laatste groep van drie tekens (8-10) vertegenwoordigt de machtigingen voor al
 
 ### Gebruikte bronnen
 
-[https://www.omnicalculator.com/other/chmod
-https://www.tutorialspoint.com/unix/unix-file-permission.htm#:~:text=The%20Permission%20Indicators&text=The%20first%20three%20characters%20(2,to%20which%20the%20file%20belongs.]
+[[chmod calculator](https://www.omnicalculator.com/other/chmod)  
+[Permissie uitleg](https://www.tutorialspoint.com/unix/unix-file-permission.htm#:~:text=The%20Permission%20Indicators&text=The%20first%20three%20characters%20(2,to%20which%20the%20file%20belongs)).]
 
 ### Ervaren uitdagingen
 
