@@ -9,7 +9,8 @@ Gebruikte bronnen
 [https://cheatography.com/davechild/cheat-sheets/linux-command-line/]
 
 Ervaren problemen  
-[Het was even zoeken naar de juiste command om een tekst bestand aan te passen via de CLI]
+[Het was even zoeken naar de juiste command om een tekst bestand aan te passen via de CLI. Gelukkig heb ik dit snel kunnen oplossen]
 
-Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+Resultaat  
+[De opdracht is gelukt omdat alle vereiste zijn nagekomen.]
+![Schermafbeelding](/00_includes/files%26directories.png)
