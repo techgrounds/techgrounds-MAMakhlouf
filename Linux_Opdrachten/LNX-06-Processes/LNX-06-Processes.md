@@ -2,7 +2,7 @@
 [Het indentificeren van processen en hun waardes]
 
 ## Key-terms
-[Rst en overzicht bewaren]    
+[Rust en overzicht bewaren]    
     
 ## Opdracht
 ### Gebruikte bronnen
