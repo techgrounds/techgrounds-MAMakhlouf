@@ -21,4 +21,4 @@ https://www.clickittech.com/aws/connect-ec2-instance-using-ssh/
 ### Resultaat
 
 [Ik ben in de VM en krijg mijn gebruikersnaam te zien als ik whoami intyp ]
-![schermafbeelding](Schermafbeelding%202023-04-03%20162553.png)
+![schermafbeelding](/00_includes/SettingUp.pngS)
