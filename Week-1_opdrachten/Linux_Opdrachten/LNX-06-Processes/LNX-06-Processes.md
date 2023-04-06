@@ -6,7 +6,7 @@
     
 ## Opdracht
 ### Gebruikte bronnen
-[Chat GPT]
+[How to use telnet](https://www.atlantic.net/vps-hosting/how-to-install-and-use-telnet-on-debian-11/)
 
 ### Ervaren problemen
 [Deze opdracht was erg uitdagend voor mij. Omdat ik helemaal niet bekend ben met telnet en ik het overzicht vaak verloor waardoor ik steeds opnieuw moest beginnen. Verder schoot ik het doel voorbij voor mijn gevoel.]
