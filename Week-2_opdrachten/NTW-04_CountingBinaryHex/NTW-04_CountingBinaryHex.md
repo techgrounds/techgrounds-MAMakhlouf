@@ -10,7 +10,7 @@
 
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+[Wiskunde is altijd al een probleem voor mij geweest. Hier gebruik ik meestal tools voor. Ik heb geprobeerd het meeste zelf uit te rekenen maar heb voor de sommen waar ik echt niet uitkwam een converter gebruikt. In principe begrijp ik de opdracht goed en weet ik ook dat er max tot 1 word geteld in de binary base en dat er max tot 16 word geteld in de hex base (0-9 A-F).]
 
 ### Resultaat
 | Decimal | Binary |
