@@ -13,4 +13,4 @@
 
 ### Resultaat
 [Ik denk dat de opdracht gelukt is omdat ik de vereiste heb voldaan. Zie screenshot]
-![Screenshot](/00_includes/Processes.png)
+![Screenshot](/00_includes/Week-1-img/Processes.png)

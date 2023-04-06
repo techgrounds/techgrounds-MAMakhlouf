@@ -20,7 +20,7 @@ Het sudo-commando is een programma voor op UNIX gebaseerde besturingssystemen da
 ### Resultaat
 
 [De user 'vipgast' is aangemaakt en heeft sudo rechten. Ook gebruikt hij een password: akram11]
-![Schermafbeelding1](/00_includes/usrgrps1.png)
-![schermafbeelding2](/00_includes/usrgrps2.png)
-![schermafbeelding3](/00_includes/usrgrps3.png)
-![schermafbeelding4](/00_includes/usrgrps4.png)
+![Schermafbeelding1](/00_includes/Week-1-img/usrgrps1.png)
+![schermafbeelding2](/00_includes/Week-1-img/usrgrps2.png)
+![schermafbeelding3](/00_includes/Week-1-img/usrgrps3.png)
+![schermafbeelding4](/00_includes/Week-1-img/usrgrps4.png)

@@ -21,4 +21,4 @@ SSH: SSH of Secure Shell is een netwerkcommunicatieprotocol waarmee twee compute
 ### Resultaat
 
 [Ik ben in de VM en krijg mijn gebruikersnaam te zien als ik whoami intyp ]
-![schermafbeelding](/00_includes/SettingUp.png)
+![schermafbeelding](/00_includes/Week-1-img/SettingUp.png)

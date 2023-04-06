@@ -33,4 +33,4 @@ Een fork is een nieuwe repository die code en zichtbaarheidsinstellingen deelt m
 ### Resultaat
 
 [De opdrachten zijn gelukt omdat alle vereisten zijn voldaan.]
-![schermafbeelding](/00_includes/Git%26Github.png)
+![schermafbeelding](/00_includes/Week-1-img/Git%26Github.png)

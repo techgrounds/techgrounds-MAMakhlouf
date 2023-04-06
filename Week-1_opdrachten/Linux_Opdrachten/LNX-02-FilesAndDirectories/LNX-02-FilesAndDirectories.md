@@ -13,4 +13,4 @@ Ervaren problemen
 
 Resultaat  
 [De opdracht is gelukt omdat alle vereiste zijn nagekomen.]
-![Schermafbeelding](/00_includes/files%26directories.png)
+![Schermafbeelding](/00_includes/Week-1-img/files%26directories.png)

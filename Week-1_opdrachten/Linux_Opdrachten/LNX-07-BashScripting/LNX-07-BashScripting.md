@@ -21,7 +21,7 @@ Tot slot was het vinden van de juiste syntax voor de random number generator zo 
 ### Resultaat
 [De opdracht is gelukt omdat alle vereisten zijn voldaan.   
 Zie hieronder screenshots van resultaat]
-![append text](/00_includes/BashSappend.png)
-![httpd](/00_includes/BashShttpd.png)
-![random numbers](/00_includes/BashSnumbers.png)
-![greater numbers](/00_includes/BashSgreatnumbers.png)
+![append text](/00_includes/Week-1-img/BashSappend.png)
+![httpd](/00_includes/Week-1-img/BashShttpd.png)
+![random numbers](/00_includes/Week-1-img/BashSnumbers.png)
+![greater numbers](/00_includes/Week-1-img/BashSgreatnumbers.png)

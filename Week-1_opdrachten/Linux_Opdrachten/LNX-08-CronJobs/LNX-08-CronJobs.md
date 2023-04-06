@@ -23,6 +23,6 @@ Het was in deze opdracht flink zoeken naar de juiste commands. Verder dan wat go
 ### Resultaat
 
 [Zie screenshots]
-![Script 1 resultaat in terminal](/00_includes/CronJobsMinutes.png)
-![Cronjob implementatie](/00_includes/CronJobsWeeklyDiskSpace.png)
-![Disk_space resultaat](/00_includes/CronJobsVarLog.png)
+![Script 1 resultaat in terminal](/00_includes/Week-1-img/CronJobsMinutes.png)
+![Cronjob implementatie](/00_includes/Week-1-img/CronJobsWeeklyDiskSpace.png)
+![Disk_space resultaat](/00_includes/Week-1-img/CronJobsVarLog.png)

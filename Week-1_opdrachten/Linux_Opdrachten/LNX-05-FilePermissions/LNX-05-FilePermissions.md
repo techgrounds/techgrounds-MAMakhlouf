@@ -28,7 +28,7 @@ Verder was het uitlezen van de permissies ook iets wat ik even moest opzoeken en
 ### Resultaat
 
 [Alle vereiste zijn voldaan. ls -l gebruikt voor de long listing. Permissies ingezien. Bestand omgezet naar executable. Rechten verwijderd. Eigenaar omgezet. Group ownership omgezet]
-![afbeelding1](/00_includes/FilePerm1.png)
-![afbeelding2](/00_includes/FilePerm2.png)
-![afbeelding3](/00_includes/FilePerm3.png)
-![afbeelding4](/00_includes/FilePerm4.png)
+![afbeelding1](/00_includes/Week-1-img/FilePerm1.png)
+![afbeelding2](/00_includes/Week-1-img/FilePerm2.png)
+![afbeelding3](/00_includes/Week-1-img/FilePerm3.png)
+![afbeelding4](/00_includes/Week-1-img/FilePerm4.png)

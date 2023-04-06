@@ -20,4 +20,4 @@ De uitvoer van een opdracht die normaal gesproken bedoeld is voor standaarduitvo
 ### Resultaat
 
 [De vereiste stappen zijn ondernomen en daarmee is het gewenste resultaat behaald.]
-![schermafbeelding](/00_includes/WorkingWithTextCLI.png)
+![schermafbeelding](/00_includes/Week-1-img/WorkingWithTextCLI.png)
