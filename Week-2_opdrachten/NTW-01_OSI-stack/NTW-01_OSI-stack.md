@@ -36,10 +36,12 @@ The TCP/IP model is composed of four layers, each with its own set of protocols 
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[Ik heb CHATGPT Gevraagd om over deze 2 onderwerpen te leren.(zie screenschots)]
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Ervaren uitdagingen
+[Sommige termen zijn nog een beetje vaag voor mij, dit zal met herhaaldelijk onderzoeken wel duidelijker worden denk ik.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+[Ik denk dat de opdracht is gelukt omdat ik de 7 stappen van het ISO model begrijp. Ook begrijp ik de 4 stapen van het TCP/IP model. ]
+![OSI model](/00_includes/Week-2-img/OSImodel.png)
+![TCP/IP model](/00_includes/Week-2-img/TCP_IP.png)
