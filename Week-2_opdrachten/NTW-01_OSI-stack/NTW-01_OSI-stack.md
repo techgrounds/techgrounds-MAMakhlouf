@@ -1,5 +1,5 @@
 # [OSI Stack]
-[Geef een korte beschrijving van het onderwerp]
+[Algemene kennismaking met het OSI model en het TCP/IP model.]
 
 ## Key-terms
 -OSI model  
