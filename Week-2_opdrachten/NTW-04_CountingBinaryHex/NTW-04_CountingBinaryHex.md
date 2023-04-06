@@ -1,5 +1,5 @@
 # [Counting in Binary and Hex]
-[Geef een korte beschrijving van het onderwerp]
+[Introductie van Binary en Hex en het gebruik hiervan in de IT. ]
 
 ## Key-terms
 [Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
