@@ -36,7 +36,7 @@ The TCP/IP model is composed of four layers, each with its own set of protocols 
 
 ## Opdracht
 ### Gebruikte bronnen
-[Ik heb CHATGPT Gevraagd om over deze 2 onderwerpen te leren.(zie screenschots)]
+[Ik heb CHATGPT gevraagd om over deze 2 onderwerpen te leren.(zie screenschots)]
 
 ### Ervaren uitdagingen
 [Sommige termen zijn nog een beetje vaag voor mij, dit zal met herhaaldelijk onderzoeken wel duidelijker worden denk ik.]
