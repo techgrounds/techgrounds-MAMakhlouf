@@ -4,7 +4,7 @@
 
 ## Key-terms
 
--Output redirection:  
+Output redirection:  
 De uitvoer van een opdracht die normaal gesproken bedoeld is voor standaarduitvoer, kan in plaats daarvan eenvoudig worden omgeleid naar een bestand.
 
 ## Opdracht
@@ -13,9 +13,9 @@ De uitvoer van een opdracht die normaal gesproken bedoeld is voor standaarduitvo
 
 [[Linux cmd cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/)]
 
-### Ervaren problemen
+### Ervaren uitdagingen
 
-[het was even puzzelen met de grep command maar gelukkig zijn er zat bronnen waar ik informatie uit kon halen]
+[het was even puzzelen met de juiste variatie van de grep command maar gelukkig zijn er zat bronnen waar ik informatie uit kon halen]
 
 ### Resultaat
 
