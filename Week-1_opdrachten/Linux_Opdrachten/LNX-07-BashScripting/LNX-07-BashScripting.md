@@ -20,9 +20,10 @@ Tot slot was het vinden van de juiste syntax voor de random number generator zo 
 
 ### Resultaat
 [De opdracht is gelukt omdat alle vereisten zijn voldaan.   
-Zie hieronder screenshots van resultaat]
+Zie hieronder screenshots van stappen en resultaat]
 ![Page1](/00_includes/Week-1-img/Script1.png)
+![text script](/00_includes/Week-1-img/Scripttxt.png)
 ![append text](/00_includes/Week-1-img/BashSappend.png)
-![httpd](/00_includes/Week-1-img/Script1.png)
+![httpd](/00_includes/Week-1-img/Scripthttpd.png)
 ![random numbers](/00_includes/Week-1-img/BashSnumbers.png)
 ![greater numbers](/00_includes/Week-1-img/BashSgreatnumbers.png)
