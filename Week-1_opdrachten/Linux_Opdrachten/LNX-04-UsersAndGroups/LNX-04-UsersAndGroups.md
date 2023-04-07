@@ -4,8 +4,8 @@
 
 ## Key-terms
 
-[-Sudo:  
-Het sudo-commando is een programma voor op UNIX gebaseerde besturingssystemen dat gebruikers in staat stelt om programma's uit te voeren met speciale privileges, meestal met rootrechten. Het is de afkorting van super user do.]
+Sudo:  
+Het sudo-commando is een programma voor op UNIX gebaseerde besturingssystemen dat gebruikers in staat stelt om programma's uit te voeren met speciale privileges, meestal met rootrechten. Het is de afkorting van super user do.
 
 ## Opdracht
 
@@ -13,9 +13,9 @@ Het sudo-commando is een programma voor op UNIX gebaseerde besturingssystemen da
 
 [[Linux commands](https://www.tecmint.com/essential-linux-commands/)]
 
-### Ervaren problemen
+### Ervaren uitdagingen
 
-[Niet echt een probleem gehad bij deze opdracht. De juiste commands erbij zoeken en ik was zo klaar.]
+[De juiste commands erbij zoeken en de opdracht was zo klaar.]
 
 ### Resultaat
 
