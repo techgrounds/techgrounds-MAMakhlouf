@@ -20,6 +20,6 @@ Deze opdracht was erg uitdagend voor mij. Omdat ik helemaal niet bekend ben met 
 De verwarring zat in het feit dat de telnet daemon een andere naam heeft dan de telnet applicatie, namelijk inetd. 
 
 ### Resultaat
-Ik denk dat de opdracht gelukt is omdat ik de vereiste heb voldaan. Zie screenshot.
+Ik denk dat de opdracht gelukt is omdat ik de vereiste heb voldaan. Zie screenshot.  
 Na het succesvol installeren van telnet was het een kwestie van de daemon starten en met de systemcl status command de gegevens in te kunnen zien, om zo vervolgens met de opgegeven PID het kill command uit te kunnen voeren.
 ![Screenshot](/00_includes/Week-1-img/telnet.png)
