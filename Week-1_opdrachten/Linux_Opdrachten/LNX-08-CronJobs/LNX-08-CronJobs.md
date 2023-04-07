@@ -25,7 +25,8 @@ Het was in deze opdracht flink zoeken naar de juiste commands. Verder dan wat go
 ### Resultaat
 
 [Zie screenshots]
-![scrip1](/00_includes/Week-1-img/cronscriptd&t.png)
+![script1](/00_includes/Week-1-img/cronscript1.png)
 ![Cronjob implementatie](/00_includes/Week-1-img/CronJobsWeeklyDiskSpace.png)
+![script2](/00_includes/Week-1-img/cronscript2.png)
 ![Script 1 resultaat in terminal](/00_includes/Week-1-img/CronJobsMinutes.png)
 ![Disk_space resultaat](/00_includes/Week-1-img/CronJobsVarLog.png)
