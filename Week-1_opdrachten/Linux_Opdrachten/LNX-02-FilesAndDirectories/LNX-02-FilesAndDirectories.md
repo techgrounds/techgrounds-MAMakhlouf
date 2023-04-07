@@ -15,5 +15,8 @@ Een directory of map is een locatie waar bestanden op een computer worden opgesl
 ### Resultaat  
 [De opdracht is gelukt omdat alle vereiste zijn nagekomen.]  
 1.  pwd gebruikt om huidige directory te identificeren.  
-2.  ls gebruikt voor een listing 
+2.  ls gebruikt voor een listing van alle aanwezige files in de directory. 
+3.  mkdir is gebruikt om een nieuwe directory te maken.
+4.  touch is gebruikt om een nieuwe file te maken met de .txt extensie
+5.  
 ![Schermafbeelding](/00_includes/Week-1-img/files%26directories.png)
