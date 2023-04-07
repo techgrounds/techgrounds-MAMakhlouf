@@ -4,10 +4,12 @@
 
 ## Key-terms
 
-Crontab: Crontab, which is short for cron table, is a file containing the schedule of various cron entries that should be run at specified times. Another way of describing crontab is as a utility that enables tasks to run automatically at regular intervals in the background by the cron daemon.
+Crontab:  
+Crontab, wat een afkorting is voor cron table, is een bestand dat het schema bevat van verschillende cron-vermeldingen die op bepaalde tijden moeten worden uitgevoerd. Een andere manier om crontab te omschrijven is als een hulpprogramma waarmee taken automatisch op regelmatige intervallen op de achtergrond kunnen worden uitgevoerd door de cron-daemon.
 
-Script: a script is a program or sequence of instructions that is interpreted or carried out by another program rather than by the computer processor
 
+Script:  
+Een script is een programma of reeks instructies die wordt geïnterpreteerd of uitgevoerd door een ander programma in plaats van door de computerprocessor
 ## Opdracht
 
 ### Gebruikte bronnen
