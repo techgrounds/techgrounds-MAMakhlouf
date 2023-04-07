@@ -25,5 +25,7 @@ Zie hieronder screenshots van stappen en resultaat]
 ![text script](/00_includes/Week-1-img/Scripttxt.png)
 ![append text](/00_includes/Week-1-img/BashSappend.png)
 ![httpd](/00_includes/Week-1-img/Scripthttpd.png)
+![script random](/00_includes/Week-1-img/scriptrandom.png)
 ![random numbers](/00_includes/Week-1-img/BashSnumbers.png)
+![script greater](/00_includes/Week-1-img/scriptgreater.png)
 ![greater numbers](/00_includes/Week-1-img/BashSgreatnumbers.png)
