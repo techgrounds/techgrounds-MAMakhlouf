@@ -20,11 +20,12 @@ Een script is een programma of reeks instructies die wordt geïnterpreteerd of u
 
 ### Ervaren Uitdagingen
 
-Het was in deze opdracht flink zoeken naar de juiste commands. Verder dan wat goed speurwerk en de generator output leren begrijpen was dit niet een heel uitdagende opdracht.
+Het was in deze opdracht flink zoeken naar de juiste commands. Verder dan wat goed speurwerk en de generator output leren begrijpen was dit niet een heel uitdagende opdracht. Wel ben ik van mening dat ondanks het behaalde resultaat ik de opgedane kennis vaker zal moeten herhalen om het me eigen te maken. 
 
 ### Resultaat
 
 [Zie screenshots]
-![Script 1 resultaat in terminal](/00_includes/Week-1-img/CronJobsMinutes.png)
+![scrip1](/00_includes/Week-1-img/cronscript1.png)
 ![Cronjob implementatie](/00_includes/Week-1-img/CronJobsWeeklyDiskSpace.png)
+![Script 1 resultaat in terminal](/00_includes/Week-1-img/CronJobsMinutes.png)
 ![Disk_space resultaat](/00_includes/Week-1-img/CronJobsVarLog.png)
