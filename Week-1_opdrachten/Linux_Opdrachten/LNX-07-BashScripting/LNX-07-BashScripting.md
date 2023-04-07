@@ -15,8 +15,7 @@
 ### Ervaren uitdagingen
 Tijdens deze opdracht ben ik verschillende uitdagingen tegengekomen. De eerste uitdaging was het begrijpen van de PATH variable, hier kan je bestanden en mappen aan toevoegen zodat deze systemwide kunnen worden uitgevoerd.  
 De volgende uitdaging was de juiste syntax en manier vinden voor het schrijven van een bash script in linux. Hier kon ik het internet ook voor raadplegen gelukkig.  
-Net wanneer ik het scripten "begrijp" kreeg ik een nieuwe uitdaging voor de kiezen, namelijk de httpd service. Hier was ook genoeg documentatie over te vinden.  
-Tot slot was het vinden van de juiste syntax voor de random number generator zo gepiept. Gelukkig ben ik bekend met het if/else principe vanuit javascript dus dat was na de syntax te controleren zo gedaan.
+Tot slot was het vinden van de juiste commands voor de random number generator zo gepiept. Gelukkig ben ik bekend met het if/else principe vanuit javascript dus dat was na de syntax te controleren zo gedaan.
 
 ### Resultaat
 [De opdracht is gelukt omdat alle vereisten zijn voldaan.   
