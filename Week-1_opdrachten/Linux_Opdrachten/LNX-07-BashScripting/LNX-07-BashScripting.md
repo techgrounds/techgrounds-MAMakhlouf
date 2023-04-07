@@ -13,7 +13,7 @@
 
 
 ### Ervaren uitdagingen
-Tijdens deze opdracht ben ik verschillende uitdagingen tegengekomen. De eerste uitdaging was het begrijpen van de PATH variable, hier is gelukkig genoeg over te vinden op het internet.  
+Tijdens deze opdracht ben ik verschillende uitdagingen tegengekomen. De eerste uitdaging was het begrijpen van de PATH variable, hier kan je bestanden en mappen aan toevoegen zodat deze systemwide kunnen worden uitgevoerd.  
 De volgende uitdaging was de juiste syntax en manier vinden voor het schrijven van een bash script in linux. Hier kon ik het internet ook voor raadplegen gelukkig.  
 Net wanneer ik het scripten "begrijp" kreeg ik een nieuwe uitdaging voor de kiezen, namelijk de httpd service. Hier was ook genoeg documentatie over te vinden.  
 Tot slot was het vinden van de juiste syntax voor de random number generator zo gepiept. Gelukkig ben ik bekend met het if/else principe vanuit javascript dus dat was na de syntax te controleren zo gedaan.
@@ -22,6 +22,6 @@ Tot slot was het vinden van de juiste syntax voor de random number generator zo 
 [De opdracht is gelukt omdat alle vereisten zijn voldaan.   
 Zie hieronder screenshots van resultaat]
 ![append text](/00_includes/Week-1-img/BashSappend.png)
-![httpd](/00_includes/Week-1-img/BashShttpd.png)
+![httpd](/00_includes/Week-1-img/Script1.png)
 ![random numbers](/00_includes/Week-1-img/BashSnumbers.png)
 ![greater numbers](/00_includes/Week-1-img/BashSgreatnumbers.png)
