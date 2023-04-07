@@ -9,8 +9,8 @@ Een directory of map is een locatie waar bestanden op een computer worden opgesl
 ### Gebruikte bronnen  
 [[Linux cmd cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/)]
 
-### Ervaren problemen  
-[Het was even zoeken naar de juiste command om een tekst bestand aan te passen via de CLI. Gelukkig heb ik dit snel kunnen oplossen]
+### Ervaren uitdagingen  
+[Het was even zoeken naar de prettigste manier om een tekst bestand aan te passen via de CLI. Gelukkig heb ik de keuzes vinden en ben gegaan voor de nano command.]
 
 ### Resultaat  
 [De opdracht is gelukt omdat alle vereiste zijn nagekomen.]  
