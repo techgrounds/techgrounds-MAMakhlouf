@@ -1,5 +1,5 @@
 # [Processes]
-[Het indentificeren van processen en hun waardes]
+Het indentificeren van processen en hun waardes
 
 ## Key-terms
 PID:  

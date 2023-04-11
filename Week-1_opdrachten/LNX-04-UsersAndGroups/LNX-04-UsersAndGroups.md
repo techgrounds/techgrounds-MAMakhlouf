@@ -1,6 +1,6 @@
 # [Users and Groups]
 
-[Het aanmaken en beheren van gebruikers en groepen]
+Het aanmaken en beheren van gebruikers en groepen
 
 ## Key-terms
 
@@ -11,15 +11,15 @@ Het sudo-commando is een programma voor op UNIX gebaseerde besturingssystemen da
 
 ### Gebruikte bronnen
 
-[[Linux commands](https://www.tecmint.com/essential-linux-commands/)]
+[Linux commands](https://www.tecmint.com/essential-linux-commands/)
 
 ### Ervaren uitdagingen
 
-[De juiste commands erbij zoeken en de opdracht was zo klaar.]
+De juiste commands erbij zoeken en de opdracht was zo klaar.
 
 ### Resultaat
 
-[De user 'vipgast' is aangemaakt en heeft sudo rechten. Ook gebruikt hij een password: akram11]
+De user 'vipgast' is aangemaakt en heeft sudo rechten. Ook gebruikt hij een password: akram11
 ![Schermafbeelding1](/00_includes/Week-1-img/usrgrps1.png)
 ![schermafbeelding2](/00_includes/Week-1-img/usrgrps2.png)
 ![schermafbeelding3](/00_includes/Week-1-img/usrgrps3.png)

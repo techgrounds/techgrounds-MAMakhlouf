@@ -1,5 +1,5 @@
 # [Bash Scripting]
-[Kennismaking met Bash Scripting]
+Kennismaking met Bash Scripting
 
 ## Key-terms & Gebruikte bronnen
 
@@ -18,8 +18,8 @@ De volgende uitdaging was de juiste syntax en manier vinden voor het schrijven v
 Tot slot was het vinden van de juiste commands voor de random number generator zo gepiept. Gelukkig ben ik bekend met het if/else principe vanuit javascript dus dat was na de syntax te controleren zo gedaan.
 
 ### Resultaat
-[De opdracht is gelukt omdat alle vereisten zijn voldaan.   
-Zie hieronder screenshots van stappen en resultaat]
+De opdracht is gelukt omdat alle vereisten zijn voldaan.   
+Zie hieronder screenshots van stappen en resultaat
 ![Page1](/00_includes/Week-1-img/Script1.png)
 ![text script](/00_includes/Week-1-img/Scripttxt.png)
 ![append text](/00_includes/Week-1-img/BashSappend.png)

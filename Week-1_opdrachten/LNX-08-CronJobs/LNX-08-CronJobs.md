@@ -1,6 +1,6 @@
 # [Cron Jobs]
 
-[Algemene kennis met crontab in linux]
+Algemene kennis met crontab in linux
 
 ## Key-terms
 
@@ -24,7 +24,7 @@ Het was in deze opdracht flink zoeken naar de juiste commands. Verder dan wat go
 
 ### Resultaat
 
-[Zie screenshots voor stappen en resultaat.]
+Zie screenshots voor stappen en resultaat.
 ![script1](/00_includes/Week-1-img/cronscript1.png)
 ![Cronjob implementatie](/00_includes/Week-1-img/CronJobsWeeklyDiskSpace.png)
 ![script2](/00_includes/Week-1-img/cronscript2.png)

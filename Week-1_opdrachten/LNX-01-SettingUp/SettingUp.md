@@ -1,6 +1,6 @@
 # [Setting up]
 
-[Contact maken met linux VM via SSH]
+Contact maken met linux VM via SSH
 
 ## Key-terms
 
@@ -16,9 +16,9 @@ SSH: SSH of Secure Shell is een netwerkcommunicatieprotocol waarmee twee compute
 
 ### Ervaren uitdagingen
 
-[Het was voor mij een uitdaging om de key permission aan te passen. Dit moest omdat windows vond dat het key bestand te onbeschermd was. Na een kort onderzoek heb ik hier de juiste commands en instellingen voor gevonden.]
+Het was voor mij een uitdaging om de key permission aan te passen. Dit moest omdat windows vond dat het key bestand te onbeschermd was. Na een kort onderzoek heb ik hier de juiste commands en instellingen voor gevonden.
 
 ### Resultaat
 
-[Ik ben in de VM en krijg mijn gebruikersnaam te zien als ik whoami intyp. ]
+Ik ben in de VM en krijg mijn gebruikersnaam te zien als ik whoami intyp. 
 ![schermafbeelding](/00_includes/Week-1-img/SettingUp.png)

@@ -1,6 +1,6 @@
 # [File permissions]
 
-[Het wijzigen en inzien van permissies]
+Het wijzigen en inzien van permissies
 
 ## Key-terms
 
