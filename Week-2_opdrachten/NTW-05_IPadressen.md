@@ -32,9 +32,9 @@ netwerk. Wat gebeurt er dan?
 
 ### Resultaat
 - Publieke IP Adress = 213.10.190.55
-- IP Adressen zijn hetzelfde omdat deze nog niet via het DHCP uniek zijn toegewezen. Dit is belangrijk om het juiste verkeer en de host te kunnen identificeren.
+- IP Adressen zijn hetzelfde omdat allebei de apparaten de zelfde router gebruiken. 
 - Prive IP Mobiel = 192.168.2.4 
-- Prive IP Computer = 192.168.2.2
+- Prive IP Computer = 192.168.2.12
 - IP Adressen zijn niet hetzelfde omdat deze via het DHCP uniek zijn toegewezen. Dit is belangrijk om het juiste verkeer en de host te kunnen identificeren.
-- DHCP uitgezet en IPv4 adressen omgewisseld van beide apparaten. Internet viel weg op mijn computer maar bleef werken op mijn mobiel.
+- DHCP uitgezet en IPv4 adressen omgewisseld van beide apparaten. Internet bleef werken op mijn apparaten.
 - Geen verbinding als ik het prive adress verander naar een adres buiten mijn netwerk.
