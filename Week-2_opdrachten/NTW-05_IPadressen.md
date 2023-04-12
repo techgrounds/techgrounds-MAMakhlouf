@@ -27,8 +27,9 @@ netwerk. Wat gebeurt er dan?
 ### Gebruikte bronnen
 [Plaats hier de bronnen die je hebt gebruikt.]
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Ervaren uitdagingen
+Werken met netwerken is redelijk nieuw voor mij dus moest wel heel veel inlezen. Dit was heel leuk om te doen aangezien ik veel nieuwe kennis opdeed. Na het begrijpen van de basisprincipes begon ik met het maken van de opdracht. Deze ging was erg leerzaam aangezien ik de opgedane kennis direct kon toepassen. Wel ben ik niet zeker of ik de laatste opdracht correct heb begrepen. Dit zal ik later nog even navragen.
+
 
 ### Resultaat
 - Publieke IP Adress = 213.10.190.55
