@@ -9,8 +9,8 @@ Nmap allows you to scan your network and discover not only everything connected 
 ### Gebruikte bronnen
 [Install and use Nmap on Linux](https://vitux.com/find-devices-connected-to-your-network-with-nmap/)
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Ervaren uitdagingen
+Het was even uitvogelen hoe ik in wireshark processen/applicaties kon identificeren. Dit is uitendelijk gelukt door te vragen aan andere waar ik op moet letten.  
 
 ### Resultaat
 -  Installatie van Nmap met volgende command:  
