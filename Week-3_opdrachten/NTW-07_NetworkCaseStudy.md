@@ -24,5 +24,6 @@ Tijdens deze opdracht was het belangrijk even goed te onderzoeken op google welk
 - Router voor data overdracht en NAT toepassing. NAT ''verstopt'' interne IP adressen.
 - Firewall tussen router en subnetwerken om ongeautoriseerde toegang tegen te gaan.
 - 2 aparte subnetwerken om risico's te spreiden.
-- Proxy server voor extra laag beveiliging.
+- Proxy server voor extra laag beveiliging.  
+
   ![NTWCS](/00_includes/Week-3-img/NTW-07_NetworkingCaseStudy.png)
