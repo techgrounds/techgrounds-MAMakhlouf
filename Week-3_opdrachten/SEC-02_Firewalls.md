@@ -36,4 +36,9 @@ curl -4 icanhazip.com
 - IP adressingevoerd met juiste poortnummer om op de apache index pagina terecht te komen.
 ![curl gebruik voor ip](/00_includes/Week-3-img/SEC-02_curlIP.png)
 ![apache index page](/00_includes/Week-3-img/SEC-02_Appache.png)
-- 
+- Apache en Apache Full service denied in de ufw instellingen.
+```
+sudo ufw deny 'Apache'
+sudo ufw deny 'Apache Full'
+```
+Firewall werkt correct want de pagina is niet meer bereikbaar.
