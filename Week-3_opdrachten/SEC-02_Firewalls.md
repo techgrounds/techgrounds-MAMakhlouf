@@ -12,10 +12,11 @@ states van vertrouwde actieve sessies. Hierbij hoeft een stateful firewall niet 
 scannen voor deze verbindingen.
 ## Opdracht
 ### Gebruikte bronnen
-[]()
+[How to install/use Apache web server on Debian 11](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-debian-11)  
+[Ubuntu Firewall use](https://ubuntu.com/server/docs/security-firewall)
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Ervaren uitdagingen
+De opdracht begon niet heel erg uitdagend en was een kewestie van de juiste commands erbij pakken om de webserver aan de praat te krijgen. De verwarring begon te ontstaan toen ik het unieke poortnummer vergat toe te voegen om de standaardpagina te weergeven. Vandaar ging het bergafwaarts en had ik beter even een korte pauze kunnen nemen. Maar omdat ik de opdracht graag af wou maken ging ik toch verder naar het volgende onderdeel. Zo heb ik mezelf uit de VM weten te locken door de ssh verbindingen perongeluk niet meer toe te laten. 
 
 ### Resultaat
 - Instaleren van Apache op de VM:
