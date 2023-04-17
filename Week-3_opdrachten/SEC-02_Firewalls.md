@@ -35,3 +35,4 @@ curl -4 icanhazip.com
 - IP adressingevoerd met juiste poortnummer om op de apache index pagina terecht te komen.
 ![curl gebruik voor ip](/00_includes/Week-3-img/SEC-02_curlIP.png)
 ![apache index page](/00_includes/Week-3-img/SEC-02_Appache.png)
+- 
