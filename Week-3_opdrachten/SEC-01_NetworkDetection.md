@@ -3,7 +3,7 @@ Kennismaking met het analyseren van netwerken.
 
 ## Key-terms
 -  Nmap   
-Nmap allows you to scan your network and discover not only everything connected to it, but also a wide variety of information about what's connected, what services each host is operating, and so on. It allows a large number of scanning techniques, such as UDP, TCP connect (), TCP SYN (half-open), and FTP.  
+Met Nmap kunt u uw netwerk scannen en niet alleen alles ontdekken dat erop is aangesloten, maar ook een breed scala aan informatie over wat er is aangesloten, welke services elke host gebruikt, enzovoort. Het staat een groot aantal scantechnieken toe, zoals UDP, TCP connect (), TCP SYN (half-open) en FTP.
 
 ## Opdracht
 ### Gebruikte bronnen
