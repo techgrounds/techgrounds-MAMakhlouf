@@ -27,3 +27,4 @@ ifconfig
 ```
 -  Zie hieronder resultaat
 ![Terminal](/00_includes/Week-3-img/SEC-01_IFCONFIG.png)
+-  Zoom aangelaten tijdens wireshark sessie. De gegevens gesorteerd op afkomst en bestemming. Zo heb ik de browser packets kunnen vinden en inzien.
