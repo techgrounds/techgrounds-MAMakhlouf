@@ -1,5 +1,5 @@
 # Identity and Access Managment
-[Geef een korte beschrijving van het onderwerp]
+Kennismaking basisprincipes van security
 
 ## Key-terms 
 - Authentication vs Authorization  
@@ -13,7 +13,7 @@ It is best practice to follow the principle of least privilege for authorization
 ### Gebruikte bronnen
 [ChatGPT: Teach me about MFA/Auth vs Auth ](https://chat.openai.com/)
 ### Ervaren uitdagingen
-
+Geen uitdagingen ondervonden.
 ### Resultaat
 - Auth vs Auth  
   - Authenticatie is het proces van het verifiëren van de identiteit van een gebruiker of systeem. Het is een manier om te bevestigen dat de gebruiker of het systeem is wie ze beweren te zijn. De meest voorkomende vorm van authenticatie is het gebruik van een gebruikersnaam en wachtwoord. Andere vormen van authenticatie zijn biometrische authenticatie (zoals vingerafdruk- of gezichtsherkenning), smartcards en tokens.  
