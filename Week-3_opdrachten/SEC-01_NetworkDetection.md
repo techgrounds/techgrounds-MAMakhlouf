@@ -24,6 +24,8 @@ sudo apt install net-tools
 -  Gebruik volgende command om netwerk omgeving te scannen:
 ```
 ifconfig
+nmap 10.171.154.166
+nmap 18.157.179.30
 ```
 -  Zie hieronder resultaat
 ![Terminal](/00_includes/Week-3-img/SEC-01_IFCONFIG.png)
