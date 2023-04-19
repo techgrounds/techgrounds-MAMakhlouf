@@ -1,5 +1,5 @@
 # Public Key Infrastructure
-[Geef een korte beschrijving van het onderwerp]
+De opdracht gaat over Public Key Infrastructure (PKI) en de verschillende termen die hierbij horen, zoals PKI, X.509, OpenSSL, SSL, CSR en TLS.
 
 ## Key-terms
 - PKI  
@@ -23,6 +23,11 @@ Het TLS-protocol is primair gericht op het bieden van beveiliging, inclusief pri
 
 
 ## Opdracht
+● Create a self-signed certificate on your VM.  
+● Analyze some certification paths of known websites (ex. techgrounds.nl / google.com
+/ ing.nl).  
+● Find the list of trusted certificate roots on your system (bonus points if you also find it
+in your VM).
 ### Gebruikte bronnen
 [Wikipedia](https://nl.wikipedia.org/wiki/Hoofdpagina)  
 [openSSL command Cheatsheet](https://www.freecodecamp.org/news/openssl-command-cheatsheet-b441be1e8c4a/#b723)
