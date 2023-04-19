@@ -62,4 +62,4 @@ openssl x509 -text -noout -in cert.pem
   + In de Linux omgeving toon je de namen en elk vertrouwd root certificaat dmv het volgende command:
   ```
   sudo openssl x509 -noout -subject -in /etc/ssl/certs/ca-certificates.crt
-```
+  ```
