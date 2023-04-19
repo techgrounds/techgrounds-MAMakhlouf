@@ -4,7 +4,7 @@
 ## Key-terms
 - PKI  
 Een PKI (Public Key Infrastructure) is een set van rollen, beleidsregels, hardware, software en procedures die nodig zijn om digitale certificaten te creëren, beheren, distribueren, gebruiken, opslaan en intrekken, en om public-key encryptie te beheren. Het bestaat uit drie entiteiten die ervoor zorgen dat u veilig kunt communiceren over een onveilig netwerk zoals het openbare internet.  
-X.509 is de standaard die het proces definieert waarin een PKI zou moeten functioneren. Er zijn vele manieren om een PKI te implementeren, niet allemaal voldoen ze aan de X.509 standaard.  
+  + X.509 is de standaard die het proces definieert waarin een PKI zou moeten functioneren. Er zijn vele manieren om een PKI te implementeren, niet allemaal voldoen ze aan de X.509 standaard.  
 
 - OpenSSL:  
 OpenSSL is een open source tool die wordt gebruikt om beveiligde verbindingen te maken en certificaten te beheren.
@@ -28,7 +28,7 @@ Het TLS-protocol is primair gericht op het bieden van beveiliging, inclusief pri
 [openSSL command Cheatsheet](https://www.freecodecamp.org/news/openssl-command-cheatsheet-b441be1e8c4a/#b723)
 
 ### Ervaren uitdagingen
-
+Deze opdracht was niet moeilijk uit te voeren en de uitdaging ligt ook niet in het uitvoeren van de opdracht denk ik. Wel gaat er veel leerstof gepaard met deze oefening waar ik meer tijd voor zal moeten nemen om mij dit echt eigen te maken.
 ### Resultaat
 1. OpenSSL geinstalleerd om om beveiligde verbindingen te maken en certificaten te beheren.
 ```
