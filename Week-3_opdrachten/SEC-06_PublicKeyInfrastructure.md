@@ -9,16 +9,25 @@ X.509 is de standaard die het proces definieert waarin een PKI zou moeten functi
 - OpenSSL:  
 OpenSSL is een open source tool die wordt gebruikt om beveiligde verbindingen te maken en certificaten te beheren.
 
+- SSL:   
+Secure Sockets Layer.  
+Beveiliging die bestaat uit het versleutelen van de gegevens die worden verzonden tussen een website en een browser, of tussen twee servers. Deze versleuteling voorkomt dat hackers de verzonden informatie, waaronder mogelijk persoonlijke of financiële gegevens, kunnen bekijken of stelen.  
+
 - CSR:  
 Een Certificate Signing Request (CSR) is een van de eerste stappen om je eigen SSL-certificaat te verkrijgen. De CSR wordt gegenereerd op de server waarop je het certificaat wil installeren. Een CSR bevat informatie (bv. common name, organisatie, land) die de certificeringsinstantie (CA) dan gaat gebruiken om jouw certificaat te creëren. De CSR bevat ook de public key die deel uitmaakt van jouw certificaat en wordt ondertekend met de overeenkomstige private key.  
 
-- 
+- TLS:  
+In cryptografie en computerbeveiliging zijn zelfondertekende certificaten certificaten met een openbare sleutel die niet zijn uitgegeven door een certificeringsinstantie (CA). Deze zelfondertekende certificaten zijn eenvoudig te maken en kosten geen geld. Ze bieden echter geen vertrouwenswaarde.  
+Transport Layer Security (TLS) is een cryptografisch protocol dat is ontworpen om communicatiebeveiliging via een computernetwerk te bieden. Het protocol wordt veel gebruikt in toepassingen zoals e-mail, instant messaging en voice over IP, maar het gebruik ervan bij het beveiligen van HTTPS blijft het meest publiekelijk zichtbaar.  
+Het TLS-protocol is primair gericht op het bieden van beveiliging, inclusief privacy (vertrouwelijkheid), integriteit en authenticiteit door het gebruik van cryptografie, zoals het gebruik van certificaten, tussen twee of meer communicerende computertoepassingen. Het draait in de presentatielaag en is zelf samengesteld uit twee lagen: het TLS-record en de TLS-handshake-protocollen.  
+
+
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[Wikipedia](https://nl.wikipedia.org/wiki/Hoofdpagina)  
+[openSSL command Cheatsheet](https://www.freecodecamp.org/news/openssl-command-cheatsheet-b441be1e8c4a/#b723)
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Ervaren uitdagingen
 
 ### Resultaat
 1. OpenSSL geinstalleerd om om beveiligde verbindingen te maken en certificaten te beheren.
