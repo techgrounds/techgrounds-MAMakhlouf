@@ -2,7 +2,8 @@
 Kennismaking met Asymmetrische codering.
 
 ## Key-terms
-
+- RSA  
+RSA (Rivest-Shamir-Adleman) is een algoritme dat door moderne computers wordt gebruikt om berichten te coderen en te decoderen. Het is een asymmetrisch cryptografisch algoritme. Asymmetrisch betekent dat er twee verschillende toetsen zijn. Dit wordt ook wel public key cryptografie genoemd, omdat een van de sleutels aan iedereen kan worden gegeven. De andere sleutel moet privé worden gehouden. Het algoritme is gebaseerd op het feit dat het vinden van de factoren van een groot samengesteld getal moeilijk is: wanneer de factoren priemgetallen zijn, wordt het probleem priemontbinding genoemd. Het is ook een sleutelpaargenerator (openbare en privésleutel).
 
 ## Opdracht
 ### Gebruikte bronnen
