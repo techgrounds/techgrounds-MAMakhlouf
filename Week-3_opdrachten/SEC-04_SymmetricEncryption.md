@@ -1,11 +1,14 @@
 # Symmetric encryption
-
 Kennismaking met symmetrische codering
 
 ## Key-terms
 
 - Cipher:  
-  Een Cipher is een algoritme voor het versleutelen en ontsleutelen van gegevens. Symmetrische sleutelcodering, ook wel geheime sleutelcodering genoemd, is afhankelijk van het gebruik van cijfers, die symmetrisch werken.
+  Een Cipher is een algoritme voor het versleutelen en ontsleutelen van gegevens. Symmetrische sleutelcodering, ook wel geheime sleutelcodering genoemd, is afhankelijk van het gebruik van cijfers, die symmetrisch werken.  
+
+- AES  
+de Advanced Encryption Standard is een blokcijfer-algoritme met symmetrische sleutels dat in 2001 werd geselecteerd door het National Institute of Standards and Technology (NIST). Het werd geselecteerd voor het coderen van gegevens. Het wordt over de hele wereld veel gebruikt. De Advanced Encryption Standard heeft de Data Encryption Standard (DES) vervangen.
+
 
 ## Opdracht
 
