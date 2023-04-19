@@ -41,3 +41,7 @@ eZOcBQfDYAL09QtkMx7B4D0swuQinB5i2lhgBkHxtbJAdbotvvU/4XdXXyIPBIO2qwkqAL5oY2/LIfnO
 
   5. Met de AES Secret Key kon peer het originele AES gecodeerd bericht ontcijferen.  
   Op deze manier kon niemand van de publieke slack meekijken wat er gecommuniceerd werd.
+
+  - Het belangrijkste verschil tussen de methode AES als symmetrische codering en RSA als asymmetrische codering is dat symmetrische encryptie dezelfde sleutel gebruikt voor zowel het versleutelen als het ontsleutelen van het bericht. Dit betekent dat als iemand de sleutel kan krijgen, die persoon het bericht kan lezen en wijzigen.  
+  In het geval van de methode die hierboven wordt gebruikt, wordt een symmetrische AES-sleutel gebruikt om het bericht te versleutelen, maar deze sleutel wordt versleuteld met behulp van een publieke RSA-sleutel van de ontvanger voordat deze wordt verzonden. Dit betekent dat alleen de ontvanger met zijn of haar privésleutel de AES-sleutel kan decoderen en het bericht kan lezen. Andere personen die toegang hebben tot het openbare Slack-kanaal kunnen het bericht niet lezen, omdat ze niet over de privésleutel van de ontvanger beschikken om de AES-sleutel te decoderen.  
+  Kortom, het belangrijkste verschil tussen deze methode en symmetrische encryptie is dat deze methode een extra laag van beveiliging toevoegt door het gebruik van asymmetrische encryptie om de symmetrische sleutel te versleutelen. Dit zorgt ervoor dat alleen de beoogde ontvanger het bericht kan ontcijferen, terwijl de berichten in het openbare Slack-kanaal veilig blijven.
