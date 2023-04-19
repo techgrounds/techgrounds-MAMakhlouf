@@ -52,3 +52,14 @@ openssl x509 -req -days 365 -in csr.pem -signkey akramkey.pem -out cert.pem
 openssl x509 -text -noout -in cert.pem
 ```
 ![resultaat](/00_includes/Week-3-img/SEC-06_Certi.png)
+![Techgrounds](/00_includes/Week-3-img/SEC-06_TechgrondCerti.png)  
+
+- Door mmc.exe (Microsoft Managment Console) kon ik mijn certificaten kiezen en inzien/beheren.
+  + Door in powershell het volgende command te gebruiken krijg je ook inzage in de vertrouwde root certificaten en hun vervaldatum:
+  ```
+  Get-Childitem cert:\LocalMachine\root |format-list
+  ```
+  + In de Linux omgeving toon je de namen en elk vertrouwd root certificaat dmv het volgende command:
+  ```
+  sudo openssl x509 -noout -subject -in /etc/ssl/certs/ca-certificates.crt
+```
