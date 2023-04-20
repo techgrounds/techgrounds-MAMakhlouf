@@ -7,7 +7,10 @@ Hashing is een proces waarbij een algoritme wordt gebruikt om een invoer van wil
 - Rainbow Table:  
   Een Rainbow Table is een aanvalstechniek die vaak wordt gebruikt om gehashte wachtwoorden te kraken. Het idee achter een Rainbow Table is om vooraf berekende hash-waarden op te slaan, waardoor het proces van het kraken van een gehasht wachtwoord kan worden versneld.  
 
-  Hoewel een Rainbow Table het kraken van gehashte wachtwoorden kan versnellen, zijn er ook enkele beperkingen aan deze aanvalstechniek. Ten eerste moet de aanvaller vooraf berekende hash-waarden opslaan voor elke mogelijke combinatie van wachtwoord en hash-algoritme. Dit kan zeer tijdrovend en kostbaar zijn. Bovendien kunnen moderne beveiligingsmaatregelen zoals het toevoegen van een salt aan het gehashte wachtwoord, de effectiviteit van Rainbow Tables aanzienlijk verminderen. Salting houdt in dat er extra willekeurige gegevens worden toegevoegd aan het wachtwoord voordat het wordt gehasht, waardoor de aanval van een Rainbow Table veel moeilijker wordt.
+  Hoewel een Rainbow Table het kraken van gehashte wachtwoorden kan versnellen, zijn er ook enkele beperkingen aan deze aanvalstechniek. Ten eerste moet de aanvaller vooraf berekende hash-waarden opslaan voor elke mogelijke combinatie van wachtwoord en hash-algoritme. Dit kan zeer tijdrovend en kostbaar zijn. Bovendien kunnen moderne beveiligingsmaatregelen zoals het toevoegen van een salt aan het gehashte wachtwoord, de effectiviteit van Rainbow Tables aanzienlijk verminderen.  
+
+- Salting:  
+Salting is een techniek die wordt gebruikt om het kraken van wachtwoorden moeilijker te maken. Het houdt in dat er extra willekeurige gegevens worden toegevoegd aan het wachtwoord voordat het wordt gehasht, waardoor het moeilijker wordt om het oorspronkelijke wachtwoord te achterhalen door middel van een Rainbow Table of een andere aanvalsmethode.
 
 
 ## Opdracht
