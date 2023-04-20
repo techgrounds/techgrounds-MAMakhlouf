@@ -56,7 +56,7 @@ In tegenstelling tot een IDS is een IPS actiever en kan het meer risico's vermin
 
 [IDS/IPS Wat en hoe](https://www.juniper.net/nl/nl/research-topics/what-is-ids-ips.html)
 
-### Ervaren problemen
+### Ervaren uitdagingen
 
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
