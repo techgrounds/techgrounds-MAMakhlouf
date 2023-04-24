@@ -16,10 +16,10 @@ Bestudeer:
 - Wat is een Azure Region Pair?
 - Waarom zou je een regio boven een andere verkiezen?
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[ChatGPT](https://chat.openai.com/)
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Ervaren uitdagingen
+De uitdaging in deze opdracht vond ik in de juiste bronnen vinden hiervoor aangezien er aanzienlijk veel informatie over valt te vinden, vaak in advertentie vorm. Ik heb daarom besloten om ChatGPT te vragen mij de te bestuderen onderwerpen te leren. De antwoorden heb ik deels in eigen woorden hieronder vermeld. Het verschil is dat Chat GPT mij deze kennis als beginneling op een zeer toegankelijke wijze heeft doen laten absorberen en begrijpen, in tegenstelling tot de wat diepgaandere/commercieële tekst op het internet. 
 
 ### Resultaat
 - Wat is een Azure Region:
