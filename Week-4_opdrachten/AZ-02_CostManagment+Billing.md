@@ -4,15 +4,20 @@ Kosten managment en facturering in Azure
 ## Key-terms
 - De Azure principes voor kostenmanagement:  
 
-  1. Plan (Planning): Dit principe heeft betrekking op het opzetten van een duidelijk plan en een kostenbeheersingsstrategie voordat u Azure-services gaat gebruiken. Dit omvat het identificeren van zakelijke doelen, het evalueren van kostenbeheersingsmogelijkheden en het definiëren van rollen en verantwoordelijkheden voor kostenbeheer binnen uw organisatie.
+  1. Plan (Planning):  
+  Dit principe heeft betrekking op het opzetten van een duidelijk plan en een kostenbeheersingsstrategie voordat u Azure-services gaat gebruiken. Dit omvat het identificeren van zakelijke doelen, het evalueren van kostenbeheersingsmogelijkheden en het definiëren van rollen en verantwoordelijkheden voor kostenbeheer binnen uw organisatie.
 
-  2. Zichtbaarheid (Visibility): Dit principe heeft betrekking op het verkrijgen van volledig inzicht in uw Azure-kosten en -gebruik. Hierbij kunt u gebruik maken van Azure Cost Management en facturering. Dit geeft u een goed beeld van de huidige kosten en helpt u onverwachte kosten te vermijden.
+  2. Zichtbaarheid (Visibility):  
+  Dit principe heeft betrekking op het verkrijgen van volledig inzicht in uw Azure-kosten en -gebruik. Hierbij kunt u gebruik maken van Azure Cost Management en facturering. Dit geeft u een goed beeld van de huidige kosten en helpt u onverwachte kosten te vermijden.
 
-  3. Verantwoording (Accountability): Dit principe gaat over het stellen van duidelijke grenzen en richtlijnen voor kostenbeheer, zodat er verantwoordelijkheid kan worden genomen voor het beheer van de kosten. Dit omvat het definiëren van budgetten, het instellen van waarschuwingen en het vaststellen van rapportagemogelijkheden.
+  3. Verantwoording (Accountability):  
+  Dit principe gaat over het stellen van duidelijke grenzen en richtlijnen voor kostenbeheer, zodat er verantwoordelijkheid kan worden genomen voor het beheer van de kosten. Dit omvat het definiëren van budgetten, het instellen van waarschuwingen en het vaststellen van rapportagemogelijkheden.
 
-  4. Optimalisatie (Optimization): Dit principe gaat over het optimaliseren van uw gebruik van Azure-services om de kosten te verlagen. Dit omvat het identificeren en elimineren van onderbenutte resources, het selecteren van de juiste services voor uw workload en het gebruik van goedkopere alternatieven waar mogelijk.
+  4. Optimalisatie (Optimization):  
+  Dit principe gaat over het optimaliseren van uw gebruik van Azure-services om de kosten te verlagen. Dit omvat het identificeren en elimineren van onderbenutte resources, het selecteren van de juiste services voor uw workload en het gebruik van goedkopere alternatieven waar mogelijk.
 
-  5. Iteratie (Iteration): Dit principe heeft betrekking op het continu monitoren en aanpassen van uw kostenbeheersingsstrategie om deze aan te passen aan veranderende zakelijke behoeften en technologische ontwikkelingen. Hierbij kunt u gebruik maken van continue feedback en rapportage om uw kostenbeheersingsstrategie voortdurend te verbeteren.
+  5. Iteratie (Iteration):  
+  Dit principe heeft betrekking op het continu monitoren en aanpassen van uw kostenbeheersingsstrategie om deze aan te passen aan veranderende zakelijke behoeften en technologische ontwikkelingen. Hierbij kunt u gebruik maken van continue feedback en rapportage om uw kostenbeheersingsstrategie voortdurend te verbeteren.
 
   + Door het volgen van deze principes kunnen bedrijven de kosten van het gebruik van Azure-services beter beheren en verminderen.
 
