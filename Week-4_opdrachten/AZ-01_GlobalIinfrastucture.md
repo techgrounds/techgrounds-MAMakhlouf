@@ -1,5 +1,5 @@
 # [Azure Global Infrastructure]
-[Geef een korte beschrijving van het onderwerp]
+Kennis making met de globale Azure infrastructuur.
 
 ## Key-terms
 - Redundantie:
