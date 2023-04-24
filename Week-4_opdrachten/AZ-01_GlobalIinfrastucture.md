@@ -67,3 +67,4 @@ De uitdaging in deze opdracht vond ik in de juiste bronnen vinden hiervoor aange
   Niet alle Azure-regio's bieden dezelfde services aan, en sommige services zijn mogelijk niet beschikbaar in bepaalde regio's. Het kan dus belangrijk zijn om te controleren welke services beschikbaar zijn in de regio's die je overweegt.
 
   + Het is ook belangrijk om te vermelden dat het kiezen van een regio niet betekent dat je je resources en services niet elders kunt uitvoeren. Azure biedt verschillende mogelijkheden voor het implementeren van services over meerdere regio's en het bouwen van veerkrachtige architecturen.
+  ![](/00_includes/week-4-img/AZ-01.png)
