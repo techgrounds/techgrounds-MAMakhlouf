@@ -87,12 +87,16 @@ De uitdaging in deze opdracht vond ik vooral in de vele opties die er zijn om ko
 
 - Azure biedt verschillende opties om de uitgaven van je abonnement te bekijken en te beheren. Hieronder staan enkele van de belangrijkste opties:
 
-1. Azure-portal: De Azure-portal biedt een webinterface waarmee u uw abonnementen kunt beheren en de kosten kunt bijhouden. U kunt hier ook uw factureringsgeschiedenis bekijken, kostenrapporten downloaden en budgetten instellen.
+1. Azure-portal:  
+De Azure-portal biedt een webinterface waarmee u uw abonnementen kunt beheren en de kosten kunt bijhouden. U kunt hier ook uw factureringsgeschiedenis bekijken, kostenrapporten downloaden en budgetten instellen.
 
-2. Azure Cost Management + Billing: Azure Cost Management + Billing is een uitgebreide toolset waarmee u uw Azure-kosten kunt beheren en optimaliseren. Het biedt rapportage- en analysefuncties waarmee u inzicht krijgt in uw uitgaven en budgetten kunt instellen om deze onder controle te houden.
+2. Azure Cost Management + Billing:  
+Azure Cost Management + Billing is een uitgebreide toolset waarmee u uw Azure-kosten kunt beheren en optimaliseren. Het biedt rapportage- en analysefuncties waarmee u inzicht krijgt in uw uitgaven en budgetten kunt instellen om deze onder controle te houden.
 
-3. Azure-app voor kostenbeheer: De Azure-app voor kostenbeheer is een mobiele app waarmee u uw Azure-kosten kunt bijhouden en beheren vanaf uw smartphone of tablet. U kunt hier ook meldingen instellen om u te waarschuwen wanneer u een budget dreigt te overschrijden.
+3. Azure-app voor kostenbeheer:  
+De Azure-app voor kostenbeheer is een mobiele app waarmee u uw Azure-kosten kunt bijhouden en beheren vanaf uw smartphone of tablet. U kunt hier ook meldingen instellen om u te waarschuwen wanneer u een budget dreigt te overschrijden.
 
-4. API's en oplossingen van derden: Azure biedt API's waarmee u toegang kunt krijgen tot uw facturerings- en kostengegevens. Daarnaast zijn er oplossingen van derden beschikbaar die u kunnen helpen bij het beheren en optimaliseren van uw Azure-kosten.
+4. API's en oplossingen van derden:  
+Azure biedt API's waarmee u toegang kunt krijgen tot uw facturerings- en kostengegevens. Daarnaast zijn er oplossingen van derden beschikbaar die u kunnen helpen bij het beheren en optimaliseren van uw Azure-kosten.
 
 + Door gebruik te maken van deze opties kunt u uw Azure-kosten effectief beheren en ervoor zorgen dat u binnen uw budget blijft. Het is belangrijk om regelmatig uw kosten te bekijken en te analyseren om ervoor te zorgen dat u geen onnodige uitgaven doet en uw kosten geoptimaliseerd blijven.
