@@ -27,6 +27,9 @@ sudo apt-get install apache2
 - Firewall toepassingsprofielen inzien:
 ```
 sudo ufw app list
+sudo ufw status verbose
+sudo ufw allow 'Apache'
+sudi ufw allow 'Apache Full'
 ```
 - IP adress van de server was al bekend maar toch voor de lol curl  geinstalleerd en via icanhazip.com IP geidentificeerd. 
 ```
