@@ -24,7 +24,7 @@ De opdracht begon niet heel erg uitdagend en was een kewestie van de juiste comm
 sudo apt-get update
 sudo apt-get install apache2
 ```
-- Firewall toepassingsprofielen inzien:
+- Firewall toepassingsprofielen inzien en instellen:
 ```
 sudo ufw app list
 sudo ufw status verbose
