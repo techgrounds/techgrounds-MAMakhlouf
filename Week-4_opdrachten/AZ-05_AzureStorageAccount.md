@@ -1,5 +1,5 @@
 # Azure Storage Account
-[Geef een korte beschrijving van het onderwerp]
+Het maken en beheren van een azure storage account
 
 ## Key-terms
 [Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
@@ -24,4 +24,16 @@ Opdracht 2:
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+- Opdracht 1.
+  - Storage account aangemaakt in mijn Azure omgeving genaamd: akramstorage.
+  - Bij de netwerk opties gekozen voor:  
+  Enabled from selected virtual networks and IP addresses.  
+  - Vervolgens mijn public IP adress toegevoegd aan de 'whitelist'.
+  ![IP-ACCES](/00_includes/week-4-img/AZ-05_IPacces.png)
+  - Overgegaan naar het aanmaken van een blob container.
+  - Willekeurige PNG afbeelding toegevoegd aan de container.
+  - Bij de security opties gekozen voor:  
+  ![Blob acces](/00_includes/week-4-img/AZ-05_blobAcces.png)
+  - Azure Storage Explorer gedownload en geinstalleerd.
+  ![AzureExplorer](/00_includes/week-4-img/AZ-05_Explorer.png)
+
