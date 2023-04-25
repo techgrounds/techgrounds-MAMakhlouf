@@ -23,7 +23,8 @@ Opdracht 2:
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
-### Resultaat
+### Resultaat 
+
 - Opdracht 1.
   - Storage account aangemaakt in mijn Azure omgeving genaamd: akramstorage.
   - Bij de netwerk opties gekozen voor:  
@@ -37,3 +38,9 @@ Opdracht 2:
   - Azure Storage Explorer gedownload en geinstalleerd.
   ![AzureExplorer](/00_includes/week-4-img/AZ-05_Explorer.png)
 
+- Opdracht 2.
+  - Nieuwe container aangemaakt en statische website hosting optie aangezet.
+  - Website bestanden geupload naar blob container.
+  - Blob acces ingesteld.
+  ![blobacces](/00_includes/week-4-img/AZ-05_blobacceses.png)
+  - URL gedeeld met teamgenoten en werkt naar behoren.
