@@ -1,8 +1,8 @@
 # Advantages of the cloud
-[Geef een korte beschrijving van het onderwerp]
+De voordelen van Azure cloud computing.
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+Alle belangrijke termen worden beschreven in het resultaat.
 
 ## Opdracht
 ### Gebruikte bronnen
@@ -10,7 +10,7 @@
 [Microsoft Azure: Consumption based model](https://learn.microsoft.com/en-us/azure/well-architected/cost/design-price)
 
 ### Ervaren uitdagingen
-
+De uitdaging in deze opdracht zit in het onthouden en  kunnen beschrijven van de te bestuderen punten.
 
 ### Resultaat
 - De 6 voordelen van cloud computing:  
