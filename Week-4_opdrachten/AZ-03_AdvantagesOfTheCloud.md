@@ -5,6 +5,9 @@ De voordelen van Azure cloud computing.
 Alle belangrijke termen worden in het resultaat beschreven.
 
 ## Opdracht
+Bestudeer:
+- De 6 advantages of the cloud
+- Het consumption-based model
 ### Gebruikte bronnen
 [Microsoft Azure: Advantages of cloud computing](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/benefits-of-cloud-migration/#benefits)  
 [Microsoft Azure: Consumption based model](https://learn.microsoft.com/en-us/azure/well-architected/cost/design-price)
