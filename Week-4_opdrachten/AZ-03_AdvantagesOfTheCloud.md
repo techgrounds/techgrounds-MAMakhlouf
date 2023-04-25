@@ -2,7 +2,7 @@
 De voordelen van Azure cloud computing.
 
 ## Key-terms
-Alle belangrijke termen worden beschreven in het resultaat.
+Alle belangrijke termen worden in het resultaat beschreven.
 
 ## Opdracht
 ### Gebruikte bronnen
