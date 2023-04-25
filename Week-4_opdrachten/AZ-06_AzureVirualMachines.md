@@ -1,19 +1,17 @@
 # Azure Virtual Machines
-[Geef een korte beschrijving van het onderwerp]
+Aanmaken van een virtual machine met specifieke eisen
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
-
+### Ervaren uitdagingen
+Deze opdracht sprak erg voor zich. Door de duidelijke vereisten waren de stappen makkelijk uit te voeren. Ik heb ook via de Azure CLI geprobeerd deze vm aan te maken maar dat ging niet zo makkelijk als via de portal.
 ### Resultaat
 - VM aangemaakt met gespecificeerde eisen.
 - VM aangezet in Azure dashboard:
 ![dashboard](/00_includes/week-4-img/AZ-06_VirtualDashboard.png)
 - VM met terminal betreed via SSH connectie:
 ![terminal](/00_includes/week-4-img/AZ-06_VirtualSSH.png)
+- VM uitgezet en ook resources verwijderd.
