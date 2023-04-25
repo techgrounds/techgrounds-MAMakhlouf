@@ -7,7 +7,7 @@ Een Azure Storage-account is een service die wordt aangeboden door Microsoft Azu
 Het is een schaalbare en duurzame opslagoplossing die beschikbaar is via het internet en kan worden gebruikt voor het opslaan en beheren van gegevens voor verschillende toepassingen, zoals webtoepassingen, mobiele apps, back-up en herstel, big data en analyse, en archivering.  
 Azure Storage biedt ook geavanceerde functies zoals gegevensencryptie, versiebeheer, automatische back-ups, en redundantie voor het opslaan van gegevens op meerdere locaties, waardoor de beschikbaarheid en betrouwbaarheid van de gegevens wordt vergroot.  
 
--Blobs:  
+- Blobs:  
 Blobs (Binary Large Objects) zijn een type gegevensopslag in Azure Storage en andere cloudgebaseerde systemen. Blobs zijn bedoeld voor het opslaan van ongestructureerde gegevens, zoals afbeeldingen, video's, audiobestanden, documenten, logbestanden en andere grote bestanden.  
 Blobs zijn ontworpen om te werken met grote hoeveelheden ongestructureerde gegevens en bieden de mogelijkheid om gegevens op te slaan in een platte container, zonder een vooraf gedefinieerde structuur. Dit betekent dat de grootte van de blobs kan variëren en dat u ze kunt opslaan zonder u zorgen te hoeven maken over de structuur van de gegevens.  
 Azure Storage biedt drie soorten blobs: block blobs, page blobs en append blobs. Block blobs worden gebruikt voor het opslaan van grote bestanden, zoals afbeeldingen en video's. Page blobs worden gebruikt voor het opslaan van virtuele harde schijven (VHD's) en andere sequentiële gegevens. Append blobs zijn bedoeld voor het continu toevoegen van gegevens aan een bestand, zoals logbestanden.
