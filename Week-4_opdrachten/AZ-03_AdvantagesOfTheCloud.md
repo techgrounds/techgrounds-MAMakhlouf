@@ -6,10 +6,11 @@
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[Microsoft Azure: Advantages of cloud computing](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/benefits-of-cloud-migration/#benefits)  
+[Microsoft Azure: Consumption based model](https://learn.microsoft.com/en-us/azure/well-architected/cost/design-price)
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+### Ervaren uitdagingen
+
 
 ### Resultaat
 - De 6 voordelen van cloud computing:  
