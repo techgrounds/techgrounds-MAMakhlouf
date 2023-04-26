@@ -56,7 +56,9 @@ Opdracht:
 - Maak een NSG in je VNET. Zorg ervoor dat je webserver nog steeds bereikbaar is via HTTP, maar dat SSH geblokkeerd wordt.
 
 ### Gebruikte bronnen
-
+[Alles over basic/standard/premium Azure firewal](https://learn.microsoft.com/en-us/azure/firewall/basic-features)  
+[Azure Firewall Manager-beleid](https://learn.microsoft.com/nl-nl/azure/firewall-manager/policy-overview)  
+[Azure Firewall vs Network Security Group](https://k21academy.com/microsoft-azure/az-500/azure-firewall-vs-nsg/#:~:text=Azure%20Firewall%20and%20NSG%20in%20Conjunction&text=An%20NSG%20is%20more%20targeted,with%20both%20firewalls%20and%20NSG.)
 ### Ervaren uitdagingen
 Deze opdracht vond ik vrij makkelijk uit te voeren. Ook vond ik genoeg informatie over de te bestuderen punten. Deze punten zijn makkelijk te begrijpen voor mij en heb goed overzicht verkregen over het algeheel.
 
