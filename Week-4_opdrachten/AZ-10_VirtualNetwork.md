@@ -1,6 +1,5 @@
 # Azure Virtual Network (VNet)
-
-[Geef een korte beschrijving van het onderwerp]
+Begrijpen en implementeren van een Azure Virtual Network. 
 
 ## Key-terms
 - Route table:  
