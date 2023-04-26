@@ -22,7 +22,7 @@ Deze opdracht was wel leuk om te doen. De uitdaging vond ik in het toepassen van
 - Routetable aangemaakt en gekoppeld aan gespecificeerd subnet voor internet toegang.
 - Virtual Machine gemaakt met gespecificeerde eisen:
 ![VM](/00_includes/week-4-img/AZ-10_VM.png)  
-- Coresponderend IP adress in de browser ingevoerd en gewenst resultaat behaald. Hiermee opdracht succesvol afgerond.
+- Corresponderend IP adress in de browser ingevoerd en gewenst resultaat behaald. Hiermee opdracht succesvol afgerond.
 ![website](/00_includes/week-4-img/AZ-10_site.png)
 - lijst van recource group.
 ![resourcegroup](/00_includes/week-4-img/AZ-10_resourcegrp.png)
