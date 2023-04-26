@@ -13,7 +13,7 @@
 - Mount deze nieuwe Disk en bekijk het bestand.
 ### Gebruikte bronnen
 [Azure Disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)  
-[Attach a disk to VM](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu)  
+[Attach a disk to VM (commands)](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu)  
 [Why shared drive is not showing content from one VM to another](https://learn.microsoft.com/en-us/answers/questions/874923/why-shared-drive-is-not-showing-content-from-one-a)
 
 ### Ervaren uitdagingen
