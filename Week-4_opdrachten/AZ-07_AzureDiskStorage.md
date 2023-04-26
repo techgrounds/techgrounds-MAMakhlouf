@@ -1,5 +1,5 @@
 # Azure Disk Storage
-[Geef een korte beschrijving van het onderwerp]
+Gebruiken en beheren van managed disks
 
 ## Key-terms
 - Azure managed disk:  
