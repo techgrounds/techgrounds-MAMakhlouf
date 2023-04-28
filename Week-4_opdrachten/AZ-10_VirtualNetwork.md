@@ -53,12 +53,10 @@ Virtual Network Peering is eenvoudig in te stellen en kan worden beheerd via de 
 Deze opdracht was wel leuk om te doen. De uitdaging vond ik in het toepassen van de route table. Ik moest er eerst achterkomen dat ik die uberhaupt nodig had. Toen ik eenmaal besefte wat ik miste ging het heel soepel.
 
 ### Resultaat
-- Virtual Network aangemaakt met gespecificeerde eisen:  
-![Vnet](/00_includes/week-4-img/AZ-10_subnets.png)  
-- Routetable aangemaakt en gekoppeld aan gespecificeerd subnet voor internet toegang.
-- Virtual Machine gemaakt met gespecificeerde eisen:
-![VM](/00_includes/week-4-img/AZ-10_VM.png)  
-- Corresponderend IP adress in de browser ingevoerd en gewenst resultaat behaald. Hiermee opdracht succesvol afgerond.
-![website](/00_includes/week-4-img/AZ-10_site.png)
-- lijst van recource group.
-![resourcegroup](/00_includes/week-4-img/AZ-10_resourcegrp.png)
+- VNet aangemaakt met gespecificeerde eisen.
+- VM aangemaakt en gekoppeld aan subnet met internet route.
+- Subnet waar geen internet route is toegestaan geassocieerd aan route table en route ingesteld naar none.
+- Subnet met internet route is bereikbaar via HTTP en subnet zonder internet route is niet bereikbaar via HTTP.
+![](/00_includes/week-4-img/AZ-10_Resources.png)
+![](/00_includes/week-4-img/AZ-10_VMNTWRK.png)
+![](/00_includes/week-4-img/AZ-10_RoutesNIC.png)
