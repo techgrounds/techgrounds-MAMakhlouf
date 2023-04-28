@@ -15,4 +15,4 @@ Achteraf: Plaats een kopie van de retro in je eigen repository.
  - Efficiënter bronnen gebruiken
 
 ## Wat kunnen wij doen om het te verbeteren?
- - 
+ - Ik denk dat we voortdurend moeten blijven verbeteren met waar we al mee bezig zijn, want het werkt. Gedurende de tijd zullen er specifieke punten naar boven komen waar we aan kunnen werken. 
