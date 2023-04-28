@@ -50,8 +50,7 @@ Virtual Network Peering is eenvoudig in te stellen en kan worden beheerd via de 
 [Azure Route tables](https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table)
 
 ### Ervaren uitdagingen
-Deze opdracht was wel leuk om te doen. De uitdaging vond ik in het toepassen van de route table. Ik moest er eerst achterkomen dat ik die uberhaupt nodig had. Toen ik eenmaal besefte wat ik miste ging het heel soepel.
-
+Deze opdracht was zeer verwarrend aangezien bij het aanmaken van een VM er een (virtuele) Network Interface Card (NIC) word aangemaakt. Deze is bij default al gekoppeld aan een Public IP adress. Dus was een NAT gateway niet nodig. Het was even uitvogelen wat nou de juiste manier was om deze opdracht succesvol uit te voeren. Uiteindelijk achter gekomen dan er een aparte route voor het subnet moest worden aangemaakt dat geen internet verbinding mocht hebben. Zo heb ik de opdracht succesvol kunnen afmaken.
 ### Resultaat
 - VNet aangemaakt met gespecificeerde eisen.
 - VM aangemaakt en gekoppeld aan subnet met internet route.
