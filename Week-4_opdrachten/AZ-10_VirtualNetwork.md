@@ -59,4 +59,5 @@ Deze opdracht was wel leuk om te doen. De uitdaging vond ik in het toepassen van
 - Subnet met internet route is bereikbaar via HTTP en subnet zonder internet route is niet bereikbaar via HTTP.
 ![](/00_includes/week-4-img/AZ-10_Resources.png)
 ![](/00_includes/week-4-img/AZ-10_VMNTWRK.png)
+![](/00_includes/week-4-img/AZ-10_RoutesNICHTTP.png)
 ![](/00_includes/week-4-img/AZ-10_RoutesNIC.png)
