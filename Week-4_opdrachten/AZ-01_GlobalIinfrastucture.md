@@ -1,4 +1,4 @@
-# [Azure Global Infrastructure]
+# Azure Global Infrastructure
 Kennis making met de globale Azure infrastructuur.
 
 ## Key-terms
