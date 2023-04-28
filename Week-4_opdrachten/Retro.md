@@ -6,10 +6,13 @@ Iedereen: Gebruik 10 minuten om de antwoorden te bedenken op de gegeven vragen. 
 Achteraf: Plaats een kopie van de retro in je eigen repository.
 
 ## Wat ging goed?
- - Voorbeeld: We gebruikten de Pomedoro techniek en dat was heel fijn om mee te werken.
-
+ - Inovatief en probleemoplosend te werk gegaan. Daarvoor vele voordelen kunnen behalen zoals goede time-managment en goede vragen kunnen stellen. 
+ - Teamwork ook bevordert door bovenstaande. 
+ - Accountabilty standaard verhoogt en gehanteerd door bovenstaande. 
 ## Wat kan beter?
- - Voorbeeld: We deden iets te lang over onze standups.
+ - Betere vragen leren vormen. 
+ - Productiviteit verhogen.
+ - Efficiënter bronnen gebruiken
 
 ## Wat kunnen wij doen om het te verbeteren?
- - Voorbeeld: Tijdens een standup gaan wij elkaar beter op de rit houden.
+ - 
