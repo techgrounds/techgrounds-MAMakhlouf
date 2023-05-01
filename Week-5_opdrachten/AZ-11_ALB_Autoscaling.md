@@ -5,11 +5,15 @@ Het aanmaken van VM Scale Sets en het testen van de scaling regels.
 
 ## Key-terms
 - Azure Load Balancer:   
+
   Azure Load Balancer is een dienst in Microsoft Azure waarmee je binnenkomend netwerkverkeer kunt verdelen over meerdere virtuele machines. Het zorgt ervoor dat het verkeer efficiënt en gelijkmatig wordt verdeeld, waardoor de belasting op de VM's wordt verminderd en de applicatieprestaties worden verbeterd. Door het gebruik van Azure Load Balancer ben je er zeker van dat je applicatie altijd beschikbaar blijft, zelfs als één of meerdere VM's uitvallen.  
 
 - VM Scale Set:  
+
   Azure Virtual Machine Scale Set is een dienst in Microsoft Azure die het mogelijk maakt om automatisch een groep identieke virtuele machines (VM's) te maken en te beheren. Deze VM's zijn op een schaalbare manier geconfigureerd, wat betekent dat ze automatisch kunnen worden op- of afgeschaald op basis van de veranderende vraag naar resources.  
-  Dit betekent dat je een schaalbare infrastructuur kunt opzetten voor jouw applicatie of service, waarbij je kunt reageren op toenemende of afnemende verkeersbelastingen, zonder handmatig VM's toe te voegen of te verwijderen. Je kunt de VM's in de Scale Set ook gebruiken om updates uit te voeren en om te zorgen voor een hogere beschikbaarheid van jouw applicatie of service.  
+
+  Dit betekent dat je een schaalbare infrastructuur kunt opzetten voor jouw applicatie of service, waarbij je kunt reageren op toenemende of afnemende verkeersbelastingen, zonder handmatig VM's toe te voegen of te verwijderen. Je kunt de VM's in de Scale Set ook gebruiken om updates uit te voeren en om te zorgen voor een hogere beschikbaarheid van jouw applicatie of service. 
+   
   Azure Virtual Machine Scale Set ondersteunt een breed scala aan besturingssystemen en is geïntegreerd met andere Azure-diensten, zoals Load Balancer en Autoscale, om automatische schaalbaarheid en hoge beschikbaarheid te bieden voor jouw applicaties.
 
 ## Opdracht
