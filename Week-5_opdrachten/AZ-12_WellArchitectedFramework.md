@@ -71,15 +71,42 @@ An inapproptiate or misconfigured service can affect cost. For example, building
     - The Azure service.
     - A price model for the servive.   
     
-    As a part of design, identify acceptasble boundaries on:  
+    As a part of design, identify acceptable boundaries on:  
 
     - Scale.
     - Redundancy.
     - Performance against cost.  
 
-After estimating the initial cost, set budgets and alerts at different scopes to measure the cost. One cost driver can be unrestricted resources. These resources typically need to scale and consume more cost to meet demand. 
+    After estimating the initial cost, set budgets and alerts at different scopes to measure the cost. One cost driver can be unrestricted resources. These resources typically need to scale and consume more cost to meet demand. 
 
-+ Dynamically allocate and dealloctate resources:  
++ Dynamically allocate and deallocate resources:  
 
-  + Optimize workloads, aim for scalable costs
-  + Continously monitor and optimize cost managment:
+  To match performance needs, dynamically allocate and deallocate recources.  
+
+  Identify idle or underutilized resources through Azure Advisor or other tools, and:  
+
+  + Reconfigure.  
+  + Consolidate (or).
+  + Shut down.   
+
++ Optimize workloads, aim for scalable costs:  
+  
+  A key benefit of the cloud is the ability to scale dynamically. The workload cost should scale linearly with demand. You can save cost through automatic scaling.  
+
+  Recommendations:  
+    - Consider usage metrics and performance to determine the number of instances.
+    - Choose smaller instances for a highly variable workload.
+    - Scale out,  rather than up, to get thye required level of performance. This choice enables you to make your cost calculations and estimates granular.  
+
+    The cost managment procces should be:  
+
+    - Rigorous.
+    - Iterative.
+    - A key principle of responsible cloud optimization.  
+
++ Continously monitor and optimize cost managment:  
+
+  To provision resources dynamically and to scale with demand:  
+  - Conduct regular cost reviews.
+  - Measure capacity needs.
+  - Forecast capacity needs.
