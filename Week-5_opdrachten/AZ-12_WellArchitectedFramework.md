@@ -42,13 +42,13 @@ Bestudeer:
 - Hoe je elke pilaar kan implementeren met cloud-diensten
 ### Gebruikte bronnen
 - [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)  
-- [Architecting for Application Requirements](https://www.youtube.com/watch?v=lQlHWacM1N0)  
+- [Architecting for Application Requirements Video](https://www.youtube.com/watch?v=lQlHWacM1N0)  
 - [Cost optimization](https://learn.microsoft.com/en-us/azure/well-architected/cost)  
 - [Reliability](https://learn.microsoft.com/en-us/azure/well-architected/resiliency/)   
 - [Operational exellence](https://learn.microsoft.com/en-us/azure/well-architected/devops/)  
 [Performance efficiency](https://learn.microsoft.com/en-us/azure/well-architected/scalability/)  
-[]()  
-[]()  
+[Security](https://learn.microsoft.com/en-us/azure/well-architected/security/)  
+
 
 ### Ervaren uitdagingen
 
@@ -57,4 +57,4 @@ Bestudeer:
 [Reliability](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/Reliability.md)  
 [Operational exellence](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/OperationalExellence.md)  
 [Performance efficiency](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/PerformanceEfficiency.md)    
-[]()  
+[Security](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/Securityfile.md)  
