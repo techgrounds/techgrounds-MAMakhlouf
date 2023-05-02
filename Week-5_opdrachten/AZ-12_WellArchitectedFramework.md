@@ -1,5 +1,5 @@
 # Well-Architected Framework
-[Geef een korte beschrijving van het onderwerp]
+5 Pilaren van het Azure Well-Architected Framework
 
 ## Key-terms
 - CROPS:
