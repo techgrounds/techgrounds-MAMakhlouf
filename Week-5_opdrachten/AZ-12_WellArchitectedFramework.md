@@ -46,7 +46,7 @@ Bestudeer:
 - [Cost optimization](https://learn.microsoft.com/en-us/azure/well-architected/cost)  
 - [Reliability](https://learn.microsoft.com/en-us/azure/well-architected/resiliency/)   
 - [Operational exellence](https://learn.microsoft.com/en-us/azure/well-architected/devops/)  
-[]()  
+[Performance efficiency](https://learn.microsoft.com/en-us/azure/well-architected/scalability/)  
 []()  
 []()  
 
@@ -56,5 +56,5 @@ Bestudeer:
 [Cost optimization principles and design](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/CostOptimization.md)  
 [Reliability](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/Reliability.md)  
 [Operational exellence](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/OperationalExellence.md)  
-[]()  
+[Performance efficiency](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/PerformanceEfficiency.md)    
 []()  
