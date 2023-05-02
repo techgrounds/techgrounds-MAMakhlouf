@@ -47,3 +47,39 @@ Bestudeer:
 ### Ervaren uitdagingen
 
 ### Resultaat
+### Cost optimization principles:  
+Business goals and the return on investment (ROI) drive a cost-effective workload while you keep to a given budget. The principles of cost optimization are important considerations that help you achieve both business objectives and cost justification. 
+
+The following design principles provide:
+
+- Context for questions.
+- Why a certain aspect is important.
+- How an aspect applies to cost optimization.  
+
+Use these critical design principles as lenses to assess the cost optimization of an application deployed on Azure. These lenses provide a framework for the application assessment questions.
+
++ Choose the correct resources:  
+Choose rerources that align with businnes goals and can handle your workload performance.  
+When onboarding new workloads, explore the possibility of modernizaton and cloud native offerings where possible. Its typically more cost-effective to use platform as a service (PaaS) or software as a service (SaaS), as supposed to infrastructure as a service (IaaS).  
+An inapproptiate or misconfigured service can affect cost. For example, building a multi-region service when the service levels don't require high-availability or geo-redundancy increases  cost without any reasonable business justification.  
+
++ Set up budgets and maintain cost constrains: 
+
+  Every design choice hast cost implications. Consider the budget constraints set by the company before choosing:  
+
+    - An architectural pattern.
+    - The Azure service.
+    - A price model for the servive.   
+    
+    As a part of design, identify acceptasble boundaries on:  
+
+    - Scale.
+    - Redundancy.
+    - Performance against cost.  
+
+After estimating the initial cost, set budgets and alerts at different scopes to measure the cost. One cost driver can be unrestricted resources. These resources typically need to scale and consume more cost to meet demand. 
+
++ Dynamically allocate and dealloctate resources:  
+
+  + Optimize workloads, aim for scalable costs
+  + Continously monitor and optimize cost managment:
