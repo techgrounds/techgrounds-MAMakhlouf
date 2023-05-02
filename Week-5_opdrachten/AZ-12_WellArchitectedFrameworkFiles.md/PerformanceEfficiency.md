@@ -14,3 +14,48 @@ Horizontal scaling allows for elasticity. Instances are added (scale-out) or rem
 | Apply strategies in your design early  | Accelerate adoption without significant changes. for example, strive for stateless application and store state externally in a database or distributed cache. Use caching where possible, to minimize the processing load.  |  
 
 An alternate approach is vertical scaling (scale-up). However, you eventually may reach a limit where there isn't a larger system, and you can't scale up anymore. At that point, any further scaling must be horizontal. So it's good practice to employ a scale-out architecture early on. 
+
+# Checklist - Design for performance efficiency  
+
+## Application design 
+
+- Design for scaling
+- Scale as a unit 
+- Take advantage of platform autoscaling features
+- Partition the workload
+- Avoid client affinity
+- Offload CPU-intensive and I/O intensive tasks as background tasks
+- Distribute the workload for background tasks
+- Consider moving toward a shared-nothing architecture  
+
+## Data managment  
+
+- User data partitioning
+- Design for eventual consistency
+- Reduce chatty interactions between components and services
+- Use queues tot level the load for high velocity data writes
+- Minimize the load on the data store 
+- Minimize the volume of data retrieved
+- Aggressively use caching 
+- Handle data growth and retention
+- Optimize Data Transfer Objects (DTOs)
+- Set cache control
+- Enable client side caching
+- Use Azure blob storage and the Azure Content Delivery Network to reduce the load on the application
+- Optimize and tune SQL queries and indexes
+- Consider denormalizing data  
+
+## Implementation 
+
+- Review the performance antipatterns
+- Use asynchronous calls
+- Avoid locking resources, and use an optimistic approach instead
+- Compress highly compressible data over high latency, low bandwith networks.
+- Minimize the time that connections and resources are in use
+- Minimize the number of connections required
+- Send requests in batches to optimize network use
+- Avoid a requirement to store server-side session state where possible 
+- Optimize table storage schemas
+- Create resource dependencies during deployment or at application startup
+- Use lightweight frameworks
+- Consider minimizing the number of service accounts
