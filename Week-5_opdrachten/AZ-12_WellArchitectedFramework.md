@@ -41,10 +41,10 @@ Bestudeer:
 - Well-Architected Framework van Azure
 - Hoe je elke pilaar kan implementeren met cloud-diensten
 ### Gebruikte bronnen
-[Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)  
-[Architecting for Application Requirements](https://www.youtube.com/watch?v=lQlHWacM1N0)  
-[Cost optimization](https://learn.microsoft.com/en-us/azure/well-architected/cost/design-checklist)  
-[Reliability]()  
+- [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)  
+- [Architecting for Application Requirements](https://www.youtube.com/watch?v=lQlHWacM1N0)  
+- [Cost optimization](https://learn.microsoft.com/en-us/azure/well-architected/cost)  
+- [Reliability](https://learn.microsoft.com/en-us/azure/well-architected/resiliency/)   
 []()  
 []()  
 []()  
@@ -53,7 +53,7 @@ Bestudeer:
 
 ### Resultaat
 [Cost optimization principles and design](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/CostOptimization.md)  
-[]()  
+[Reliability](/Week-5_opdrachten/AZ-12_WellArchitectedFrameworkFiles.md/Reliability.md)  
 []()  
 []()  
 []()  

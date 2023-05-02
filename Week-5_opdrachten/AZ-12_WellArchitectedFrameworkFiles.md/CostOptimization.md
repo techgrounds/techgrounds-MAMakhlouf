@@ -1,4 +1,4 @@
-# Cost optimization principles:  
+# Cost optimization principles  
 Business goals and the return on investment (ROI) drive a cost-effective workload while you keep to a given budget. The principles of cost optimization are important considerations that help you achieve both business objectives and cost justification. 
 
 The following design principles provide:
