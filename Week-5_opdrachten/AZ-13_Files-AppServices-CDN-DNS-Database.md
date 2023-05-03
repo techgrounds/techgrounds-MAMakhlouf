@@ -117,6 +117,8 @@ Opdracht:
 
 ### Azure Files  
 
+[Azure Files Documentation](https://learn.microsoft.com/en-us/azure/storage/files/)  
+
 - What is Azure Files? 
   Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API, Azure file shares can be mounted concurrentlyy by cloud or on-premises deployments. SMB Azure file shares are accessible from Windows, Linux, and macOS clients. NFS Azure files shares are accessible from Linux clients. Additionally, SMB Azure file shares can be cached on Windows servers with Azure File Sync for fast access near where the data is being used.  
 
@@ -131,4 +133,7 @@ Opdracht:
 3. Created a directory in the file share
 ![Directory](/00_includes/Week-5-img/AZ-13_directory.png)
 4. File Upload to the directory in the file share
-![file upload](/00_includes/Week-5-img/AZ-13_fileuploaded.png)
+![file upload](/00_includes/Week-5-img/AZ-13_fileuploaded.png)  
+
+### Azure Database  
+
