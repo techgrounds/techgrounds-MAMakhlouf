@@ -123,4 +123,12 @@ Opdracht:
   Here are some videos on common use cases for Azure Files:  
   - [Replace your file server with a serverless Azure file share](https://youtu.be/H04e9AgbcSc) 
   - [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)  
-  
+
+1. Created a storage account: 
+![StorageAccount](/00_includes/Week-5-img/AZ-13_storageacc.png)
+2. Created an Azure File Share 
+![Fileshare](/00_includes/Week-5-img/AZ-13_fileshare.png)
+3. Created a directory in the file share
+![Directory](/00_includes/Week-5-img/AZ-13_directory.png)
+4. File Upload to the directory in the file share
+![file upload](/00_includes/Week-5-img/AZ-13_fileuploaded.png)
