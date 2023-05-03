@@ -92,17 +92,27 @@ Azure DNS supports alias record sets. You can use an alias record set to refer t
 
 Also, you can point your apex or naked domain to a Traffic Manager profile or CDN enpoint using an alias record. An example is contoso.com
 
+## Opdracht  
 
+Bestudeer:
+- App Service / Elastic Beanstalk
+- Content Delivery Network (CDN) / CloudFront
+- Azure DNS / Route53  
 
-## Opdracht
+Benodigdheden:  
+- Je Azure omgeving / AWS omgeving  
+
+Opdracht:  
+- Azure Files / EFS
+- Azure Database (+ managed instance) / RDS, Aurora
 ### Gebruikte bronnen
 [Azure App Service Documentation](https://learn.microsoft.com/en-us/azure/app-service/)  
 [Azure CDN Documentation](https://learn.microsoft.com/en-us/azure/cdn/cdn-overview)  
-[]()
+[Azure DNS Documentation](https://learn.microsoft.com/en-us/azure/dns/dns-overview)
 
 
 ### Ervaren uitdagingen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+
 
 ### Resultaat
 
