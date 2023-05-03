@@ -137,3 +137,14 @@ Opdracht:
 
 ### Azure Database  
 
+Azure SQL Database  
+- What is Azure SQL Databse?  
+  Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database managment functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99% availability. PaaS capabilities built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business.  
+
+  With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.  
+
+  Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine. You can use advanced query processing features, such as high-performance in-memory technologies and intelligent query processing.  In fact, the newest capabilities of SQL Server are released first to Azure SQL Database, and then to SQL Server itself. You get the newest SQL Server capabilities with no overhead for patching or upgrading, tested across millions of database.  
+
+  SQL Databse enable you to  easily define and scale performance within two different purchasing models:  a vCore-based purchasing model and a DTU-based purchasing model. SQL Databse is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SWL and operating system code. You dont have to manage the underlying infrastructure.  
+
+  
