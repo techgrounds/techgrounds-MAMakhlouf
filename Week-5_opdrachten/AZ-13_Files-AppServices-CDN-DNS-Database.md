@@ -113,6 +113,14 @@ Opdracht:
 
 ### Ervaren uitdagingen
 
-
 ### Resultaat
 
+### Azure Files  
+
+- What is Azure Files? 
+  Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API, Azure file shares can be mounted concurrentlyy by cloud or on-premises deployments. SMB Azure file shares are accessible from Windows, Linux, and macOS clients. NFS Azure files shares are accessible from Linux clients. Additionally, SMB Azure file shares can be cached on Windows servers with Azure File Sync for fast access near where the data is being used.  
+
+  Here are some videos on common use cases for Azure Files:  
+  - [Replace your file server with a serverless Azure file share](https://youtu.be/H04e9AgbcSc) 
+  - [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)  
+  
