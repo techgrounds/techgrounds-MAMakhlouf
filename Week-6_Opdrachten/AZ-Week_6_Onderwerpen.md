@@ -42,3 +42,4 @@ Benodigdheden:
 - CosmosDB  
 - Azure Functions  
 - Event Grid, Queue Storage, Service Bus
+
