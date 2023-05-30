@@ -1,5 +1,5 @@
 while True:
-    number = int(input("Enter a number: "))
+    number = itn(input("Enter a number: "))
 
     if number > 100:
         print("The number is higher than 100.")
