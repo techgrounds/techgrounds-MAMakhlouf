@@ -1,9 +1,10 @@
-number_input = input("Enter a number: ")
-number = int(number_input)
+while True:
+    number = int(input("Enter a number: "))
 
-if number > 100:
-    print(number_input + " is higher then 100!")
-elif number < 100:
-    print(number_input + " is lower then 100!")
-else:
-    print("Thats exactly 100!")
+    if number > 100:
+        print("The number is higher than 100.")
+    elif number < 100:
+        print("The number is lower than 100.")
+    else:
+        print("Congratulations! You entered 100.")
+        break
