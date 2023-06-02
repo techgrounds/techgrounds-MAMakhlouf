@@ -1,2 +1,2 @@
 value1 = "Amsterdam"
-print("Value 3: " + value1)
+print("Value 1: " + value1)

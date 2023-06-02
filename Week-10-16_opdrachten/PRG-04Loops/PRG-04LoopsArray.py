@@ -1,4 +1,4 @@
-arr = ("Coen", "Casper", "Joshua", "Abdessamad", "Saskia")
+array = ("Coen", "Casper", "Joshua", "Abdessamad", "Saskia")
 
-for name in arr:
+for name in array:
     print(name)

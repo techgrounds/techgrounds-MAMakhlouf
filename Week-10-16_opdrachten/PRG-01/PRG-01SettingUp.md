@@ -2,7 +2,7 @@
 Setting up python programming enviroment
 
 ## Key-terms
-
+Syntaxis gaat over de manier waarop woorden en zinnen worden gemaakt. Theorie over hoe woorden worden gemaakt heet >morfologie. Theorie over hoe zinnen worden gemaakt heet >syntaxis.
 
 ## Opdracht
 Install the latest version of Python from https://www.python.org/
