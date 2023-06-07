@@ -1,307 +1,265 @@
+param appPrdVnetName string = 'app-prd-vnet'
+param managementPrdVnetName string = 'management-prd-vnet'
 param location string = 'westeurope'
-param adminUser string
-param adminSourceIPs array = [
-  '10.10.10.0/24'
-  '10.20.20.0/24'
-]
+param subnet1Prefix string = '10.10.10.0/24'
+param subnet2Prefix string = '10.20.20.0/24'
+param nsgName string = 'your-nsg-name'
+param vmName string = 'your-vm-name'
+param vmSize string = 'Standard_DS2_v2'
+param backupRetentionDays int = 7
+param trustedIpAddress string = 'your-trusted-ip-address'
 
-resource vnet 'Microsoft.Network/virtualNetworks@2021-05-01' = {
-  name: 'myVNet'
+resource vnet1 'Microsoft.Network/virtualNetworks@2021-03-01' = {
+  name: appPrdVnetName
   location: location
   properties: {
     addressSpace: {
       addressPrefixes: [
-        '10.0.0.0/16'
+        '10.10.0.0/16'
       ]
     }
+    subnets: [
+      {
+        name: 'app-prd-subnet'
+        properties: {
+          addressPrefix: subnet1Prefix
+          networkSecurityGroup: {
+            id: resourceId('Microsoft.Network/networkSecurityGroups', nsgName)
+          }
+        }
+      }
+    ]
   }
 }
 
-resource adminSubnet 'Microsoft.Network/virtualNetworks/subnets@2021-05-01' = {
-  name: 'adminSubnet'
-  parent: vnet
+resource vnet2 'Microsoft.Network/virtualNetworks@2021-03-01' = {
+  name: managementPrdVnetName
+  location: location
   properties: {
-    addressPrefix: '10.0.0.0/24'
-    privateEndpointNetworkPolicies: 'Disabled'
-    privateLinkServiceNetworkPolicies: 'Disabled'
-    serviceEndpoints: [
+    addressSpace: {
+      addressPrefixes: [
+        '10.20.0.0/16'
+      ]
+    }
+    subnets: [
       {
-        service: 'Microsoft.Storage'
-        locations: [
-          '*'
+        name: 'management-prd-subnet'
+        properties: {
+          addressPrefix: subnet2Prefix
+          networkSecurityGroup: {
+            id: resourceId('Microsoft.Network/networkSecurityGroups', nsgName)
+          }
+        }
+      }
+    ]
+  }
+}
+
+resource vm1 'Microsoft.Compute/virtualMachineScaleSets@2021-07-01' = {
+  name: 'webserver-scaleset'
+  location: location
+  properties: {
+    sku: {
+      name: 'Standard_DS2_v2'
+      tier: 'Standard'
+    }
+    upgradePolicy: {
+      mode: 'Automatic'
+    }
+    virtualMachineProfile: {
+      storageProfile: {
+        osDisk: {
+          createOption: 'FromImage'
+          encryptionSettings: {
+            enabled: true
+          }
+        }
+        dataDisks: [
+          {
+            createOption: 'Empty'
+            diskSizeGB: 128
+            encryptionSettings: {
+              enabled: true
+            }
+          }
         ]
       }
-    ]
-  }
-}
-
-resource webSubnet 'Microsoft.Network/virtualNetworks/subnets@2021-05-01' = {
-  name: 'webSubnet'
-  parent: vnet
-  properties: {
-    addressPrefix: '10.0.1.0/24'
-    privateEndpointNetworkPolicies: 'Disabled'
-    privateLinkServiceNetworkPolicies: 'Disabled'
-  }
-}
-
-resource webServerNIC 'Microsoft.Network/networkInterfaces@2021-05-01' = {
-  name: 'webServerNIC'
-  location: location
-  properties: {
-    ipConfigurations: [
-      {
-        name: 'webServerIPConfig'
-        properties: {
-          subnet: {
-            id: webSubnet.id
-          }
-          privateIPAllocationMethod: 'Dynamic'
-        }
+      osProfile: {
+        computerNamePrefix: 'webserver'
+        adminUsername: 'your-username'
+        adminPassword: 'your-password'
       }
-    ]
-  }
-}
-
-resource adminServerNIC 'Microsoft.Network/networkInterfaces@2021-05-01' = {
-  name: 'adminServerNIC'
-  location: location
-  properties: {
-    ipConfigurations: [
-      {
-        name: 'adminServerIPConfig'
-        properties: {
-          subnet: {
-            id: adminSubnet.id
+      networkProfile: {
+        networkInterfaceConfigurations: [
+          {
+            name: 'nic-config'
+            properties: {
+              primary: true
+              ipConfigurations: [
+                {
+                  name: 'ip-config'
+                  properties: {
+                    subnet: {
+                      id: resourceId('Microsoft.Network/virtualNetworks/subnets', appPrdVnetName, 'app-prd-subnet')
+                    }
+                    loadBalancerBackendAddressPools: [
+                      {
+                        id: resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'your-load-balancer-name')
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
-          privateIPAllocationMethod: 'Dynamic'
-        }
+        ]
       }
-    ]
+      extensionProfile: {
+        extensions: [
+          {
+            name: 'backup-extension'
+            properties: {
+              backupName: 'webserver-backup'
+              backupPolicyId: 'your-backup-policy-id'
+              backupRetentionDays: backupRetentionDays
+            }
+          }
+        ]
+      }
+    }
   }
 }
 
-resource webServer 'Microsoft.Compute/virtualMachines@2021-03-01' = {
-  name: 'webServer'
+resource vm2 'Microsoft.Compute/virtualMachines@2021-07-01' = {
+  name: 'management-server'
   location: location
   properties: {
     hardwareProfile: {
-      vmSize: 'Standard_D2s_v3'
+      vmSize: 'Standard_DS2_v2'
     }
     storageProfile: {
       osDisk: {
         createOption: 'FromImage'
+        encryptionSettings: {
+          enabled: true
+        }
       }
-      dataDisks: []
     }
     osProfile: {
-      computerName: 'webServer'
-      adminUsername: 'adminUser'
-      adminPassword: 'P@ssw0rd123!'
+      computerName: 'management-server'
+      adminUsername: 'your-username'
+      adminPassword: 'your-password'
     }
     networkProfile: {
       networkInterfaces: [
         {
-          id: webServerNIC.id
+          id: resourceId('Microsoft.Network/networkInterfaces', 'your-nic-name')
         }
       ]
     }
-    diagnosticsProfile: {
-      bootDiagnostics: {
-        enabled: true
-        storageUri: '[concat('https://', reference(resourceId('Microsoft.Storage/storageAccounts', 'bootdiagstorage'), '2019-06-01').primaryEndpoints.blob)]',
-      }
-    }
-  }
-  dependsOn: [
-    webServerNIC
-  ]
-}
-
-resource adminServer 'Microsoft.Compute/virtualMachines@2021-03-01' = {
-  name: 'adminServer'
-  location: location
-  properties: {
-    hardwareProfile: {
-      vmSize: 'Standard_D2s_v3'
-    }
-    storageProfile: {
-      osDisk: {
-        createOption: 'FromImage'
-      }
-      dataDisks: []
-    }
-    osProfile: {
-      computerName: 'adminServer'
-      adminUsername: 'adminUser'
-      adminPassword: 'P@ssw0rd123!'
-    }
-    networkProfile: {
-      networkInterfaces: [
-        {
-          id: adminServerNIC.id
-        }
-      ]
-    }
-    diagnosticsProfile: {
-      bootDiagnostics: {
-        enabled: true
-        storageUri: '[concat('https://', reference(resourceId('Microsoft.Storage/storageAccounts', 'bootdiagstorage'), '2019-06-01').primaryEndpoints.blob)]'
-      }
-    }
-  }
-  dependsOn: [
-    adminServerNIC
-  ]
-}
-
-resource diskEncryptionSet 'Microsoft.Compute/diskEncryptionSets@2021-03-01' = {
-  name: 'diskEncryptionSet'
-  location: location
-  properties: {
-    activeKey: {
-      sourceVault: {
-        id: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{keyVaultName}'
-      }
-      keyUrl: 'https://{keyVaultName}.vault.azure.net/keys/{keyName}/{keyVersion}'
-    }
   }
 }
 
-resource vmExtension 'Microsoft.Compute/virtualMachines/extensions@2021-03-01' = {
-  name: 'webServerExtension'
-  location: location
-  properties: {
-    publisher: 'Microsoft.Azure.Extensions'
-    type: 'CustomScript'
-    typeHandlerVersion: '2.1'
-    settings: {
-      fileUris: [
-        'https://example.com/install-webserver-script.sh'
-      ]
-      commandToExecute: 'bash install-webserver-script.sh'
-    }
-  }
-  dependsOn: [
-    webServer
-  ]
-}
-
-resource backupVault 'Microsoft.RecoveryServices/vaults@2021-05-01' = {
-  name: 'backupVault'
-  location: location
-  properties: {}
-}
-
-resource backupPolicy 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionPolicies@2021-05-01' = {
-  name: 'backupPolicy'
-  parent: backupVault
-  properties: {
-    backupManagementType: 'AzureIaasVM'
-    workloadType: 'AzureVM'
-    retentionPolicy: {
-      dailySchedule: {
-        retentionDuration: {
-          count: 7
-          durationType: 'Days'
-        }
-        startTime: '2018-06-01T06:00:00+00:00'
-      }
-    }
-  }
-}
-
-resource backupProtection 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/items/protectedItems@2021-05-01' = {
-  name: 'backupProtection'
-  parent: backupVault
-  properties: {
-    policyId: backupPolicy.id
-    sourceResourceId: webServer.id
-    protectedItemType: 'Microsoft.Compute/virtualMachines'
-  }
-  dependsOn: [
-    webServer
-  ]
-}
-
-resource webServerNSG 'Microsoft.Network/networkSecurityGroups@2021-05-01' = {
-  name: 'webServerNSG'
+resource nsg 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
+  name: nsgName
   location: location
   properties: {
     securityRules: [
       {
-        name: 'SSHRule'
+        name: 'SSH-RDP-Rules'
         properties: {
-          description: 'Allow SSH from admin server'
           protocol: 'Tcp'
-          sourcePortRange: '*'
+          sourceAddressPrefix: trustedIpAddress
           destinationPortRange: '22'
-          sourceAddressPrefix: adminSourceIPs[0]
-          destinationAddressPrefix: 'VirtualNetwork'
-          access: 'Allow'
-          priority: 100
-          direction: 'Inbound'
-        }
-      }
-      {
-        name: 'RDPRule'
-        properties: {
-          description: 'Allow RDP from admin server'
-          protocol: 'Tcp'
           sourcePortRange: '*'
-          destinationPortRange: '3389'
-          sourceAddressPrefix: adminSourceIPs[0]
-          destinationAddressPrefix: 'VirtualNetwork'
-          access: 'Allow'
-          priority: 101
-          direction: 'Inbound'
-        }
-      }
-    ]
-  }
-  dependsOn: [
-    webSubnet
-  ]
-}
-
-resource adminServerNSG 'Microsoft.Network/networkSecurityGroups@2021-05-01' = {
-  name: 'adminServerNSG'
-  location: location
-  properties: {
-    securityRules: [
-      {
-        name: 'SSHRule'
-        properties: {
-          description: 'Allow SSH from trusted IPs'
-          protocol: 'Tcp'
-          sourcePortRange: '*'
-          destinationPortRange: '22'
-          sourceAddressPrefixes: adminSourceIPs
-          destinationAddressPrefix: 'VirtualNetwork'
+          destinationAddressPrefix: '*'
           access: 'Allow'
           priority: 100
           direction: 'Inbound'
         }
       },
       {
-        name: 'RDPRule'
+        name: 'Webserver-Rules'
         properties: {
-          description: 'Allow RDP from trusted IPs'
           protocol: 'Tcp'
+          sourceAddressPrefix: 'your-management-server-ip'
+          destinationPortRange: '80'
           sourcePortRange: '*'
-          destinationPortRange: '3389'
-          sourceAddressPrefixes: adminSourceIPs
-          destinationAddressPrefix: 'VirtualNetwork'
+          destinationAddressPrefix: '*'
           access: 'Allow'
           priority: 101
+          direction: 'Inbound'
+        }
+      },
+      {
+        name: 'Webserver-SSH-Rules'
+        properties: {
+          protocol: 'Tcp'
+          sourceAddressPrefix: 'your-management-server-ip'
+          destinationPortRange: '22'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: 102
           direction: 'Inbound'
         }
       }
     ]
   }
-  dependsOn: [
-    adminSubnet
-  ]
 }
 
-output webServerPublicIP string = webServer.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.id
+resource publicIp 'Microsoft.Network/publicIPAddresses@2021-02-01' = {
+  name: 'management-server-public-ip'
+  location: location
+  properties: {
+    publicIPAllocationMethod: 'Static'
+    publicIPAddressVersion: 'IPv4'
+    dnsSettings: {
+      domainNameLabel: 'management-server'
+    }
+  }
+}
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+  name: 'your-storage-account-name'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {}
+}
+
+resource keyVault 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
+  name: 'your-key-vault-name'
+  location: location
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'your-tenant-id'
+    accessPolicies: [
+      {
+        tenantId: 'your-tenant-id'
+        objectId: 'your-object-id'
+        permissions: {
+          keys: ['all']
+          secrets: ['all']
+          certificates: ['all']
+        }
+      }
+    ]
+  }
+}
+
+resource recoveryServiceVault 'Microsoft.RecoveryServices/vaults@2021-06-01' = {
+  name: 'your-recovery-service-vault-name'
+  location: location
+  properties: {
+    sku: {
+      name: 'RS0'
+    }
+    tenantId: 'your-tenant-id'
+  }
+}
