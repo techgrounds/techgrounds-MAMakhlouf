@@ -177,7 +177,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
           priority: 100
           direction: 'Inbound'
         }
-      },
+      }
       {
         name: 'Webserver-Rules'
         properties: {
@@ -190,7 +190,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
           priority: 101
           direction: 'Inbound'
         }
-      },
+      }
       {
         name: 'Webserver-SSH-Rules'
         properties: {
