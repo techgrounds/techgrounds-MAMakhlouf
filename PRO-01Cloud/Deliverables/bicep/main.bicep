@@ -3,16 +3,16 @@ param vnet1Name string = 'app-prd-vnet'
 param vnet2Name string = 'management-prd-vnet'
 param subnet1Name string = 'app-prd-subnet'
 param subnet2Name string = 'managemen-prd-subnet'
-//param webServerName string = 'webserver'
-//param managementServerName string = 'managementserver'
+param webServerName string = 'webserver'
+param managementServerName string = 'managementserver'
 param nsg1Name string = 'app-prd-nsg'
 param nsg2Name string = 'management-prd-nsg'
 //param keyVaultName string = 'keyvault'
 //param storageAccountName string = 'storageaccount'
 //param backupVaultName string = 'backupvault'
-//param adminUserName string = 'akram'
-//@secure()
-//param adminPassword string = newGuid()
+param adminUserName string = 'akram'
+@secure()
+param adminPassword string = newGuid()
 
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01'= {
   name: vnet1Name
@@ -84,5 +84,146 @@ resource nsg2 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
   }
 }
 
+resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
+  name: webServerName
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    hardwareProfile: {
+      vmSize:  'Standard_B1s'
+    }
+    osProfile: {
+      computerName: webServerName
+      adminUsername: adminUserName
+      adminPassword: adminPassword
+    }
+    storageProfile: {
+       imageReference: {
+        offer: 'UbuntuServer'
+        publisher: 'Canonical'
+        sku: '18.04-LTS'
+        version: 'Latest'
+      }
+      osDisk: {
+        createOption:  'FromImage'
+        diskSizeGB: 32
+        encryptionSettings: {
+          enabled: false
+        }
+      }
+      dataDisks: []
+    }
+    networkProfile: {
+      networkInterfaces: [
+        {
+          id: webServerNic.id
+        }
+      ]
+    }
+  }
+}
 
+resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
+  name: managementServerName
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    hardwareProfile: {
+      vmSize:  'Standard_B1s'
+    }
+    osProfile: {
+      computerName: managementServerName
+      adminUsername: adminUserName
+      adminPassword: adminPassword
+    }
+    storageProfile: {
+      imageReference: {
+        offer: 'UbuntuServer'
+        publisher: 'Canonical'
+        sku: '18.04-LTS'
+        version: 'Latest'
+      }
+      osDisk: {
+        createOption:  'FromImage'
+        diskSizeGB: 32
+         osType: 'Linux'
+        encryptionSettings: {
+          enabled: false
+        }
+      }
+      dataDisks: []
+    }
+    networkProfile: {
+      networkInterfaces: [
+        {
+          id: managementServerNic.id
+        }
+      ]
+    }
+  }
+}
+
+resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
+  name: '${webServerName}-nic'
+  location: location
+  properties: {
+    ipConfigurations: [
+      {
+        name: 'ipconfig'
+        properties: {
+          subnet: {
+            id: subnet1.id
+          }
+          privateIPAllocationMethod: 'Dynamic'
+          publicIPAddress: {
+            id: webServerPublicIP.id
+          }
+        }
+      }
+    ]
+  }
+}
+
+resource managementServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
+  name: '${managementServerName}-nic'
+  location: location
+  properties: {
+    ipConfigurations: [
+      {
+        name: 'ipconfig'
+        properties: {
+          subnet: {
+            id: subnet2.id
+          }
+          privateIPAllocationMethod: 'Dynamic'
+          publicIPAddress: {
+            id: managementServerPublicIP.id
+          }
+        }
+      }
+    ]
+  }
+}
+
+resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
+  name: '${webServerName}-publicip'
+  location: location
+  properties: {
+    publicIPAllocationMethod: 'Dynamic'
+    // Add IP restriction rule for trusted locations
+  }
+}
+
+resource managementServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
+  name: '${managementServerName}-publicip'
+  location: location
+  properties: {
+    publicIPAllocationMethod: 'Dynamic'
+    // Add IP restriction rule for trusted locations
+  }
+}
 

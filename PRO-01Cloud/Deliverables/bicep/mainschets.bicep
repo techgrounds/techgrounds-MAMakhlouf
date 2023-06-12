@@ -97,7 +97,7 @@ resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     osProfile: {
       computerName: webServerName
       adminUsername: adminUserName
-      adminPassword: 'akram020'
+      adminPassword: adminPassword
     }
     storageProfile: {
       osDisk: {
