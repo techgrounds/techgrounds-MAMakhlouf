@@ -10,6 +10,9 @@ param nsg2Name string = 'management-prd-nsg'
 param keyVaultName string = 'keyvault'
 param storageAccountName string = 'storageaccount'
 param backupVaultName string = 'backupvault'
+param adminUserName string = 'akram'
+@secure()
+param adminPassword string = newGuid()
 
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01'= {
   name: vnet1Name
@@ -35,8 +38,8 @@ resource vnet2 'Microsoft.Network/virtualNetworks@2022-11-01' = {
   }
 }
 
-resource subnet1 'Microsoft.Network/virtualNetworks/subnets@2021-02-01' = {
-  name: '${vnet1Name}/${subnet1Name}'
+resource subnet1 'Microsoft.Network/virtualNetworks/subnets@2022-11-01' = {
+  name: '${vnet1Name}${subnet1Name}'
   parent: vnet1
   properties: {
     addressPrefix: '10.10.10.0/24'
@@ -48,8 +51,8 @@ resource subnet1 'Microsoft.Network/virtualNetworks/subnets@2021-02-01' = {
   }
 }
 
-resource subnet2 'Microsoft.Network/virtualNetworks/subnets@2021-02-01' = {
-  name: '${vnet2Name}/${subnet2Name}'
+resource subnet2 'Microsoft.Network/virtualNetworks/subnets@2022-11-01'
+  name: '${vnet2Name}${subnet2Name}'
   parent: vnet2
   properties: {
     addressPrefix: '10.20.20.0/24'
@@ -61,7 +64,7 @@ resource subnet2 'Microsoft.Network/virtualNetworks/subnets@2021-02-01' = {
   }
 }
 
-resource nsg1 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
+resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01'
   name: nsg1Name
   location: location
   properties: {
@@ -71,7 +74,7 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
   }
 }
 
-resource nsg2 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
+resource nsg2 'Microsoft.Network/networkSecurityGroups@2022-11-01'
   name: nsg2Name
   location: location
   properties: {
@@ -81,7 +84,7 @@ resource nsg2 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
   }
 }
 
-resource webServer 'Microsoft.Compute/virtualMachines@2021-04-01' = {
+resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: webServerName
   location: location
   identity: {
@@ -93,8 +96,8 @@ resource webServer 'Microsoft.Compute/virtualMachines@2021-04-01' = {
     }
     osProfile: {
       computerName: webServerName
-      adminUsername: 'adminUser'
-      adminPassword: 'adminPassword'
+      adminUsername: adminUserName
+      adminPassword: 'akram020'
     }
     storageProfile: {
       osDisk: {
@@ -116,7 +119,7 @@ resource webServer 'Microsoft.Compute/virtualMachines@2021-04-01' = {
   }
 }
 
-resource managementServer 'Microsoft.Compute/virtualMachines@2021-04-01' = {
+resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: managementServerName
   location: location
   identity: {
@@ -128,8 +131,8 @@ resource managementServer 'Microsoft.Compute/virtualMachines@2021-04-01' = {
     }
     osProfile: {
       computerName: managementServerName
-      adminUsername: 'adminUser'
-      adminPassword: 'adminPassword'
+      adminUsername: adminUserName
+      adminPassword: adminPassword
     }
     storageProfile: {
       osDisk: {
@@ -151,7 +154,7 @@ resource managementServer 'Microsoft.Compute/virtualMachines@2021-04-01' = {
   }
 }
 
-resource webServerNic 'Microsoft.Network/networkInterfaces@2021-02-01' = {
+resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
   name: '${webServerName}-nic'
   location: location
   properties: {
@@ -172,7 +175,7 @@ resource webServerNic 'Microsoft.Network/networkInterfaces@2021-02-01' = {
   }
 }
 
-resource managementServerNic 'Microsoft.Network/networkInterfaces@2021-02-01' = {
+resource managementServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
   name: '${managementServerName}-nic'
   location: location
   properties: {
@@ -193,7 +196,7 @@ resource managementServerNic 'Microsoft.Network/networkInterfaces@2021-02-01' = 
   }
 }
 
-resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2021-02-01' = {
+resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   name: '${webServerName}-publicip'
   location: location
   properties: {
@@ -202,7 +205,7 @@ resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2021-02-01' = {
   }
 }
 
-resource managementServerPublicIP 'Microsoft.Network/publicIPAddresses@2021-02-01' = {
+resource managementServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   name: '${managementServerName}-publicip'
   location: location
   properties: {
@@ -211,10 +214,10 @@ resource managementServerPublicIP 'Microsoft.Network/publicIPAddresses@2021-02-0
   }
 }
 
-resource keyVault 'Microsoft.KeyVault/vaults@2019-09-01-preview' = {
+resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
   name: keyVaultName
   location: location
-  properties: {
+  properties: { 
     sku: {
       name: 'standard'
     }
@@ -224,7 +227,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2019-09-01-preview' = {
   }
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
   location: location
   properties: {
@@ -246,7 +249,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   }
 }
 
-resource backupVault 'Microsoft.RecoveryServices/vaults@2021-05-01' = {
+resource backupVault 'Microsoft.RecoveryServices/vaults@2023-02-01' = {
   name: backupVaultName
   location: location
   properties: {
