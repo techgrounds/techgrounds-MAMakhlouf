@@ -11,7 +11,7 @@ param keyVaultName string = 'keyvault'
 param storageAccountName string = 'storageaccount'
 param backupVaultName string = 'backupvault'
 
-resource vnet1 'Microsoft.Network/virtualNetworks@2021-02-01' = {
+resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01'= {
   name: vnet1Name
   location: location
   properties: {
@@ -23,7 +23,7 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2021-02-01' = {
   }
 }
 
-resource vnet2 'Microsoft.Network/virtualNetworks@2021-02-01' = {
+resource vnet2 'Microsoft.Network/virtualNetworks@2022-11-01' = {
   name: vnet2Name
   location: location
   properties: {
