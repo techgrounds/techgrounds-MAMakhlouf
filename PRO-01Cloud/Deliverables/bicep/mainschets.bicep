@@ -51,7 +51,7 @@ resource subnet1 'Microsoft.Network/virtualNetworks/subnets@2022-11-01' = {
   }
 }
 
-resource subnet2 'Microsoft.Network/virtualNetworks/subnets@2022-11-01'
+resource subnet2 'Microsoft.Network/virtualNetworks/subnets@2022-11-01'= {
   name: '${vnet2Name}${subnet2Name}'
   parent: vnet2
   properties: {
@@ -64,7 +64,7 @@ resource subnet2 'Microsoft.Network/virtualNetworks/subnets@2022-11-01'
   }
 }
 
-resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01'
+resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
   name: nsg1Name
   location: location
   properties: {
@@ -74,7 +74,7 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01'
   }
 }
 
-resource nsg2 'Microsoft.Network/networkSecurityGroups@2022-11-01'
+resource nsg2 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
   name: nsg2Name
   location: location
   properties: {
