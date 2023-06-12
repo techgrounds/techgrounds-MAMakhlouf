@@ -29,7 +29,7 @@ SSH of RDP verbindingen met de webserver mogen alleen tot stand komen vanuit de 
 
 ## 1. Inleiding
 
-Beschrijf het doel van het ontwerpdocument en geef een overzicht van de projectvereisten en doelstellingen.
+In dit document vul ik de gaten op en vermeld de uiteindelijk praktische en technische informatie. Dit document bevat informatie over de gekozen (N)SG regels. Maar ook een visualisatie van wat, en in welke volgorde, ik de applicatie deploy in de cloud.
 
 ## 2. Architectuurdiagram
 
