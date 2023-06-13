@@ -12,8 +12,7 @@ param nsg2Name string = 'management-prd-nsg'
 //param backupVaultName string = 'backupvault'
 param adminUserName string = 'akram'
 @secure()
-param adminPassword string = newGuid()
-
+param adminPassword string 
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01'= {
   name: vnet1Name
   location: location
