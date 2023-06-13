@@ -1,3 +1,5 @@
+targetScope = 
+
 param location string = 'westeurope'
 param vnet1Name string = 'app-prd-vnet'
 param vnet2Name string = 'management-prd-vnet'
@@ -13,6 +15,13 @@ param nsg2Name string = 'management-prd-nsg'
 param adminUserName string = 'akram'
 @secure()
 param adminPassword string 
+
+resource resourceGroup 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+  name: 'test'
+  location: location
+
+}
+
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01'= {
   name: vnet1Name
   location: location

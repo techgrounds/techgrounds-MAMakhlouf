@@ -3,11 +3,11 @@ param location string
 
 @secure()
 @description('The administrator login username for the SQL server.')
-param sqlServerAdministratorLogin string
+param sqlServerAdministratorLogin string 
 
 @secure()
 @description('The administrator login password for the SQL server.')
-param sqlServerAdministratorLoginPassword string
+param sqlServerAdministratorLoginPassword string 
 
 @description('The name and tier of the SQL database SKU.')
 param sqlDatabaseSku object = {
@@ -64,3 +64,7 @@ resource sqlServerAudit 'Microsoft.Sql/servers/auditingSettings@2021-11-01-previ
     storageAccountAccessKey: environmentName == 'Production' ? listKeys(auditStorageAccount.id, auditStorageAccount.apiVersion).keys[0].value : ''
   }
 }
+
+output serverName string = sqlServer.name
+output location string = location
+output serverFullyQuelifiedDomainName string = sqlServer.properties.fullyQualifiedDomainName
