@@ -18,7 +18,7 @@ module vnet1 './modules/network/vnet1.bicep' = {
   name: 'vnet1Deployment'
   scope: resourceGroup
   params:  {
-    location: locatio
+    location: location
 }
 module vnet2 './modules/network/vnet2.bicep' = {
   name: 'vnet2Deployment'
