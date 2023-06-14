@@ -19,7 +19,9 @@ module vnet1 './modules/network/vnet1.bicep' = {
   scope: resourceGroup
   params:  {
     location: location
+  }
 }
+
 module vnet2 './modules/network/vnet2.bicep' = {
   name: 'vnet2Deployment'
   scope: resourceGroup
@@ -27,7 +29,7 @@ module vnet2 './modules/network/vnet2.bicep' = {
     location: location
   }
 }
-}
+
 module managementServer './modules/database/managementServer.bicep' = {
   name: 'managementServerDeployment'
   scope: resourceGroup
