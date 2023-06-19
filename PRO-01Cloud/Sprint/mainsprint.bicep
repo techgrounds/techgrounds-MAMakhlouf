@@ -1,12 +1,16 @@
 targetScope = 'subscription'
 
+
+
+@description('Sets the location for deployment')
 param location string = 'westeurope'
 
+@description('Sets the resource group name for deployment')
 param resourceGroupName string = 'app-prd-rg'
 
 
 
-
+@description('Deploys the resource group')
 module resourceGroupDeployment '../Deliverables/bicep/modules/resourcegroup/resourcegroup.bicep' = {
   name: 'resourceGroupDeployment'
   params: {
@@ -14,7 +18,8 @@ module resourceGroupDeployment '../Deliverables/bicep/modules/resourcegroup/reso
   }
 }
 
-module vnet1 '../Deliverables/bicep/modules/network/vnet1.bicep' = {
+@description('Deploys the virtual network 1')
+module vnetsDeployment '../Deliverables/bicep/modules/network/vnets.bicep' = {
   name: 'vnet1Deployment'
   scope: resourceGroup(resourceGroupName)
   params:  {
@@ -22,13 +27,3 @@ module vnet1 '../Deliverables/bicep/modules/network/vnet1.bicep' = {
   }
 }
 
-module vnet2 '../Deliverables/bicep/modules/network/vnet2.bicep' = {
-  name: 'vnet2Deployment'
-  scope: resourceGroup(resourceGroupName)
-  params:  {
-    location: location
-  }
-}
-
-
-output locationOutput string = location
