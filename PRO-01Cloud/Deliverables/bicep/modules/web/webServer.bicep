@@ -1,9 +1,14 @@
 param webServerName string = 'webserver'
+
 @secure()
 param adminUserName string 
 @secure()
 param adminPassword string 
+
 param location string = resourceGroup().location
+
+
+
 
 resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: webServerName
@@ -55,15 +60,15 @@ resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
         name: 'ipconfig'
         properties: {
           subnet: {
-            id: subnet1.id
-          }
+            id:  
           privateIPAllocationMethod: 'Dynamic'
           publicIPAddress: {
             id: webServerPublicIP.id
           }
         }
       }
-    ]
+    }
+    ] 
   }
 }
 
@@ -75,3 +80,5 @@ resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
     // Add IP restriction rule for trusted locations
   }
 }
+output webServerResourceId string = webServer.id
+

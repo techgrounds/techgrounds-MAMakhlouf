@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-08T13:37:19.833Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="pmbP4T0V6tDrhoI7ZKP1" version="21.3.7" type="device">
+<mxfile host="app.diagrams.net" modified="2023-06-14T18:14:47.168Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="nFaWELb3k9dAZcNW8-7T" version="21.3.8" type="device">
   <diagram name="Page-1" id="IsCAG9EBEDEz-0Z08IRQ">
-    <mxGraphModel dx="714" dy="803" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1674" dy="802" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -126,7 +126,7 @@
           <mxGeometry x="630" y="538" width="48" height="50" as="geometry" />
         </mxCell>
         <mxCell id="BVAmYGAtuPXn5raohfIf-42" value="RECOVERY SERVICE VAULT" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/management_governance/Recovery_Services_Vaults.svg;" parent="1" vertex="1">
-          <mxGeometry x="398" y="369" width="55" height="47.83" as="geometry" />
+          <mxGeometry x="410" y="462.09000000000003" width="55" height="47.83" as="geometry" />
         </mxCell>
         <mxCell id="BVAmYGAtuPXn5raohfIf-43" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Subscriptions.svg;" parent="1" vertex="1">
           <mxGeometry x="16" y="9" width="44" height="71" as="geometry" />

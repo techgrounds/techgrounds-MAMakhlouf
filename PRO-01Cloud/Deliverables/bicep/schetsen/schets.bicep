@@ -47,7 +47,7 @@ resource webserver 'Microsoft.Compute/virtualMachines@2023-03-01' = {
       id: azset.id
     }
     hardwareProfile: {
-      vmSize: 'Standard_DS2_v2'
+      vmSize: 'Standard_B1s'
     }
     osProfile: {
       computerName: 'webServer'
