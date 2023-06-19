@@ -9,6 +9,3 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2022-09-01' = {
 
 output resourceGroupName string = resourceGroup.name
 
-
-
-

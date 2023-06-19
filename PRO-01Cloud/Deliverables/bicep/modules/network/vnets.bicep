@@ -1,3 +1,4 @@
+targetScope = 'resourceGroup'
 param location string = resourceGroup().location
 
 param vnet1Name string = 'app-prd-vnet'
@@ -48,6 +49,8 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
   location: location
   properties: {
     securityRules: [
+          {
+      }
       // Define security rules for web server
     ]
   }
@@ -104,6 +107,7 @@ output vnet2Name string = vnet2.name
 output vnet2Id string = vnet2.id
 output subnet2Name string = subnet2Name
 output subnet2Id string = vnet2.properties.subnets[0].id
+output subnet2ResourceId string = vnet2.properties.subnets[0].properties.networkSecurityGroup.id
 output nsg2Id string = nsg2.id
 output vnet2AddressPrefix string = vnet2.properties.addressSpace.addressPrefixes[0]
 output managementServerAddressPrefix string = vnet2.properties.subnets[0].properties.addressPrefix
@@ -120,5 +124,5 @@ resource vnetpeering 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2
       id: vnet2.id
     }
   }
-
+ 
 }

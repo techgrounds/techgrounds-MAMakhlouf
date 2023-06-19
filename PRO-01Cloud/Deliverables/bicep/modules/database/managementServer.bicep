@@ -6,6 +6,8 @@ param adminUserName string
 @secure()
 param adminPassword string 
 
+param subnet2ResourceId string
+
 resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: managementServerName
   location: location
@@ -13,27 +15,33 @@ resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     type: 'SystemAssigned'
   }
   properties: {
+    availabilitySet: {
+      id: //availabilitySetResource.id
+    }
     hardwareProfile: {
-      vmSize:  'Standard_B1s'
+      vmSize:  'Standard_B2s'
     }
     osProfile: {
       computerName: managementServerName
       adminUsername: adminUserName
       adminPassword: adminPassword
+      windowsConfiguration: {
+        enableAutomaticUpdates: true
+      }
     }
     storageProfile: {
       imageReference: {
-        offer: 'UbuntuServer'
-        publisher: 'Canonical'
-        sku: '18.04-LTS'
+        offer: 'WindowsServer'
+        publisher: 'MicrosoftWindowsServer'
+        sku: '2019-Datacenter'
         version: 'Latest'
       }
       osDisk: {
         createOption:  'FromImage'
         diskSizeGB: 32
-         osType: 'Linux'
+         osType: 'windows'
         encryptionSettings: {
-          enabled: false
+          enabled: true
         }
       }
       dataDisks: []
@@ -59,7 +67,7 @@ resource managementServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = 
         name: 'ipconfig'
         properties: {
           subnet: {
-            id: subnet2.id
+            id: subnet2ResourceId
           }
           privateIPAllocationMethod: 'Dynamic'
           publicIPAddress: {
