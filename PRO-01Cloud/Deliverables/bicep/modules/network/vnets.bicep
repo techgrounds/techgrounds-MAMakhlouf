@@ -1,4 +1,4 @@
-targetScope = 'resourceGroup'
+
 param location string = resourceGroup().location
 
 param vnet1Name string = 'app-prd-vnet'

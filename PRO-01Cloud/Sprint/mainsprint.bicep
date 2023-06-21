@@ -3,8 +3,8 @@ targetScope = 'subscription'
 @description('Sets the location for deployment')
 param location string = 'westeurope'
 
-@description('Sets the resource group name for deployment')
-param resourceGroupName string = 'app-prd-rg'
+param resourceGroupName string
+
 
 // @secure()
 // param keyVaultSecretN string 

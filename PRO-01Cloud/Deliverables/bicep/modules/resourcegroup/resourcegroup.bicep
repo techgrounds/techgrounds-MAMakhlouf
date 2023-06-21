@@ -1,11 +1,11 @@
 targetScope = 'subscription'
 
-param location string = 'westeurope'
+param rgName string
+param location string
 
-
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-  name: 'app-prd-rg'
-  location: location}
+resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+  name: rgName
+  location: location
+}
 
 output resourceGroupName string = resourceGroup.name
-
