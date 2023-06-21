@@ -19,5 +19,8 @@ module networking '../Deliverables/bicep/modules/network/network.bicep' = {
   params: {
     location: location
   }
+  dependsOn: [
+    resourceGroupModule
+  ]
 }
 
