@@ -42,3 +42,16 @@ module managementServer '../Deliverables/bicep/modules/database/managementServer
     vnet2Subnet2ID: networking.outputs.vnet2Subnet2ID
   }
 }
+
+
+module webServer '../Deliverables/bicep/modules/web/webServer.bicep' = {
+  name: 'webServerDeployment'
+  scope: resourceGroup(rgName)
+  params: {
+    location: location
+    adminUserName: adminUserName
+    adminPassword: adminPassword
+    vnet1ID: networking.outputs.vnet1ID
+    vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
+  }
+}
