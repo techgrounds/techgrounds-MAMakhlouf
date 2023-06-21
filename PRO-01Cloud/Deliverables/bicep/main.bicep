@@ -55,3 +55,15 @@ module webServer 'modules/web/webServer.bicep' = {
     vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
   }
 }
+
+module kv 'modules/keyvault/keyvaultSchets.bicep' = {
+  name: 'keyVaultDeployment'
+  scope: resourceGroup(rgName)
+  params: {
+    location: location
+    vnet1ID: networking.outputs.vnet1ID
+    vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
+    vnet2ID: networking.outputs.vnet2ID
+    vnet2Subnet2ID: networking.outputs.vnet2Subnet2ID
+  }
+}
