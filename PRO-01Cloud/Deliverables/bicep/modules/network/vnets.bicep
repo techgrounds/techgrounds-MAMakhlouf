@@ -10,13 +10,6 @@ param vnet2Name string = 'management-prd-vnet'
 param subnet2Name string = 'management-prd-subnet'
 param nsg2Name string = 'management-prd-nsg'
 
-var vnet2AddressPrefix = '10.20.20.0/16'
-var managementServerAddressPrefix = '10.20.20.0/24'
-
-
-var vnet1AddressPrefix = '10.10.10.0/16'
-var webServerAddressPrefix = '10.10.10.0/24'
-
 
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01'= {
   name: vnet1Name
@@ -24,14 +17,14 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01'= {
   properties: {
     addressSpace: {
       addressPrefixes: [
-        vnet1AddressPrefix
+        '10.10.10.0/24'
       ]
     }
     subnets: [
       {
         name: subnet1Name
         properties: {
-          addressPrefix: webServerAddressPrefix
+          addressPrefix: '10.10.10.0/24'
           privateEndpointNetworkPolicies: 'Disabled'
           privateLinkServiceNetworkPolicies: 'Disabled'
     networkSecurityGroup: {
@@ -63,8 +56,8 @@ output vnet1Id string = vnet1.id
 output subnet1Name string = subnet1Name
 output subnet1Id string = vnet1.properties.subnets[0].id
 output nsg1Id string = nsg1.id
-output webServerAddressPrefix string = webServerAddressPrefix
-output vnet1AddressPrefix string = vnet1AddressPrefix
+output webServerAddressPrefix string = vnet1.properties.subnets[0].properties.addressPrefix
+output vnet1AddressPrefix string = vnet1.properties.addressSpace.addressPrefixes[0]
 
 
 
@@ -74,13 +67,13 @@ resource vnet2 'Microsoft.Network/virtualNetworks@2022-11-01' = {
   properties: {
     addressSpace: {
       addressPrefixes: [
-        vnet2AddressPrefix
+        '10.20.20.0/24'
       ]
     }
     subnets: [ {
       name: subnet2Name
       properties: {
-        addressPrefix: managementServerAddressPrefix
+        addressPrefix: '10.20.20.0/24'
         privateEndpointNetworkPolicies: 'Disabled'
         privateLinkServiceNetworkPolicies: 'Disabled'
     networkSecurityGroup: {
