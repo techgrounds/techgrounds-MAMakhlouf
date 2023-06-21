@@ -2,7 +2,7 @@ targetScope = 'subscription'
 
 param location string = 'westeurope'
 
-param rgName string = 'rg1'
+param rgName string = 'app-prd-rg'
 
 module resourceGroupModule '../Deliverables/bicep/modules/resourcegroup/resourcegroup.bicep' = {
   name: 'resourceGroupModule'
