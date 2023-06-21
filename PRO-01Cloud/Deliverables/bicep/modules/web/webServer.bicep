@@ -1,4 +1,4 @@
-param webServerName string = 'webserver'
+param webServerName string = 'webServer'
 
 @secure()
 param adminUserName string 
@@ -7,6 +7,7 @@ param adminPassword string
 
 param location string = resourceGroup().location
 
+param vnet1ID string
 param vnet1Subnet1ID string
 
 
@@ -18,7 +19,7 @@ resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   }
   properties: {
     hardwareProfile: {
-      vmSize:  'Standard_B1s'
+      vmSize:  'Standard_B2s'
     }
     osProfile: {
       computerName: webServerName
@@ -57,15 +58,15 @@ resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
   properties: {
     ipConfigurations: [
       {
-        name: 'ipconfig'
+        name: 'ipconfigWebServer'
         properties: {
           subnet: {
-            id:  vnet1Subnet1ID
-            privateIPAllocationMethod: 'Dynamic'
+            id:  resourceId('microsoft.network/virtualnetworks/subnets', vnet1ID, vnet1Subnet1ID)
+        }
+          privateIPAllocationMethod: 'Dynamic'
             publicIPAddress: {
             id: webServerPublicIP.id
           }
-        }
       }
     }
     ] 
@@ -75,10 +76,16 @@ resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
 resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   name: '${webServerName}-publicip'
   location: location
+  sku: {
+    name: 'Basic'
+  }
   properties: {
     publicIPAllocationMethod: 'Dynamic'
     // Add IP restriction rule for trusted locations
+    dnsSettings: {
+      domainNameLabel: uniqueString(webServerName)
+    }
   }
 }
-output webServerResourceId string = webServer.id
+
 

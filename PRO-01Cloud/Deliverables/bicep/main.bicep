@@ -44,3 +44,14 @@ module managementServer './modules/database/managementServer.bicep' = {
 }
 
 
+module webServer 'modules/web/webServer.bicep' = {
+  name: 'webServerDeployment'
+  scope: resourceGroup(rgName)
+  params: {
+    location: location
+    adminUserName: adminUserName
+    adminPassword: adminPassword
+    vnet1ID: networking.outputs.vnet1ID
+    vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
+  }
+}

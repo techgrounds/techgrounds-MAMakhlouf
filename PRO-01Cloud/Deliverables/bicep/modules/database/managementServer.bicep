@@ -66,7 +66,7 @@ resource managementServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = 
   properties: {
     ipConfigurations: [
       {
-        name: 'ipconfig'
+        name: 'ipconfigAdminServer'
         properties: {
           subnet: {
             id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet2ID, vnet2Subnet2ID)
@@ -85,8 +85,14 @@ resource managementServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = 
 resource managementServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   name: '${managementServerName}-publicip'
   location: location
+  sku: {
+    name: 'Basic'
+  }
   properties: {
     publicIPAllocationMethod: 'Dynamic'
     // Add IP restriction rule for trusted locations
+  dnsSettings: {
+    domainNameLabel: uniqueString(managementServerName)
+    }  
   }
 }
