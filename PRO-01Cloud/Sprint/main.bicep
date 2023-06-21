@@ -5,7 +5,7 @@ param location string = 'westeurope'
 param rgName string = 'app-prd-rg'
 
 module resourceGroupModule '../Deliverables/bicep/modules/resourcegroup/resourcegroup.bicep' = {
-  name: 'resourceGroupModule'
+  name: 'resourceGroupDeployment'
   scope: subscription()
   params: {
     rgName: rgName
@@ -14,7 +14,7 @@ module resourceGroupModule '../Deliverables/bicep/modules/resourcegroup/resource
 }
 
 module networking '../Deliverables/bicep/modules/network/network.bicep' = {
-  name: 'networking-${location}'
+  name: 'networkDeployment'
   scope: resourceGroup(rgName)
   params: {
     location: location
