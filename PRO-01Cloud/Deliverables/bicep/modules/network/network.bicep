@@ -142,7 +142,7 @@ properties: {
     }
   }
 
-  //Output all relevant info so that services in other modules can connect to the info in this module.
+  @description('Outputs for other resources to be connected')
   output vnet1ID string = vnet1.name
   output vnet2ID string = vnet2.name
   output vnet1Subnet1ID string = vnet1.properties.subnets[0].name
