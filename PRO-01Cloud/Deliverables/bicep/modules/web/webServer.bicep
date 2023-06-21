@@ -7,7 +7,7 @@ param adminPassword string
 
 param location string = resourceGroup().location
 
-
+param vnet1Subnet1ID string
 
 
 resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
@@ -60,9 +60,9 @@ resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
         name: 'ipconfig'
         properties: {
           subnet: {
-            id:  
-          privateIPAllocationMethod: 'Dynamic'
-          publicIPAddress: {
+            id:  vnet1Subnet1ID
+            privateIPAllocationMethod: 'Dynamic'
+            publicIPAddress: {
             id: webServerPublicIP.id
           }
         }

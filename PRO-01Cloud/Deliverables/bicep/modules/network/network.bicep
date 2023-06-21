@@ -142,10 +142,14 @@ properties: {
     }
   }
 
-  @description('Outputs for other resources to be connected')
-  output vnet1ID string = vnet1.name
-  output vnet2ID string = vnet2.name
-  output vnet1Subnet1ID string = vnet1.properties.subnets[0].name
-  output vnet2Subnet1ID string = vnet2.properties.subnets[0].name
-  output nsg1ID string = nsg1.name
-  output nsg2ID string = nsg2.name
+@description('Outputs for other resources to be connected')
+output vnet1ID string = vnet1.name
+output vnet1Subnet1ID string = vnet1.properties.subnets[0].name
+
+output vnet2ID string = vnet2.name
+output vnet2Subnet2ID string = vnet2.properties.subnets[0].name
+
+
+
+output nsg1ID string = nsg1.name
+output nsg2ID string = nsg2.name
