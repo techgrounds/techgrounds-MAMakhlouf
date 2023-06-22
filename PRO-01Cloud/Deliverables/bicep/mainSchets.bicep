@@ -10,6 +10,8 @@ param adminUserName string
 @secure()
 param adminPassword string
 
+
+
 module resourceGroupModule './modules/resourcegroup/resourcegroup.bicep' = {
   name: 'resourceGroupDeployment'
   scope: subscription()
@@ -19,7 +21,7 @@ module resourceGroupModule './modules/resourcegroup/resourcegroup.bicep' = {
   }
 }
 
-module networking './modules/network/network.bicep' = {
+module networking './modules/network/networkSchets.bicep' = {
   name: 'networkDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -31,7 +33,7 @@ module networking './modules/network/network.bicep' = {
 }
 
 
-module managementServer './modules/database/managementServer.bicep' = {
+module managementServer './modules/database/managementSchets.bicep' = {
   name: 'managementServerDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -43,8 +45,7 @@ module managementServer './modules/database/managementServer.bicep' = {
   }
 }
 
-
-module webServer 'modules/web/webServer.bicep' = {
+module webServer 'modules/web/webSchets.bicep' = {
   name: 'webServerDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -56,14 +57,13 @@ module webServer 'modules/web/webServer.bicep' = {
   }
 }
 
-module kv 'modules/keyvault/keyvaultSchets.bicep' = {
+module keyVault 'modules/keyvault/keyvaultSchets.bicep' = {
   name: 'keyVaultDeployment'
   scope: resourceGroup(rgName)
   params: {
     location: location
-    vnet1ID: networking.outputs.vnet1ID
-    vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
     vnet2ID: networking.outputs.vnet2ID
     vnet2Subnet2ID: networking.outputs.vnet2Subnet2ID
   }
 }
+

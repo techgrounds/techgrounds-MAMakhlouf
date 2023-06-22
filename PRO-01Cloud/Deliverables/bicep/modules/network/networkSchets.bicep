@@ -20,7 +20,7 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' = {
       addressPrefixes: [
         vnet1AddressPrefix
       ]
-    }
+    } 
     subnets: [
       {
         name: '${vnet1Name}-subnet1'
@@ -56,6 +56,17 @@ resource vnet2 'Microsoft.Network/virtualNetworks@2022-11-01' = {
           networkSecurityGroup: {
             id: nsg2.id
           }
+          serviceEndpoints: [
+            {
+              service: 'Microsoft.KeyVault'
+              locations: [
+                location
+              ]
+            }
+          ]
+          delegations: []
+          privateEndpointNetworkPolicies: 'Disabled'
+          privateLinkServiceNetworkPolicies: 'Enabled'
         }
       }
     ]

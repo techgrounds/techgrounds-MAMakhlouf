@@ -9,6 +9,11 @@ param adminPassword string
 // param azSetID string
 param vnet2ID string
 param vnet2Subnet2ID string
+// param keyVaultName string
+
+// resource adminUserNameSecret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' existing = {
+//   name: '${keyVaultName}adminUserName'
+// }
 
 resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: managementServerName
@@ -26,7 +31,7 @@ resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     osProfile: {
       computerName: managementServerName
       adminUsername: adminUserName
-      adminPassword: adminPassword
+      adminPassword: adminPassword 
       windowsConfiguration: {
         enableAutomaticUpdates: true
       }
