@@ -42,3 +42,23 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
     publicNetworkAccess: 'Enabled'
   }
 }
+
+resource adminUserName 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+  parent: keyVault
+  name: 'adminUserName'
+  properties: {
+    value: 'adminUserName'
+  }
+}
+
+resource adminPassword 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+  parent: keyVault
+  name: 'adminPassword'
+  properties: {
+    value: 'adminPassword'
+  }
+}
+
+output keyVaultName string = keyVault.name
+output keyVaultID string = keyVault.id
+

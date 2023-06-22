@@ -2,11 +2,30 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "keyVaultName": {
+      "value": "[concat(take(parameters('location'), 6), '-vault', take(uniqueString(resourceGroup().id), 6))]"
+    },
+    "location": {
+      "value": "westeurope"
+    },
+    "rgName": {
+      "value": "app-prd-rg"
+    },
     "adminUserName": {
-      "value": ""
+      "reference": {
+        "keyVault": {
+          "id": "[concat('/subscriptions/c4ad36f6-e6a1-405f-afd4-321e43455706/resourceGroups/app-prd-rg/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
+        },
+        "secretName": "adminUserName"
+      }
     },
     "adminPassword": {
-      "value": ""
+      "reference": {
+        "keyVault": {
+          "id": "[concat('/subscriptions/c4ad36f6-e6a1-405f-afd4-321e43455706/resourceGroups/app-prd-rg/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
+        },
+        "secretName": "adminPassword"
+      }
     }
   }
 }

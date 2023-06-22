@@ -4,6 +4,7 @@ param location string = 'westeurope'
 
 param rgName string = 'app-prd-rg'
 
+
 @secure()
 param adminUserName string 
 
