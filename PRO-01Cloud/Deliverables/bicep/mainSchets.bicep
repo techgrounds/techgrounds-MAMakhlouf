@@ -43,6 +43,8 @@ module managementServer './modules/database/managementSchets.bicep' = {
     adminPassword: adminPassword
     vnet2ID: networking.outputs.vnet2ID
     vnet2Subnet2ID: networking.outputs.vnet2Subnet2ID
+    // nsg2Id: networking.outputs.nsg2Id
+    storageAccountBlobEndpoint: storageAccount.outputs.storageAccountBlobEndpoint
   }
 }
 
@@ -55,6 +57,7 @@ module webServer 'modules/web/webSchets.bicep' = {
     adminPassword: adminPassword
     vnet1ID: networking.outputs.vnet1ID
     vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
+    // nsg1Id: networking.outputs.nsg1Id
   }
 }
 
@@ -63,8 +66,20 @@ module keyVault 'modules/keyvault/keyvaultSchets.bicep' = {
   scope: resourceGroup(rgName)
   params: {
     location: location
+    adminUserName: adminUserName
+    adminPassword: adminPassword
     vnet2ID: networking.outputs.vnet2ID
     vnet2Subnet2ID: networking.outputs.vnet2Subnet2ID
   }
 }
 
+module storageAccount 'modules/storageAccount/storageAccount.bicep' = {
+  name: 'storageAccountDeployment'
+  scope: resourceGroup(rgName)
+  params: {
+    location: location
+  }
+  dependsOn: [
+    resourceGroupModule
+  ]
+}

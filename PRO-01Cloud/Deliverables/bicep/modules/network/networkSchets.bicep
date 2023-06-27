@@ -79,8 +79,8 @@ resource vnet1vnet2 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@20
   name: '${vnet1Name}-${vnet2Name}'
   properties: {
     allowVirtualNetworkAccess: true
-    allowForwardedTraffic: false
-    allowGatewayTransit: false
+    allowForwardedTraffic: true
+    allowGatewayTransit: true
     useRemoteGateways: false
     remoteVirtualNetwork: {
       id: vnet2.id
@@ -110,16 +110,29 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
           direction: 'Inbound'
         }
       }
+      {
+        name: 'http'
+        properties: { //fix when webserver is up!!!!!!!!!!!!!!
+          protocol: 'TCP'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '80'
+          access: 'Allow'
+          priority: 200
+          direction: 'Inbound'
+        }
+      }
         {
         name: 'ssh'
         properties: {
           protocol: 'TCP'
-          sourceAddressPrefix: '*' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
+          sourceAddressPrefix: '10.10.20.10' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           sourcePortRange: '*' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           destinationAddressPrefix: '*' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           destinationPortRange: '22' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           access: 'Allow'
-          priority: 101
+          priority: 300
           direction: 'Inbound'
         }
       }
@@ -127,7 +140,7 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
   }
 }
 
-@description('Nestwork Security Group for vnet2. Allows access to the management server via public IP from trusted locations.')
+@description('Network Security Group for vnet2. Allows access to the management server via public IP from trusted locations.')
 resource nsg2 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
 name: '${vnet2Name}-nsg'
 location: location
@@ -140,12 +153,25 @@ properties: {
       name: 'ssh'
       properties: {
         protocol: 'TCP'
-        sourceAddressPrefix: '*' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        sourceAddressPrefix: '*' //allowed ip addresses!!!!!!
         destinationAddressPrefix: '*'
         sourcePortRange: '*'
         destinationPortRange: '22'
         access: 'Allow'
         priority: 200
+        direction: 'Inbound'
+        }    
+      }
+    {
+        name: 'RDP'
+        properties: {
+        protocol: 'TCP'
+        sourceAddressPrefix: '*' //allowed ip addresses!!!!!!
+        destinationAddressPrefix: '*'
+        sourcePortRange: '*'
+        destinationPortRange: '3389'
+        access: 'Allow'
+        priority: 1100
         direction: 'Inbound'
           }
         }
@@ -162,5 +188,7 @@ output vnet2Subnet2ID string = vnet2.properties.subnets[0].name
 
 
 
-output nsg1ID string = nsg1.name
-output nsg2ID string = nsg2.name
+output nsg1Name string = nsg1.name
+output nsg1Id string = nsg1.id
+output nsg2Name string = nsg2.name
+output nsg2Id string = nsg2.id

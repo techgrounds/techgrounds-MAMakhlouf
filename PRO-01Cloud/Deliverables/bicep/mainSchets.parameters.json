@@ -14,7 +14,7 @@
     "adminUserName": {
       "reference": {
         "keyVault": {
-          "id": "[concat('/subscriptions/c4ad36f6-e6a1-405f-afd4-321e43455706/resourceGroups/app-prd-rg/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
+          "id": "/subscriptions/c4ad36f6-e6a1-405f-afd4-321e43455706/resourcegroups/', parameters('rgName'),/providers/Microsoft.KeyVault/vaults/, parameters('keyVaultName')/secrets/adminUserName"
         },
         "secretName": "adminUserName"
       }
@@ -22,7 +22,7 @@
     "adminPassword": {
       "reference": {
         "keyVault": {
-          "id": "[concat('/subscriptions/c4ad36f6-e6a1-405f-afd4-321e43455706/resourceGroups/app-prd-rg/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
+          "id": "[reference(resourceId('Microsoft.KeyVault/vaults/', parameters('rgName'), parameters('keyVaultName')), '2023-02-01')]"
         },
         "secretName": "adminPassword"
       }

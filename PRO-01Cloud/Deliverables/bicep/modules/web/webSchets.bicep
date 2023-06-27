@@ -9,7 +9,9 @@ param location string = resourceGroup().location
 
 param vnet1ID string
 param vnet1Subnet1ID string
+// param nsg1Id string
 
+var apache_script = loadFileAsBase64('./apacheserver.sh')
 
 resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: webServerName
@@ -18,6 +20,7 @@ resource webServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     type: 'SystemAssigned'
   }
   properties: {
+    userData: apache_script
     hardwareProfile: {
       vmSize:  'Standard_B2s'
     }
@@ -67,6 +70,11 @@ resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
             publicIPAddress: {
             id: webServerPublicIP.id
           }
+          // applicationSecurityGroups: [
+          //   {
+          //     id: nsg1Id
+          //   }
+          // ]
       }
     }
     ] 

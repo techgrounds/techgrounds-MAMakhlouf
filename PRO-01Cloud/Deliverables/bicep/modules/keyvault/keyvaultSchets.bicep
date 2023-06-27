@@ -3,6 +3,11 @@ param location string
 
 // param vnet1ID string
 // param vnet1Subnet1ID string
+@secure() 
+param adminUserName string
+
+@secure()
+param adminPassword string
 
 param vnet2ID string
 param vnet2Subnet2ID string
@@ -37,28 +42,29 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
     enabledForTemplateDeployment: true
     enableSoftDelete: true
     softDeleteRetentionInDays: 7
-    enableRbacAuthorization: true
+    enableRbacAuthorization: false
     provisioningState: 'Succeeded'
     publicNetworkAccess: 'Enabled'
   }
+  
 }
 
-resource adminUserName 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+resource adminLogin 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
   parent: keyVault
   name: 'adminUserName'
   properties: {
-    value: 'adminUserName'
+    value: adminUserName
   }
 }
 
-resource adminPassword 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+resource adminPswd 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
   parent: keyVault
   name: 'adminPassword'
   properties: {
-    value: 'adminPassword'
+    value: adminPassword
   }
 }
 
 output keyVaultName string = keyVault.name
 output keyVaultID string = keyVault.id
-
+output keyVaultUri string = keyVault.properties.vaultUri
