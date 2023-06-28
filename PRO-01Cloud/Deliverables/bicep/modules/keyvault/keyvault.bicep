@@ -1,75 +1,89 @@
 param keyVaultName string = '${take(location, 6)}-vault${take(uniqueString(resourceGroup().id), 6)}'
 param location string
 
-@secure()
+// param vnet1ID string
+// param vnet1Subnet1ID string
+@secure() 
 param adminUserName string
+
 @secure()
 param adminPassword string
 
-// @description('The JsonWebKeyType of the key to be created.')
-// param keyType string = 'RSA'
-
-// @description('The size in bits of the key to be created.')
-// param keySize int = 2048
-
+param vnet2ID string
+param vnet2Subnet2ID string
 
 resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
   name: keyVaultName
   location: location
+  // tags: {
+  //   tagName1: 'tagValue1'
+  //   tagName2: 'tagValue2'
+  // }
   properties: {
+       sku: {
+      family: 'A'
+      name: 'standard'
+    }
+    tenantId: 'de60b253-74bd-4365-b598-b9e55a2b208d'
+    networkAcls: {
+      bypass: 'AzureServices'
+      defaultAction: 'Deny'
+      ipRules: []
+      virtualNetworkRules: [
+        {
+          id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet2ID, vnet2Subnet2ID)
+          ignoreMissingVnetServiceEndpoint: false
+        }
+      ]
+    }
+    accessPolicies: [
+      {
+        tenantId: 'de60b253-74bd-4365-b598-b9e55a2b208d'
+        objectId: 'f1b7c5e5-3b7e-4b1c-8f5c-2b9b0b4b6b6b'
+        permissions: {
+          keys: [
+            'all'
+          ]
+          secrets: [
+            'all'
+          ]
+          certificates: [
+            'all'
+          ]
+          storage: [
+            'all'
+          ]
+        }
+      }
+    ]
     enabledForDeployment: true
     enabledForDiskEncryption: true
     enabledForTemplateDeployment: true
-    enableRbacAuthorization: true
-    tenantId: subscription().tenantId
     enableSoftDelete: true
     softDeleteRetentionInDays: 7
-    // accessPolicies: [
-    //   {
-    //     tenantId: 'de60b253-74bd-4365-b598-b9e55a2b208d'
-    //     objectId: 'd0b3e936-ee7b-4623-b30f-05ba6c67aaad' // Vervang 'YOUR_OBJECT_ID' door het object-ID van de juiste service principal of gebruiker die toegang moet hebben tot de Key Vault (bijvoorbeeld de service principal van je beheerde identiteit).
-    //     permissions: {
-    //       keys: [
-    //         'all'
-    //       ]
-    //       secrets: ['all'
-    //     ]
-    //     }
-    //   }
-    // ]
-    sku: {
-      name: 'standard'
-      family: 'A'
-    }
-    networkAcls: {
-      bypass: 'AzureServices'
-      defaultAction: 'Allow'
-      ipRules: [
-
-      ]
-      virtualNetworkRules: []
-    }
+    enableRbacAuthorization: false
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
   }
+  
 }
 
-
-resource adminUserNameSecret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+resource adminLogin 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
   parent: keyVault
-  name: '${keyVault.name}adminUserName'
+  name: 'adminUserName'
   properties: {
     value: adminUserName
   }
 }
 
-resource adminPasswordSecret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+resource adminPswd 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
   parent: keyVault
-  name: '${keyVault.name}adminPassword'
+  name: 'adminPassword'
   properties: {
     value: adminPassword
   }
 }
 
 output keyVaultName string = keyVault.name
-output keyVaultSecretN string = adminUserNameSecret.id
-output keyVaultSecretP string = adminPasswordSecret.id
-
+output keyVaultID string = keyVault.id
+output keyVaultUri string = keyVault.properties.vaultUri

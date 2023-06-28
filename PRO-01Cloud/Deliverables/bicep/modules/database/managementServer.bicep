@@ -9,7 +9,10 @@ param adminPassword string
 // param azSetID string
 param vnet2ID string
 param vnet2Subnet2ID string
+// param nsg2Id string
 // param keyVaultName string
+
+param storageAccountBlobEndpoint string
 
 // resource adminUserNameSecret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' existing = {
 //   name: '${keyVaultName}adminUserName'
@@ -53,6 +56,12 @@ resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
       }
       dataDisks: []
     }
+    diagnosticsProfile: {
+      bootDiagnostics: {
+        enabled: true
+        storageUri: storageAccountBlobEndpoint
+      }
+    }
     networkProfile: {
       networkInterfaces: [
         {
@@ -73,13 +82,19 @@ resource managementServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = 
       {
         name: 'ipconfigAdminServer'
         properties: {
+          privateIPAddress: '10.10.20.10'
+          privateIPAllocationMethod: 'Static'
           subnet: {
             id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet2ID, vnet2Subnet2ID)
           }
-          privateIPAllocationMethod: 'Dynamic'
           publicIPAddress: {
             id: managementServerPublicIP.id
           }
+          // applicationSecurityGroups: [
+          //   {
+          //     id: nsg2Id
+          //   }
+          // ]
         }
       }
     ]
@@ -94,7 +109,7 @@ resource managementServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-0
     name: 'Basic'
   }
   properties: {
-    publicIPAllocationMethod: 'Dynamic'
+    publicIPAllocationMethod: 'Static'
     // Add IP restriction rule for trusted locations
   dnsSettings: {
     domainNameLabel: uniqueString(managementServerName)
