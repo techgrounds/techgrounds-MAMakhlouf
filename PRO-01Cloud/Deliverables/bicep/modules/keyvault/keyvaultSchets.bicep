@@ -36,7 +36,26 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
         }
       ]
     }
-    accessPolicies: []
+    accessPolicies: [
+      {
+        tenantId: 'de60b253-74bd-4365-b598-b9e55a2b208d'
+        objectId: 'f1b7c5e5-3b7e-4b1c-8f5c-2b9b0b4b6b6b'
+        permissions: {
+          keys: [
+            'all'
+          ]
+          secrets: [
+            'all'
+          ]
+          certificates: [
+            'all'
+          ]
+          storage: [
+            'all'
+          ]
+        }
+      }
+    ]
     enabledForDeployment: true
     enabledForDiskEncryption: true
     enabledForTemplateDeployment: true
