@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-14T18:14:47.168Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="nFaWELb3k9dAZcNW8-7T" version="21.3.8" type="device">
+<mxfile host="app.diagrams.net" modified="2023-07-02T19:07:59.795Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="CKkDhceFGq52xh4gp0UP" version="21.5.2" type="device">
   <diagram name="Page-1" id="IsCAG9EBEDEz-0Z08IRQ">
-    <mxGraphModel dx="1674" dy="802" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="802" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -123,10 +123,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="BVAmYGAtuPXn5raohfIf-41" value="KEY VAULT" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Key_Vaults.svg;" parent="1" vertex="1">
-          <mxGeometry x="630" y="538" width="48" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="BVAmYGAtuPXn5raohfIf-42" value="RECOVERY SERVICE VAULT" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/management_governance/Recovery_Services_Vaults.svg;" parent="1" vertex="1">
-          <mxGeometry x="410" y="462.09000000000003" width="55" height="47.83" as="geometry" />
+          <mxGeometry x="687" y="253" width="48" height="50" as="geometry" />
         </mxCell>
         <mxCell id="BVAmYGAtuPXn5raohfIf-43" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Subscriptions.svg;" parent="1" vertex="1">
           <mxGeometry x="16" y="9" width="44" height="71" as="geometry" />
@@ -149,17 +146,14 @@
         <mxCell id="BVAmYGAtuPXn5raohfIf-53" value="Management Server" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.server;" parent="1" vertex="1">
           <mxGeometry x="553" y="164" width="50" height="15" as="geometry" />
         </mxCell>
-        <mxCell id="C4OJF3tuIt1XAKAp8LSV-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.491;entryY=0.983;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="C4OJF3tuIt1XAKAp8LSV-5" target="BVAmYGAtuPXn5raohfIf-42" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="287" y="420" as="targetPoint" />
-            <mxPoint x="312" y="307.5" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="BVAmYGAtuPXn5raohfIf-57" value="Storage Account" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;" parent="1" vertex="1">
           <mxGeometry x="55" y="460" width="65" height="52" as="geometry" />
         </mxCell>
         <mxCell id="BVAmYGAtuPXn5raohfIf-58" value="Post&amp;nbsp; Deployment Scripts" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.script_file;pointerEvents=1;" parent="1" vertex="1">
           <mxGeometry x="202.5" y="500" width="47.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jS0z5Q6nRyNLetdAGZoa-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.047;entryY=1.029;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="C4OJF3tuIt1XAKAp8LSV-5" target="jS0z5Q6nRyNLetdAGZoa-1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="C4OJF3tuIt1XAKAp8LSV-5" value="WEB SERVER" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/VM_Scale_Sets.svg;" parent="1" vertex="1">
           <mxGeometry x="250" y="287" width="68" height="68" as="geometry" />
@@ -170,11 +164,8 @@
         <mxCell id="C4OJF3tuIt1XAKAp8LSV-6" value="PUBLIC IP" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Public_IP_Addresses.svg;" parent="1" vertex="1">
           <mxGeometry x="564" y="387" width="32.5" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="C4OJF3tuIt1XAKAp8LSV-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="C4OJF3tuIt1XAKAp8LSV-11" target="C4OJF3tuIt1XAKAp8LSV-6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="C4OJF3tuIt1XAKAp8LSV-11" value="Conditional acces&amp;nbsp;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.access_control;" parent="1" vertex="1">
-          <mxGeometry x="633" y="438" width="50" height="50" as="geometry" />
+        <mxCell id="jS0z5Q6nRyNLetdAGZoa-1" value="PUBLIC IP" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Public_IP_Addresses.svg;" vertex="1" parent="1">
+          <mxGeometry x="369" y="387" width="42.5" height="34" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

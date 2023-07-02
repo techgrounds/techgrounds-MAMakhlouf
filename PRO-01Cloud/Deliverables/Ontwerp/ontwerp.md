@@ -33,7 +33,7 @@ In dit document vul ik de gaten op en vermeld de uiteindelijk praktische en tech
 
 ## 2. Architectuurdiagram
 
-Voeg een architectuurdiagram toe waarin de verschillende componenten van de applicatie worden weergegeven, inclusief de virtuele netwerken, subnets, NSG's, VM's en andere relevante resources.
+![Architectuurdiagram](Schets.drawio%20(1).png)
 
 ## 3. IaC-code (Bicep)
 
@@ -46,6 +46,7 @@ De infrastructuur wordt geïmplementeerd met behulp van Bicep. De Bicep-code omv
 - Managementserver in Availability Zone 1 met NSG
 - Key Vault voor geheime opslag
 - Storage Account voor postdeployment-scripts
+
 
 ## 4. Netwerkbeveiliging
 
