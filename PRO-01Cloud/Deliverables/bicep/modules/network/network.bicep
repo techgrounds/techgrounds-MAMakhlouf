@@ -158,7 +158,7 @@ properties: {
         sourcePortRange: '*'
         destinationPortRange: '22'
         access: 'Allow'
-        priority: 200
+        priority: 400
         direction: 'Inbound'
         }    
       }
