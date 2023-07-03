@@ -116,3 +116,5 @@ resource managementServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-0
     }  
   }
 }
+
+output publicIPMngmnt string = managementServerPublicIP.properties.ipAddress

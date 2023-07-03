@@ -48,7 +48,7 @@ module managementServer './modules/database/managementSchets.bicep' = {
   }
 }
 
-module webServer 'modules/web/webSchets.bicep' = {
+module webServerScaleSet 'modules/web/webScale.bicep' = {
   name: 'webServerDeployment'
   scope: resourceGroup(rgName)
   params: {
