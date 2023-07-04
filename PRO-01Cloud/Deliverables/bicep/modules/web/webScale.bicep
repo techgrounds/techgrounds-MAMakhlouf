@@ -12,6 +12,75 @@ param vnet1Subnet1ID string
 
 
 
+resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
+  name: 'appGate'
+  location: location
+  tags: {
+    Location: location
+  }
+  properties: {
+    sku: {
+      name: 'Standard_v2'
+      tier: 'Standard_v2'
+      capacity: 2
+    }
+    gatewayIPConfigurations: [
+      {
+        name: 'appGatewayIpConfig'
+        properties: {
+          subnet: {
+            id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet1ID, vnet1Subnet1ID)
+          }
+        }
+      }
+    ]
+    frontendIPConfigurations: [
+      {
+        name: 'appGatewayFrontendIP'
+        properties: {
+          privateIPAllocationMethod: 'Dynamic'
+          publicIPAddress: {
+            id: webServerPublicIP.id
+          }
+        }
+      }
+    ]
+    frontendPorts: [
+      {
+        name: 'appGatewayFrontendPort'
+        properties: {
+          port: 80
+        }
+      }
+    ]
+    backendAddressPools: [
+      {
+        name: 'appGatewayBackendPool'
+        properties: {
+        }
+      }
+    ]
+    httpListeners: [
+      {
+        name: 'appGatewayHttpListener'
+        properties: {
+          frontendIPConfiguration: {
+            id: webServerPublicIP.id
+          }
+          frontendPort: {
+            id: resourceId('Microsoft.Network/applicationGateways/frontendPorts', 'appGate', 'appGatewayFrontendPort')
+          }
+          protocol: 'Http'
+        }
+      }
+    ]
+    sslCertificates: [
+      { 
+
+      }
+     ]
+    }
+  }
 
 resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01' = {
   name: 'webServerScaleSet'
@@ -45,8 +114,8 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
         }
         imageReference: {
           publisher: 'Canonical'
-          offer: 'UbuntuServer'
-          sku: '22_04-lts-gen2'
+          offer: 'ubuntuServer'
+          sku: '18.04-LTS'
           version: 'latest'
         }
       }
@@ -70,7 +139,9 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
                       id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet1ID, vnet1Subnet1ID)
                     }
                     applicationGatewayBackendAddressPools: [
-                      
+                       {
+                          id: appGate.properties.backendAddressPools[0].id
+                       }
                     ]
                     
                   }
@@ -82,12 +153,17 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
       }
     }
   }
-  dependsOn: [
-    
-  ]
 }
 
-//A public IP for the load balancer.
+// resource scaleHealth 'Microsoft.Compute/virtualMachineScaleSets/extensions@2023-03-01' = {
+//   name: 'scaleHealth'
+//   parent: webServerScaleSet 
+//   properties: {
+    
+//   } 
+// }
+
+//A public IP for application gateway.
 resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   name: 'webServerpublicIP'
   location: location
@@ -97,10 +173,15 @@ resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   tags: {
     Location: location
   }
+  applicationGatewayBackendAddressPools: [
+    {
+      id: appGate.properties.backendAddressPools[0].id
+    }
+  ]
   properties: {
     publicIPAllocationMethod: 'Static'
     dnsSettings: {
-      domainNameLabel: 'webServerScaleSet'
+      domainNameLabel: 'webserverscaleset'
     }
   }
 }
