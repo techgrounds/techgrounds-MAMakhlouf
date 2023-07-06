@@ -6,12 +6,18 @@ param adminUserName string
 @secure()
 param adminPassword string
 
+param webServerName string = 'webServerScaleSet'
+
 param vnet1ID string
 param vnet1Subnet1ID string
+param vnet1Subnet2ID string
+param nsg1Id string
+// param nsg3Id string
 //param diskEncryptionSetName string
 
-
-
+resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' existing = {
+  name: vnet1ID
+}
 resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
   name: 'appGate'
   location: location
@@ -22,14 +28,14 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
     sku: {
       name: 'Standard_v2'
       tier: 'Standard_v2'
-      capacity: 2
+      // capacity: 2
     }
     gatewayIPConfigurations: [
       {
         name: 'appGatewayIpConfig'
         properties: {
           subnet: {
-            id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet1ID, vnet1Subnet1ID)
+            id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet1ID, vnet1Subnet2ID)
           }
         }
       }
@@ -40,7 +46,7 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
         properties: {
           privateIPAllocationMethod: 'Dynamic'
           publicIPAddress: {
-            id: webServerPublicIP.id
+            id:  resourceId('Microsoft.Network/publicIPAddresses', 'webServerpublicIP')
           }
         }
       }
@@ -56,7 +62,17 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
     backendAddressPools: [
       {
         name: 'appGatewayBackendPool'
+        properties: {}
+      }
+    ]
+    backendHttpSettingsCollection: [
+      {
+        name: 'appGatewayBackendHttpSettings'
         properties: {
+          port: 80
+          protocol: 'Http'
+          cookieBasedAffinity: 'Disabled'
+          requestTimeout: 20
         }
       }
     ]
@@ -65,25 +81,27 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
         name: 'appGatewayHttpListener'
         properties: {
           frontendIPConfiguration: {
-            id: webServerPublicIP.id
+            id: resourceId('Microsoft.Network/applicationGateways/frontendIPConfigurations', 'appGate', 'appGatewayFrontendIP')
           }
           frontendPort: {
-            id: resourceId('Microsoft.Network/applicationGateways/frontendPorts', 'appGate', 'appGatewayFrontendPort')
+            id: resourceId('Microsoft.Network/applicationGateways/frontendPorts', 'appGate', 'port_80')
           }
           protocol: 'Http'
+          requireServerNameIndication: false
         }
       }
     ]
     sslCertificates: [
-      { 
-
-      }
+      {}
      ]
     }
+    dependsOn: [
+      vnet1
+    ]
   }
 
 resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01' = {
-  name: 'webServerScaleSet'
+  name: webServerName
   location: location
   tags: {
     Location: location
@@ -128,9 +146,14 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
       networkProfile: {
         networkInterfaceConfigurations: [
           {
-            name: 'WebScaleNic'
+            name: 'WebScaleNiconfig'
             properties: {
-              primary: true
+              primary: true 
+              enableAcceleratedNetworking: false
+              enableIPForwarding: false
+              networkSecurityGroup: {
+                id: resourceId('Microsoft.Network/networkSecurityGroups', nsg1Id)
+              }
               ipConfigurations: [
                 {
                   name: 'ipConfigScaleSet'
@@ -138,12 +161,12 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
                     subnet: {
                       id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnet1ID, vnet1Subnet1ID)
                     }
+                    privateIPAddressVersion: 'IPv4'
                     applicationGatewayBackendAddressPools: [
                        {
-                          id: appGate.properties.backendAddressPools[0].id
+                         id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', 'appGate', 'appGatewayBackendPool')
                        }
                     ]
-                    
                   }
                 }
               ]
@@ -153,7 +176,31 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
       }
     }
   }
+  dependsOn: [
+    appGate
+  ]
 }
+
+// resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
+//   name: '${webServerName}-nic'
+//   location: location
+//   properties: {
+//     ipConfigurations: [
+//       {
+//         name: 'ipconfigWebServer'
+//         properties: {
+//           subnet: {
+//             id:  resourceId('microsoft.network/virtualnetworks/subnets', vnet1ID, vnet1Subnet1ID)
+//         }
+//           privateIPAllocationMethod: 'Dynamic'
+//       }
+//     }
+//     ] 
+//     networkSecurityGroup: {
+//       id: resourceId('Microsoft.Network/networkSecurityGroups', nsg3Id)
+//     }
+//   }
+// }
 
 // resource scaleHealth 'Microsoft.Compute/virtualMachineScaleSets/extensions@2023-03-01' = {
 //   name: 'scaleHealth'
@@ -173,13 +220,10 @@ resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   tags: {
     Location: location
   }
-  applicationGatewayBackendAddressPools: [
-    {
-      id: appGate.properties.backendAddressPools[0].id
-    }
-  ]
   properties: {
+    publicIPAddressVersion: 'IPv4'
     publicIPAllocationMethod: 'Static'
+    idleTimeoutInMinutes: 4
     dnsSettings: {
       domainNameLabel: 'webserverscaleset'
     }

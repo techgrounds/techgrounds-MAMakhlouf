@@ -25,10 +25,19 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' = {
       {
         name: '${vnet1Name}-subnet1'
         properties: {
-          addressPrefix: vnet1AddressPrefix
+          addressPrefix: '10.10.10.0/25'
           networkSecurityGroup: {
             id: nsg1.id
           }
+        }
+      }
+      {
+        name: '${vnet1Name}-subnet2'
+        properties: {
+          addressPrefix: '10.10.10.128/25'
+          networkSecurityGroup: {
+            id: nsg3.id
+          } 
         }
       }
     ]
@@ -179,16 +188,57 @@ properties: {
     }
   }
 
+  resource nsg3 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
+    name: '${vnet2Name}-nsgAppGateway'
+    location: location
+    tags: {
+      Location: location
+    }
+    properties: {
+      securityRules: [
+        {
+          name: 'https'
+          properties: {
+            protocol: 'TCP'
+            sourceAddressPrefix: '*'
+            destinationAddressPrefix: '*'
+            sourcePortRange: '*'
+            destinationPortRange: '443'
+            access: 'Allow'
+            priority: 100
+            direction: 'Inbound'
+          }
+        }
+        {
+          name: 'http'
+          properties: {
+            protocol: 'TCP'
+            sourceAddressPrefix: '*'
+            destinationAddressPrefix: '*'
+            sourcePortRange: '*'
+            destinationPortRange: '80'
+            access: 'Allow'
+            priority: 200
+            direction: 'Inbound'
+          }
+        }
+      ]
+    }
+  }
+
 @description('Outputs for other resources to be connected')
 output vnet1ID string = vnet1.name
 output vnet1Subnet1ID string = vnet1.properties.subnets[0].name
+output vnet1Subnet2ID string = vnet1.properties.subnets[1].name
 
 output vnet2ID string = vnet2.name
 output vnet2Subnet2ID string = vnet2.properties.subnets[0].name
-
 
 
 output nsg1Name string = nsg1.name
 output nsg1Id string = nsg1.id
 output nsg2Name string = nsg2.name
 output nsg2Id string = nsg2.id
+output nsg3Name string = nsg3.name
+output nsg3Id string = nsg3.id
+

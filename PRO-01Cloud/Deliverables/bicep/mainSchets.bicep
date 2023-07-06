@@ -57,7 +57,9 @@ module webServerScaleSet 'modules/web/webScale.bicep' = {
     adminPassword: adminPassword
     vnet1ID: networking.outputs.vnet1ID
     vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
-    // nsg1Id: networking.outputs.nsg1Id
+    vnet1Subnet2ID: networking.outputs.vnet2Subnet2ID
+    // nsg3Id: networking.outputs.nsg3Id
+    nsg1Id: networking.outputs.nsg1Id
   }
 }
 
