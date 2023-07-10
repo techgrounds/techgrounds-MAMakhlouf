@@ -53,13 +53,13 @@ module webServerScaleSet 'modules/web/webScale.bicep' = {
   scope: resourceGroup(rgName)
   params: {
     location: location
-    adminUserName: adminUserName
-    adminPassword: adminPassword
+    // adminUserName: adminUserName
+    // adminPassword: adminPassword
     vnet1ID: networking.outputs.vnet1ID
-    vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
-    vnet1Subnet2ID: networking.outputs.vnet2Subnet2ID
+    // vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
+    // vnet1Subnet2ID: networking.outputs.vnet2Subnet2ID
     // nsg3Id: networking.outputs.nsg3Id
-    nsg1Id: networking.outputs.nsg1Id
+    // nsg1Id: networking.outputs.nsg1Id
   }
 }
 
