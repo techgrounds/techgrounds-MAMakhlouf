@@ -115,7 +115,7 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
           sourcePortRange: '*'
           destinationPortRange: '443'
           access: 'Allow'
-          priority: 100
+          priority: 400
           direction: 'Inbound'
         }
       }
@@ -128,7 +128,7 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
           sourcePortRange: '*'
           destinationPortRange: '80'
           access: 'Allow'
-          priority: 200
+          priority: 500
           direction: 'Inbound'
         }
       }
@@ -136,12 +136,12 @@ resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
         name: 'ssh'
         properties: {
           protocol: 'TCP'
-          sourceAddressPrefix: '10.10.20.10' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
+          sourceAddressPrefix: vnet2AddressPrefix //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           sourcePortRange: '*' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           destinationAddressPrefix: '*' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           destinationPortRange: '22' //fill this in when the management server is up!!!!!!!!!!!!!!!!!!!!!
           access: 'Allow'
-          priority: 300
+          priority: 600
           direction: 'Inbound'
         }
       }
@@ -167,7 +167,7 @@ properties: {
         sourcePortRange: '*'
         destinationPortRange: '22'
         access: 'Allow'
-        priority: 200
+        priority: 300
         direction: 'Inbound'
         }    
       }
@@ -189,13 +189,26 @@ properties: {
   }
 
   resource nsg3 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
-    name: '${vnet2Name}-nsgAppGateway'
+    name: '${vnet1Name}-nsgAppGateway'
     location: location
     tags: {
       Location: location
     }
     properties: {
       securityRules: [
+        {
+          name: 'allowGateway'
+          properties: {
+            protocol: '*'
+            sourceAddressPrefix: '*'
+            destinationAddressPrefix: '*'
+            sourcePortRange: '*'
+            destinationPortRange: '65200-65535'
+            access: 'Allow'
+            priority: 1000
+            direction: 'Inbound'
+          }
+        }
         {
           name: 'https'
           properties: {
