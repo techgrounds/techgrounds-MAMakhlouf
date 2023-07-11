@@ -200,7 +200,7 @@ properties: {
           name: 'allowGateway'
           properties: {
             protocol: '*'
-            sourceAddressPrefix: '*'
+            sourceAddressPrefix: 'GateewayManager'
             destinationAddressPrefix: '*'
             sourcePortRange: '*'
             destinationPortRange: '65200-65535'
