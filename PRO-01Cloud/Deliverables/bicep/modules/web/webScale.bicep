@@ -199,34 +199,7 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
   ]
 }
 
-// resource webServerNic 'Microsoft.Network/networkInterfaces@2022-11-01' = {
-//   name: '${webServerName}-nic'
-//   location: location
-//   properties: {
-//     ipConfigurations: [
-//       {
-//         name: 'ipconfigWebServer'
-//         properties: {
-//           subnet: {
-//             id:  resourceId('microsoft.network/virtualnetworks/subnets', vnet1ID, vnet1Subnet1ID)
-//         }
-//           privateIPAllocationMethod: 'Dynamic'
-//       }
-//     }
-//     ] 
-//     networkSecurityGroup: {
-//       id: resourceId('Microsoft.Network/networkSecurityGroups', nsg3Id)
-//     }
-//   }
-// }
 
-// resource scaleHealth 'Microsoft.Compute/virtualMachineScaleSets/extensions@2023-03-01' = {
-//   name: 'scaleHealth'
-//   parent: webServerScaleSet 
-//   properties: {
-    
-//   } 
-// }
 
 //A public IP for application gateway.
 resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
