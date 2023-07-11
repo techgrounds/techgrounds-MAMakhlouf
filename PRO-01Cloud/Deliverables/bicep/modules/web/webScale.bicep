@@ -170,7 +170,7 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
               enableAcceleratedNetworking: false
               enableIPForwarding: false
               networkSecurityGroup: {
-                id: resourceId('Microsoft.Network/networkSecurityGroups', nsg1Id)
+                id: nsg1Id
               }
               ipConfigurations: [
                 {
