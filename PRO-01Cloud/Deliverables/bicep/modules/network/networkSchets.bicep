@@ -25,7 +25,7 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' = {
       {
         name: '${vnet1Name}-subnet1'
         properties: {
-          addressPrefix: '10.10.10.0/25'
+          addressPrefix: '10.10.10.0/26'
           networkSecurityGroup: {
             id: nsg1.id
           }
@@ -34,10 +34,19 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' = {
       {
         name: '${vnet1Name}-subnet2'
         properties: {
-          addressPrefix: '10.10.10.128/25'
+          addressPrefix: '10.10.10.64/27'
           networkSecurityGroup: {
             id: nsg3.id
           } 
+        }
+      }
+      {
+        name: '${vnet1Name}-subnet3'
+        properties:{
+          addressPrefix: '10.10.10.96/27'
+          networkSecurityGroup: {
+            id: nsg4.id
+          }
         }
       }
     ]
@@ -200,7 +209,7 @@ properties: {
           name: 'allowGateway'
           properties: {
             protocol: '*'
-            sourceAddressPrefix: '*'
+            sourceAddressPrefix: 'GatewayManager'
             destinationAddressPrefix: '*'
             sourcePortRange: '*'
             destinationPortRange: '65200-65535'
@@ -238,11 +247,62 @@ properties: {
       ]
     }
   }
-
+  
+  resource nsg4 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
+    name: '${vnet1Name}-nsgSql'
+    location: location
+    tags: {
+      Location: location
+    }
+    properties: {
+      securityRules: [
+        {
+      name: 'ssh'
+      properties: {
+        protocol: 'TCP'
+        sourceAddressPrefix: '*' //allowed ip addresses!!!!!!
+        destinationAddressPrefix: '*'
+        sourcePortRange: '*'
+        destinationPortRange: '22'
+        access: 'Allow'
+        priority: 1300
+        direction: 'Inbound'
+        }    
+      }
+        {
+          name: 'https'
+          properties: {
+            protocol: 'TCP'
+            sourceAddressPrefix: '*'
+            destinationAddressPrefix: '*'
+            sourcePortRange: '*'
+            destinationPortRange: '443'
+            access: 'Allow'
+            priority: 1400
+            direction: 'Inbound'
+          }
+        }
+        {
+          name: 'http'
+          properties: {
+            protocol: 'TCP'
+            sourceAddressPrefix: '*'
+            destinationAddressPrefix: '*'
+            sourcePortRange: '*'
+            destinationPortRange: '80'
+            access: 'Allow'
+            priority: 1200
+            direction: 'Inbound'
+          }
+        }
+      ]
+    }
+  }
 @description('Outputs for other resources to be connected')
 output vnet1ID string = vnet1.name
 output vnet1Subnet1ID string = vnet1.properties.subnets[0].name
 output vnet1Subnet2ID string = vnet1.properties.subnets[1].name
+output vnet1Subnet3ID string = vnet1.properties.subnets[2].name
 
 output vnet2ID string = vnet2.name
 output vnet2Subnet2ID string = vnet2.properties.subnets[0].name
@@ -254,4 +314,5 @@ output nsg2Name string = nsg2.name
 output nsg2Id string = nsg2.id
 output nsg3Name string = nsg3.name
 output nsg3Id string = nsg3.id
-
+output nsg4Name string = nsg4.name
+output nsg4Id string = nsg4.id

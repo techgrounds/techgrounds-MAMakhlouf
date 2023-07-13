@@ -142,7 +142,7 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
           caching: 'ReadWrite'
           createOption: 'FromImage'
           managedDisk: {
-            storageAccountType: 'StandardSSD_LRS'
+            storageAccountType: 'StandardSSD_ZRS'
             // diskEncryptionSet: {
             //   id: diskEncryptionSet.id
             // }

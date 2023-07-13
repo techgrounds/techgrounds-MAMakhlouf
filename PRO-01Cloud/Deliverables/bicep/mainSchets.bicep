@@ -87,3 +87,17 @@ module storageAccount 'modules/storageAccount/storageAccount.bicep' = {
 }
 
 
+module sqlDeployment 'modules/database/singlesqlserver.bicep' = {
+  name: 'sqlDeployment'
+  scope: resourceGroup(rgName)
+  params: {
+    location: location
+    vnet1ID: networking.outputs.vnet1ID
+    vnet1Subnet3ID: networking.outputs.vnet1Subnet3ID
+    vnet2ID: networking.outputs.vnet2ID
+    adminUserName: adminUserName
+    adminPassword: adminPassword
+    nsg4Name: networking.outputs.nsg4Name
+    
+  }
+}
