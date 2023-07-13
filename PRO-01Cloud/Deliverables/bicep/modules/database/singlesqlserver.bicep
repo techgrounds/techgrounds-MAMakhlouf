@@ -15,25 +15,36 @@ param adminUserName string
 param adminPassword string
 
 param vnet1ID string
-param vnet1Subnet3ID string
+// param vnet1Subnet3ID string
 
-param vnet2ID string
+// param vnet2ID string
 
-param nsg4Name string
+// param nsg4Name string
+
+var privateEndpointName = 'privateEndpointWebApp'
+param dnsGroupName string = 'dnsGroupName'
 
 
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' existing = {
   name: vnet1ID
 }
 
-resource vnet2 'Microsoft.Network/virtualNetworks@2022-11-01' existing = {
-  name: vnet2ID
-}
+// resource vnet2 'Microsoft.Network/virtualNetworks@2022-11-01' existing = {
+//   name: vnet2ID
+// }
 
+
+param privateDnsZoneName string = 'privatelink.sql.database.azure.com'
 
 resource sqlServer 'Microsoft.Sql/servers@2021-11-01' = {
   name: serverName
   location: location
+  // sku: {
+  //   name: 'GP_Gen5_2'
+  //   tier: 'GeneralPurpose'
+  //   capacity: 2
+  //   family: 'Gen5'
+  // }
   properties: {
     administratorLogin: adminUserName
     administratorLoginPassword: adminPassword
@@ -55,45 +66,17 @@ resource sqlVirtualNetworkRules 'Microsoft.Sql/servers/virtualNetworkRules@2021-
   name: 'sqlVirtualNetworkRulesManagement'
   properties: {
     ignoreMissingVnetServiceEndpoint: true
-    virtualNetworkSubnetId: vnet2.properties.subnets[2].id
+    virtualNetworkSubnetId: vnet1.properties.subnets[0].id
   }
 }
 
-
-resource privateEndpointManagement 'Microsoft.Network/privateEndpoints@2022-11-01' = {
-  name: 'privateEndpointManagement'
-  location: location
-  properties: {
-    subnet: {
-      id: vnet2.properties.subnets[0].id
-    }
-    privateLinkServiceConnections: [
-      {
-        name: 'managementprivateLinkServiceConnection'
-        properties: {
-          privateLinkServiceId: sqlServer.id
-          groupIds: [
-            'sqlServer'
-          ]
-          // requestMessage: {
-          //   content: 'Please approve the private endpoint connection.'
-          // }
-        }
-      }
-    ]
-
-  }
-  dependsOn: [
-    vnet2
-  ]
-}
 
 resource privateEndpointWebApp 'Microsoft.Network/privateEndpoints@2022-11-01' = {
-  name: 'privateEndpointWebApp'
+  name: privateEndpointName
   location: location
   properties: {
     subnet: {
-      id: vnet1.properties.subnets[2].id
+      id: vnet1.properties.subnets[0].id
     }
     privateLinkServiceConnections: [
       {
@@ -116,69 +99,82 @@ resource privateEndpointWebApp 'Microsoft.Network/privateEndpoints@2022-11-01' =
 }
 
 
-resource virtualNetworkLinkManagement 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
-  name: 'man/links-web'
-  // parent: privateDnsZoneManagement
-  location: location
-  properties: {
-    registrationEnabled: true
-    virtualNetwork: {
-      id: vnet2.id
-    }
-  }
+resource privateDnsZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
+  name: privateDnsZoneName
+  location: 'global'
+  dependsOn: [
+    vnet1
+  ]
 }
 
-resource virtualNetworkLinkWebApp 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
-  name: 'web/links-man'
-  // parent: privateDnsZoneWebApp
-  location: location
+resource privateDnsZoneLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
+  parent: privateDnsZone
+  name: 'privateDnsZoneLink'
+  location: 'global'
   properties: {
-    registrationEnabled: true
+    registrationEnabled: false
     virtualNetwork: {
       id: vnet1.id
     }
   }
 }
 
-var rule = [
-  {
-    Name: 'webServerFirewallRule'
-    StartIpAddress: '10.10.10.0'
-    EndIpAddress: '10.10.10.255'
-  }
-  {
-    Name: 'managementServerSqlFirewallRules'
-    StartIpAddress: '10.10.20.0'
-    EndIpAddress: '10.10.20.255'
-  }
-]
-
-
-resource managementServerSqlFirewallRules 'Microsoft.Sql/servers/firewallRules@2021-11-01' = {
-  name: 'MansqlFirewallRules'
-  parent: sqlServer
+resource pvtEndpointDnsGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2022-11-01' = {
+  name: dnsGroupName
   properties: {
-    endIpAddress: rule[1].EndIpAddress
-    startIpAddress: rule[1].StartIpAddress
+    privateDnsZoneConfigs: [
+      {
+        name: 'config1'
+        properties: {
+          privateDnsZoneId: privateDnsZone.id
+        }
+      }
+    ]
   }
   dependsOn: [
-    sqlDB
-    privateEndpointManagement
-  ]
-}
-
-resource webServerFirewallRules 'Microsoft.Sql/servers/firewallRules@2021-11-01' = {
-  name: 'WebsqlFirewallRules'
-  parent: sqlServer
-  properties: {
-    endIpAddress: rule[0].EndIpAddress
-    startIpAddress: rule[0].StartIpAddress
-  }
-  dependsOn: [
-    sqlDB
     privateEndpointWebApp
   ]
 }
+
+// var rule = [
+//   {
+//     Name: 'webServerFirewallRule'
+//     StartIpAddress: '10.10.10.0'
+//     EndIpAddress: '10.10.10.255'
+//   }
+//   {
+//     Name: 'managementServerSqlFirewallRules'
+//     StartIpAddress: '10.10.20.0'
+//     EndIpAddress: '10.10.20.255'
+//   }
+// ]
+
+
+// resource managementServerSqlFirewallRules 'Microsoft.Sql/servers/firewallRules@2021-11-01' = {
+//   name: 'MansqlFirewallRules'
+//   parent: sqlServer
+//   properties: {
+//     endIpAddress: rule[1].EndIpAddress
+//     startIpAddress: rule[1].StartIpAddress
+//   }
+//   dependsOn: [
+//     sqlDB
+//     privateEndpointManagement
+//   ]
+// }
+
+// resource webServerFirewallRules 'Microsoft.Sql/servers/firewallRules@2021-11-01' = {
+//   name: 'WebsqlFirewallRules'
+//   parent: sqlServer
+//   properties: {
+//     endIpAddress: rule[0].EndIpAddress
+//     startIpAddress: rule[0].StartIpAddress
+//   }
+//   dependsOn: [
+//     sqlDB
+//     privateEndpointWebApp
+//   ]
+// }
 
 @description('The name of the SQL server.')
 output sqlServerName string = sqlServer.name
@@ -197,30 +193,6 @@ output mysqlDBID string = sqlDB.id
 
 // Private Endpoint for the SQL database in each VNet
 @description('Name of the Private Endpoint for the SQL database in each VNet.')
-output privateEndpointManagementName string = privateEndpointManagement.name
-
-// ID of the Private Endpoint for the SQL database in each VNet
-@description('ID of the Private Endpoint for the SQL database in each VNet.')
-output privateEndpointManagementID string = privateEndpointManagement.id
-
-// Name of the Private Link Service Connection for the management Private Endpoint
-@description('Name of the Private Link Service Connection for the management Private Endpoint.')
-output manPrivateLinkServiceConnectionsName string = privateEndpointManagement.properties.privateLinkServiceConnections[0].name
-
-// ID of the Private Link Service Connection for the management Private Endpoint
-@description('ID of the Private Link Service Connection for the management Private Endpoint.')
-output manPrivateLinkServiceConnectionsID string = privateEndpointManagement.properties.privateLinkServiceConnections[0].id
-
-// Name of the management server SQL firewall rules
-@description('Name of the management server SQL firewall rules.')
-output managementServerSqlFirewallRulesName string = managementServerSqlFirewallRules.name
-
-// ID of the management server SQL firewall rules
-@description('ID of the management server SQL firewall rules.')
-output managementServerSqlFirewallRulesID string = managementServerSqlFirewallRules.id
-
-// Private Endpoint for the SQL database in each VNet
-@description('Name of the Private Endpoint for the SQL database in each VNet.')
 output privateEndpointWebAppName string = privateEndpointWebApp.name
 
 // ID of the Private Endpoint for the SQL database in each VNet
@@ -235,10 +207,3 @@ output webPrivateLinkServiceConnectionsName string = privateEndpointWebApp.prope
 @description('ID of the Private Link Service Connection for the web/app Private Endpoint.')
 output webPrivateLinkServiceConnectionsID string = privateEndpointWebApp.properties.privateLinkServiceConnections[0].id
 
-// Name of the web server SQL firewall rules
-@description('Name of the web server SQL firewall rules.')
-output webServerFirewallRulesName string = webServerFirewallRules.name
-
-// ID of the web server SQL firewall rules
-@description('ID of the web server SQL firewall rules.')
-output webServerFirewallRulesID string = webServerFirewallRules.id

@@ -93,11 +93,11 @@ module sqlDeployment 'modules/database/singlesqlserver.bicep' = {
   params: {
     location: location
     vnet1ID: networking.outputs.vnet1ID
-    vnet1Subnet3ID: networking.outputs.vnet1Subnet3ID
-    vnet2ID: networking.outputs.vnet2ID
+    // vnet1Subnet3ID: networking.outputs.vnet1Subnet3ID
+    // vnet2ID: networking.outputs.vnet2ID
     adminUserName: adminUserName
     adminPassword: adminPassword
-    nsg4Name: networking.outputs.nsg4Name
+    // nsg4Name: networking.outputs.nsg4Name
     
   }
 }
