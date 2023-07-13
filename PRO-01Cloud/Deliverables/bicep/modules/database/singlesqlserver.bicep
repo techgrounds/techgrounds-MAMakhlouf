@@ -40,9 +40,9 @@ resource sqlServer 'Microsoft.Sql/servers@2021-11-01' = {
   //   family: 'Gen5'
   // }
   properties: {
-    minimalTlsVersion: '1.2'
-    publicNetworkAccess: 'Enabled'
-    version: '12.0'
+    // minimalTlsVersion: '1.2'
+    // publicNetworkAccess: 'Enabled'
+    // version: '12.0'
     administratorLogin: adminUserName
     administratorLoginPassword: adminPassword
   }
@@ -52,11 +52,11 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2021-11-01' = {
   parent: sqlServer
   name: sqlDBName
   location: location
-  sku: {
-    name: 'Standard'
-    size: 'S0' 
-    tier: 'Standard'
-  }
+  // sku: {
+  //   name: 'Standard'
+  //   size: 'S0' 
+  //   tier: 'Standard'
+  // }
 }
 
 resource sqlVirtualNetworkRules 'Microsoft.Sql/servers/virtualNetworkRules@2021-11-01' = {
@@ -69,7 +69,7 @@ resource sqlVirtualNetworkRules 'Microsoft.Sql/servers/virtualNetworkRules@2021-
 }
 
 
-resource privateEndpointWebApp 'Microsoft.Network/privateEndpoints@2022-11-01' = {
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2022-11-01' = {
   name: privateEndpointName
   location: location
   properties: {
@@ -115,7 +115,7 @@ resource privateDnsZoneLink 'Microsoft.Network/privateDnsZones/virtualNetworkLin
 }
 
 resource pvtEndpointDnsGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2022-11-01' = {
-  name: 'privateDnsZoneGroup/privateEndpointWebApp'
+  name: 'privateDnsZoneGroup/privateEndpoint'
   properties: {
     privateDnsZoneConfigs: [
       {
@@ -127,7 +127,7 @@ resource pvtEndpointDnsGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneG
     ]
   }
   dependsOn: [
-    privateEndpointWebApp
+    privateEndpoint
   ]
 }
 
@@ -137,8 +137,8 @@ output sqlServerName string = sqlServer.name
 output sqlServerID string = sqlServer.id
 output sqlDBName string = sqlDB.name
 output sqlDBID string = sqlDB.id
-output privateEndpointWebAppName string = privateEndpointWebApp.name
-output privateEndpointWebAppID string = privateEndpointWebApp.id
-output webPrivateLinkServiceConnectionsName string = privateEndpointWebApp.properties.privateLinkServiceConnections[0].name
-output webPrivateLinkServiceConnectionsID string = privateEndpointWebApp.properties.privateLinkServiceConnections[0].id
+output privateEndpointWebAppName string = privateEndpoint.name
+output privateEndpointWebAppID string = privateEndpoint.id
+output webPrivateLinkServiceConnectionsName string = privateEndpoint.properties.privateLinkServiceConnections[0].name
+output webPrivateLinkServiceConnectionsID string = privateEndpoint.properties.privateLinkServiceConnections[0].id
 
