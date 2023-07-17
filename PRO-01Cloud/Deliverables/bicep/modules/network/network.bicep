@@ -40,15 +40,15 @@ resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' = {
           } 
         }
       }
-      {
-        name: '${vnet1Name}-subnet3'
-        properties:{
-          addressPrefix: '10.10.10.96/27'
-          networkSecurityGroup: {
-            id: nsg4.id
-          }
-        }
-      }
+      // {
+      //   name: '${vnet1Name}-subnet3'
+      //   properties:{
+      //     addressPrefix: '10.10.10.96/27'
+      //     networkSecurityGroup: {
+      //       id: nsg4.id
+      //     }
+      //   }
+      // }
     ]
   }
 }
@@ -105,6 +105,22 @@ resource vnet1vnet2 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@20
     }
   }
 }
+
+@description('Peering between VNet1 and VNet2.')
+resource vnet2vnet1 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2022-11-01' = {
+  parent: vnet2
+  name: '${vnet1Name}-${vnet2Name}'
+  properties: {
+    allowVirtualNetworkAccess: true
+    allowForwardedTraffic: true
+    allowGatewayTransit: true
+    useRemoteGateways: false
+    remoteVirtualNetwork: {
+      id: vnet1.id
+    }
+  }
+}
+
 
 @description('Network security group for vnet1. Allows access to the webserver via public IP and SSH from trusted locations.')
 resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
@@ -208,8 +224,8 @@ properties: {
         {
           name: 'allowGateway'
           properties: {
-            protocol: '*'
-            sourceAddressPrefix: 'GateewayManager'
+            protocol: 'TCP'
+            sourceAddressPrefix: 'GatewayManager'
             destinationAddressPrefix: '*'
             sourcePortRange: '*'
             destinationPortRange: '65200-65535'
@@ -248,61 +264,61 @@ properties: {
     }
   }
   
-  resource nsg4 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
-    name: '${vnet1Name}-nsgSql'
-    location: location
-    tags: {
-      Location: location
-    }
-    properties: {
-      securityRules: [
-        {
-      name: 'ssh'
-      properties: {
-        protocol: 'TCP'
-        sourceAddressPrefix: '*' //allowed ip addresses!!!!!!
-        destinationAddressPrefix: '*'
-        sourcePortRange: '*'
-        destinationPortRange: '22'
-        access: 'Allow'
-        priority: 300
-        direction: 'Inbound'
-        }    
-      }
-        {
-          name: 'https'
-          properties: {
-            protocol: 'TCP'
-            sourceAddressPrefix: '*'
-            destinationAddressPrefix: '*'
-            sourcePortRange: '*'
-            destinationPortRange: '443'
-            access: 'Allow'
-            priority: 100
-            direction: 'Inbound'
-          }
-        }
-        {
-          name: 'http'
-          properties: {
-            protocol: 'TCP'
-            sourceAddressPrefix: '*'
-            destinationAddressPrefix: '*'
-            sourcePortRange: '*'
-            destinationPortRange: '80'
-            access: 'Allow'
-            priority: 200
-            direction: 'Inbound'
-          }
-        }
-      ]
-    }
-  }
+  // resource nsg4 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
+  //   name: '${vnet1Name}-nsgSql'
+  //   location: location
+  //   tags: {
+  //     Location: location
+  //   }
+  //   properties: {
+  //     securityRules: [
+  //       {
+  //     name: 'ssh'
+  //     properties: {
+  //       protocol: 'TCP'
+  //       sourceAddressPrefix: '*' //allowed ip addresses!!!!!!
+  //       destinationAddressPrefix: '*'
+  //       sourcePortRange: '*'
+  //       destinationPortRange: '22'
+  //       access: 'Allow'
+  //       priority: 1300
+  //       direction: 'Inbound'
+  //       }    
+  //     }
+  //       {
+  //         name: 'https'
+  //         properties: {
+  //           protocol: 'TCP'
+  //           sourceAddressPrefix: '*'
+  //           destinationAddressPrefix: '*'
+  //           sourcePortRange: '*'
+  //           destinationPortRange: '443'
+  //           access: 'Allow'
+  //           priority: 1400
+  //           direction: 'Inbound'
+  //         }
+  //       }
+  //       {
+  //         name: 'http'
+  //         properties: {
+  //           protocol: 'TCP'
+  //           sourceAddressPrefix: '*'
+  //           destinationAddressPrefix: '*'
+  //           sourcePortRange: '*'
+  //           destinationPortRange: '80'
+  //           access: 'Allow'
+  //           priority: 1200
+  //           direction: 'Inbound'
+  //         }
+  //       }
+  //     ]
+  //   }
+  // }
 @description('Outputs for other resources to be connected')
 output vnet1ID string = vnet1.name
 output vnet1Subnet1ID string = vnet1.properties.subnets[0].name
 output vnet1Subnet2ID string = vnet1.properties.subnets[1].name
-output vnet1Subnet3ID string = vnet1.properties.subnets[2].name
+// output vnet1Subnet3ID string = vnet1.properties.subnets[2].name
 
 output vnet2ID string = vnet2.name
 output vnet2Subnet2ID string = vnet2.properties.subnets[0].name
@@ -314,5 +330,5 @@ output nsg2Name string = nsg2.name
 output nsg2Id string = nsg2.id
 output nsg3Name string = nsg3.name
 output nsg3Id string = nsg3.id
-output nsg4Name string = nsg4.name
-output nsg4Id string = nsg4.id
+// output nsg4Name string = nsg4.name
+// output nsg4Id string = nsg4.id

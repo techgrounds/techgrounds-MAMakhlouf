@@ -13,7 +13,7 @@ param adminPassword string
 
 
 
-module resourceGroupModule '../Deliverables/bicep/modules/resourcegroup/resourcegroup.bicep' = {
+module resourceGroupModule '../Deliverables/bicep//modules/resourcegroup/resourcegroup.bicep' = {
   name: 'resourceGroupDeployment'
   scope: subscription()
   params: {
@@ -22,7 +22,7 @@ module resourceGroupModule '../Deliverables/bicep/modules/resourcegroup/resource
   }
 }
 
-module networking '../Deliverables/bicep/modules/network/network.bicep' = {
+module networking '../Deliverables/bicep//modules/network/networkSchets.bicep' = {
   name: 'networkDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -34,7 +34,7 @@ module networking '../Deliverables/bicep/modules/network/network.bicep' = {
 }
 
 
-module managementServer '../Deliverables/bicep/modules/database/managementServer.bicep' = {
+module managementServer '../Deliverables/bicep//modules/database/managementSchets.bicep' = {
   name: 'managementServerDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -48,7 +48,7 @@ module managementServer '../Deliverables/bicep/modules/database/managementServer
   }
 }
 
-module webServer '../Deliverables/bicep/modules/web/webServer.bicep' = {
+module webServerScaleSet '../Deliverables/bicep/modules/web/webScale.bicep' = {
   name: 'webServerDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -57,11 +57,13 @@ module webServer '../Deliverables/bicep/modules/web/webServer.bicep' = {
     adminPassword: adminPassword
     vnet1ID: networking.outputs.vnet1ID
     vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
-    // nsg1Id: networking.outputs.nsg1Id
+    // vnet1Subnet2ID: networking.outputs.vnet2Subnet2ID
+    // nsg3Id: networking.outputs.nsg3Id
+    nsg1Id: networking.outputs.nsg1Id
   }
 }
 
-module keyVault '../Deliverables/bicep/modules/keyvault/keyvault.bicep' = {
+module keyVault '../Deliverables/bicep/modules/keyvault/keyvaultSchets.bicep' = {
   name: 'keyVaultDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -85,3 +87,17 @@ module storageAccount '../Deliverables/bicep/modules/storageAccount/storageAccou
 }
 
 
+module sqlDeployment '../Deliverables/bicep/modules/database/singlesqlserver.bicep' = {
+  name: 'sqlDeployment'
+  scope: resourceGroup(rgName)
+  params: {
+    location: location
+    vnet1ID: networking.outputs.vnet1ID
+    // vnet1Subnet3ID: networking.outputs.vnet1Subnet3ID
+    // vnet2ID: networking.outputs.vnet2ID
+    adminUserName: adminUserName
+    adminPassword: adminPassword
+    // nsg4Name: networking.outputs.nsg4Name
+    
+  }
+}
