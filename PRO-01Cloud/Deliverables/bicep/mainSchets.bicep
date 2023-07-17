@@ -2,7 +2,7 @@ targetScope = 'subscription'
 
 param location string = 'westeurope'
 
-param rgName string = 'app-prd-rg1'
+param rgName string = 'app-prd-rg'
 
 
 @secure()

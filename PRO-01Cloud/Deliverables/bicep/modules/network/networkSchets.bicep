@@ -106,6 +106,22 @@ resource vnet1vnet2 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@20
   }
 }
 
+@description('Peering between VNet1 and VNet2.')
+resource vnet2vnet1 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2022-11-01' = {
+  parent: vnet2
+  name: '${vnet1Name}-${vnet2Name}'
+  properties: {
+    allowVirtualNetworkAccess: true
+    allowForwardedTraffic: true
+    allowGatewayTransit: true
+    useRemoteGateways: false
+    remoteVirtualNetwork: {
+      id: vnet1.id
+    }
+  }
+}
+
+
 @description('Network security group for vnet1. Allows access to the webserver via public IP and SSH from trusted locations.')
 resource nsg1 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
   name: '${vnet1Name}-nsg'
@@ -208,7 +224,7 @@ properties: {
         {
           name: 'allowGateway'
           properties: {
-            protocol: '*'
+            protocol: 'TCP'
             sourceAddressPrefix: 'GatewayManager'
             destinationAddressPrefix: '*'
             sourcePortRange: '*'
