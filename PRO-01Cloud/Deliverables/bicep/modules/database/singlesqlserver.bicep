@@ -16,7 +16,7 @@ param vnet1ID string
 // param vnet2ID string
 
 // param nsg4Name string
-var privateEndpointName = 'privateEndpointWebApp'
+var privateEndpointName = 'privateEndpoint'
 
 
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' existing = {
@@ -115,7 +115,7 @@ resource privateDnsZoneLink 'Microsoft.Network/privateDnsZones/virtualNetworkLin
 }
 
 resource pvtEndpointDnsGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2022-11-01' = {
-  name: 'privateDnsZoneGroup/privateEndpoint'
+  name: 'privateEndpoint/privateDnsZoneGroup'
   properties: {
     privateDnsZoneConfigs: [
       {
@@ -137,8 +137,8 @@ output sqlServerName string = sqlServer.name
 output sqlServerID string = sqlServer.id
 output sqlDBName string = sqlDB.name
 output sqlDBID string = sqlDB.id
-output privateEndpointWebAppName string = privateEndpoint.name
-output privateEndpointWebAppID string = privateEndpoint.id
+output privateEndpointName string = privateEndpoint.name
+output privateEndpointID string = privateEndpoint.id
 output webPrivateLinkServiceConnectionsName string = privateEndpoint.properties.privateLinkServiceConnections[0].name
 output webPrivateLinkServiceConnectionsID string = privateEndpoint.properties.privateLinkServiceConnections[0].id
 
