@@ -13,8 +13,13 @@ param vnet1Subnet1ID string
 // param vnet1Subnet2ID string
 param nsg1Id string
 // param nsg3Id string
-//param diskEncryptionSetName string
-
+param diskencryption string
+param ciphers array = [
+  'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384'
+  'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256'
+  'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384'
+  'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256'
+]
 resource vnet1 'Microsoft.Network/virtualNetworks@2022-11-01' existing = {
   name: vnet1ID
 }
@@ -30,6 +35,21 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
       name: 'Standard_v2'
       tier: 'Standard_v2'
       capacity: 1
+    }
+    sslCertificates: [
+      {
+        name:'SSLcertificat'
+        properties:{
+          data: loadFileAsBase64('selfSignedCertificate.pfx')
+          password:'1234'
+
+        }
+      }
+    ]
+    sslPolicy:{
+      policyType: 'Custom'
+      minProtocolVersion: 'TLSv1_2'
+      cipherSuites: ciphers
     }
     gatewayIPConfigurations: [
       {
@@ -59,6 +79,11 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
           port: 80
         }
       }
+    {   name:'appGatewayFrontendPortHttps'
+        properties: {
+          port: 443
+        }
+  }
     ]
     backendAddressPools: [
       {
@@ -76,6 +101,17 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
         }
       }
     ]
+    redirectConfigurations: [
+      {
+        name:'appGatewayRedirect'
+        properties: {
+          redirectType: 'Permanent'
+          targetListener: {
+          id: resourceId('Microsoft.Network/applicationGateways/httpListeners', 'appGate', 'appGatewayHttpsListener')
+          }
+        }
+      }
+    ]
     httpListeners: [
       {
         name: 'appGatewayHttpListener'
@@ -90,28 +126,61 @@ resource appGate 'Microsoft.Network/applicationGateways@2022-11-01' = {
           requireServerNameIndication: false
         }
       }
+      {
+        name: 'appGatewayHttpsListener'
+        properties: {
+          frontendIPConfiguration:{
+            id: resourceId('Microsoft.Network/applicationGateways/frontendIPConfigurations', 'appGate', 'appGatewayFrontendIP')
+          }
+          frontendPort: {
+            id: resourceId('Microsoft.Network/applicationGateways/frontendPorts', 'appGate', 'appGatewayFrontendPortHttps')
+          }
+          protocol: 'Https'
+          requireServerNameIndication: false
+          sslCertificate: {
+            id: resourceId('Microsoft.Network/applicationGateways/sslCertificates', 'appGate', 'SSLcertificat')
+          }
+        }
+      }
     ]
     requestRoutingRules: [
       {
-        name: 'appGatewayReqRule'
+        name: 'appGatewayHttpRule'
         properties: {
           priority: 1
           ruleType: 'Basic'
           httpListener: {
             id: resourceId('Microsoft.Network/applicationGateways/httpListeners', 'appGate', 'appGatewayHttpListener')
           }
+          redirectConfiguration: {
+            id: resourceId('Microsoft.Network/applicationGateways/redirectConfigurations', 'appGate', 'appGatewayRedirect')
+          }
+          // backendAddressPool: {
+          //   id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', 'appGate', 'appGatewayBackendPool')
+          // }
+          // backendHttpSettings: {
+          //   id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', 'appGate', 'appGatewayBackendHttpSettings')
+          // }
+        }
+      }
+      {
+        name: 'appGatewayHttpsRule'
+        properties: {
+          ruleType: 'Basic'
+          priority: 10
+          httpListener: {
+            id: resourceId('Microsoft.Network/applicationGateways/httpListeners', 'appGate', 'appGatewayHttpsListener')
+          }
           backendAddressPool: {
             id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', 'appGate', 'appGatewayBackendPool')
           }
-          backendHttpSettings: {
+           backendHttpSettings: {
             id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', 'appGate', 'appGatewayBackendHttpSettings')
           }
         }
       }
     ]
-    // sslCertificates: [
-    //   {}
-    //  ]
+  enableHttp2: false
     }
     dependsOn: [
       vnet1
@@ -143,9 +212,9 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
           createOption: 'FromImage'
           managedDisk: {
             storageAccountType: 'StandardSSD_ZRS'
-            // diskEncryptionSet: {
-            //   id: diskEncryptionSet.id
-            // }
+            diskEncryptionSet: {
+              id: diskencryption
+            }
           }
         }
         imageReference: {
