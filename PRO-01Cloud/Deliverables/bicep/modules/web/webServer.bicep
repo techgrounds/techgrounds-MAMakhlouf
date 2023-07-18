@@ -97,3 +97,4 @@ resource webServerPublicIP 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
 }
 
 
+output webServerIP string = webServerPublicIP.properties.ipAddress

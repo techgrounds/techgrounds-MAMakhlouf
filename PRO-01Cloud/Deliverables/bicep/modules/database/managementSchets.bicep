@@ -12,6 +12,7 @@ param vnet2Subnet2ID string
 // param nsg2Id string
 // param keyVaultName string
 
+param diskencryption string
 param storageAccountBlobEndpoint string
 
 // resource adminUserNameSecret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' existing = {
@@ -50,11 +51,14 @@ resource managementServer 'Microsoft.Compute/virtualMachines@2023-03-01' = {
         createOption:  'FromImage'
         diskSizeGB: null
          osType: 'Windows'
-        encryptionSettings: {
-          enabled: false
-        }
+     managedDisk:{
+      diskEncryptionSet:{
+        id: diskencryption
       }
-      dataDisks: []
+     }
+      }
+      dataDisks: [
+      ]
     }
     diagnosticsProfile: {
       bootDiagnostics: {

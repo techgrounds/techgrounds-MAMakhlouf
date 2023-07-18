@@ -43,12 +43,13 @@ module managementServer './modules/database/managementSchets.bicep' = {
     adminPassword: adminPassword
     vnet2ID: networking.outputs.vnet2ID
     vnet2Subnet2ID: networking.outputs.vnet2Subnet2ID
+    diskencryption: keyVault.outputs.diskencryptset_id
     // nsg2Id: networking.outputs.nsg2Id
     storageAccountBlobEndpoint: storageAccount.outputs.storageAccountBlobEndpoint
   }
 }
 
-module webServerScaleSet 'modules/web/webScale.bicep' = {
+module webServerScaleSet 'modules/web/webSchets.bicep' = {
   name: 'webServerDeployment'
   scope: resourceGroup(rgName)
   params: {
@@ -57,6 +58,7 @@ module webServerScaleSet 'modules/web/webScale.bicep' = {
     adminPassword: adminPassword
     vnet1ID: networking.outputs.vnet1ID
     vnet1Subnet1ID: networking.outputs.vnet1Subnet1ID
+    diskencryption: keyVault.outputs.diskencryptset_id
     // vnet1Subnet2ID: networking.outputs.vnet2Subnet2ID
     // nsg3Id: networking.outputs.nsg3Id
     nsg1Id: networking.outputs.nsg1Id
