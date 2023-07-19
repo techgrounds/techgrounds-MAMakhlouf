@@ -195,7 +195,7 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
   }
   sku: {
     capacity: int(1)
-    name: 'Standard_B2s'
+    name: 'Standard_B1s'
     tier: 'Standard'
   }
   properties: {
@@ -219,8 +219,8 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
         }
         imageReference: {
           publisher: 'Canonical'
-          offer: 'ubuntuServer'
-          sku: '18.04-LTS'
+          offer: '0001-com-ubuntu-server-jammy'
+          sku: '22_04-lts-gen2'
           version: 'latest'
         }
       }
@@ -257,6 +257,25 @@ resource webServerScaleSet 'Microsoft.Compute/virtualMachineScaleSets@2023-03-01
                   }
                 }
               ]
+            }
+          }
+        ]
+      }
+      extensionProfile: {
+        extensions: [
+          {
+            name: 'vmScaleHealth'
+            properties: {
+              enableAutomaticUpgrade: true
+              autoUpgradeMinorVersion: false
+              publisher: 'Microsoft.ManagedServices'
+              type: 'ApplicationHealthLinux'
+              typeHandlerVersion:'1.0'
+              settings: {
+                port: 80
+                protocol: 'http'
+                requestPath: ''
+              }
             }
           }
         ]
