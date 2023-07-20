@@ -5,6 +5,8 @@ In dit document beschrijven we de aangepaste architectuur en de gebruikte clouds
 Architectuurtekening:
 De bijgewerkte architectuurtekening geeft een overzicht van de nieuwe functionaliteiten en beveiligingslagen die aan de applicatie worden toegevoegd. De belangrijkste onderdelen die hierin moeten worden opgenomen zijn:
 
+![Schets](/PRO-01Cloud/Deliverables/Ontwerp/Schets1.1.drawio.png)
+
 1. VM Scale Set:
 
 De VM Scale Set wordt gebruikt om een groep identieke virtuele machines te beheren die de webserver hosten.
