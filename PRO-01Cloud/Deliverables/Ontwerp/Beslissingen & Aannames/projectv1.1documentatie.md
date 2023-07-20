@@ -2,6 +2,19 @@
 
 In dit document beschrijven we de aangepaste architectuur en de gebruikte cloudservices voor versie 1.1 van de applicatie. Ik heb gekozen voor een combinatie van een VM Scale Set en een Application Gateway voor de webserver:
 
+
+## Nieuwe Eisen:   
+De klant wilt graag gebruik maken van meer mogelijkheden van de cloud. Daarnaast heeft de klant ook aangegeven dat deze graag aan meer security best practices wil voldoen die in de huidige versie nog niet zijn geïmplementeerd. Samen met de consultant heeft de klant het volgende opgesteld:
+De webserver moet niet meer “naakt” op het internet te benaderen zijn. Het liefst ziet de klant dat er een proxy tussen komt. Ook zal de server geen publiek IP adres meer moeten hebben.
+Mocht een gebruiker via HTTP verbinding maken met de load balancer dan zou deze verbinding automatisch geüpgraded moeten worden naar HTTPS.
+Hierbij moet de verbinding beveiligd zijn met minimaal TLS 1.2 of hoger.
+De webserver moet met enige regelmaat een ‘health check’ ondergaan.
+Mocht de webserver deze health check falen dan zou de server automatisch hersteld moeten worden.
+Mocht de webserver onder aanhoudende belasting komen te staan, dan zou er een tijdelijke extra server opgestart moeten worden. De klant denkt dat er nooit meer dan 3 servers totaal nodig zijn gezien de gebruikersaantallen in het verleden.
+
+Note: Omdat we niet voor iedereen een domeinnaam willen aanschaffen, is het lastig om op de juiste manier een HTTPS-verbinding tot stand te brengen. Je mag hiervoor een self-signed certificate gebruiken. Je krijgt dan wel een waarschuwing in je browser, maar de verbinding wordt wel versleuteld.
+
+
 Architectuurtekening:
 De bijgewerkte architectuurtekening geeft een overzicht van de nieuwe functionaliteiten en beveiligingslagen die aan de applicatie worden toegevoegd. De belangrijkste onderdelen die hierin moeten worden opgenomen zijn:
 
